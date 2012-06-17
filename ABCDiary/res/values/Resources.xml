@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="SceneLetterA">SceneFontsA;SceneTexturesA;SceneSoundsA</string>
+    <string name="SceneLetterB">SceneFonts;SceneTextures;SceneSounds</string>
+    <string name="SceneLetterC">SceneFonts;SceneTextures;SceneSounds</string>
+    <string name="SceneLetterD">SceneFonts;SceneTextures;SceneSounds</string>
+    <string name="SceneLetterE">SceneFonts;SceneTextures;SceneSounds</string>    
+    <string name="SceneSplashScreen">-;SplashScreenTexture;-</string>
+
+    <string-array name="SceneFontsA">
+        <!-- Sintax: Font Name, Font Resource File, Font Dimension --> 
+        <item>FontDroid;Droid.ttf;30</item>
+        <item>FontDroid;Droid.ttf;48</item>
+    </string-array>
+    
+    <string-array name="SceneTexturesA">
+        <!-- Sintax: type (T=texture,R=region), TextureAtlasName, TextureRegionName, Texture SVG Resource File, Texture width, heigt, Px, Py --> 
+        <item>T;MenuItemTexture;0;0;512;128;0;0</item>
+        <item>R;MenuItemTexture;MenuItemLettere;MenuItemLettere.svg;512;64;0;0</item>
+        <item>R;MenuItemTexture;MenuItemCifre;MenuItemCifre.svg;512;64;0;64</item>
+        
+        <item>T;MenuBackGroundTexture;0;0;1024;512;0;0</item>
+        <item>R;MenuBackGroundTexture;MenuBackGround;colorful_animals_scalable_vector_graphics_svg_inkscape_adobe_illustrator_clip_art_clipart.svg;800;480;0;0</item>
+        
+        <item>T;MenuArrayLetterATexture;0;0;128;128;0;0</item>
+        <item>R;MenuArrayLetterATexture;MenuArrayLetterA;a.svg;128;128;0;0</item>
+        
+    </string-array>
+    
+    
+    <string-array name="SplashScreenTexture">
+        <!-- Sintax: type (T=texture,R=region), TextureAtlasName, TextureRegionName, Texture SVG Resource File, Texture width, heigt, Px, Py --> 
+        <item>T;SplashScreenTexture;0;0;1024;512;0;0</item>
+        <item>R;SplashScreenTexture;SplashScreen;colorful_animals_scalable_vector_graphics_svg_inkscape_adobe_illustrator_clip_art_clipart.svg;800;480;0;0</item>
+    </string-array>
+</resources>
