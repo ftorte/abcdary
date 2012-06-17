@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <textures name="test">
+        <texture name="MenuItemTexture" height="128" width="512">
+            <textureregion name="MenuItemLettere" filename="MenuItemLettere.svg" height="64" px="0" py="0" width="512"></textureregion>
+            <textureregion name="MenuItemCifre" filename="MenuItemCifre.svg" height="64" px="0" py="64" width="512"></textureregion>
+        </texture>
+        <texture name="MenuBackGroundTexture" height="1024" width="512">
+            <textureregion name="MenuBackGround" filename="colorful_animals_scalable_vector_graphics_svg_inkscape_adobe_illustrator_clip_art_clipart.svg" height="800" px="480" py="0" width="512"></textureregion>
+        </texture>
+        <texture name="MenuArrayLetterATexture" height="128" width="128">
+            <textureregion name="MenuArrayLetterA" filename="a.svg" height="128" px="128" py="0" width="512"></textureregion>
+        </texture>
+    </textures>
+
+    <scenes>
+        <scene name="SceneLetterA">
+            <sceneobject ID="1" type="CLICKABLE_SPRITE" resourceName="MenuArrayLetterA" px="0" py="0" height="64" width="64"></sceneobject>
+            <sceneobject ID="2" type="CLICKABLE_SPRITE" resourceName="MenuArrayLetterA" px="0" py="100" height="64" width="64"></sceneobject>
+            <sceneobject ID="3" type="CLICKABLE_SPRITE" resourceName="MenuArrayLetterA" px="0" py="200" height="64" width="64"></sceneobject>
+            <sceneobject ID="4" type="CLICKABLE_SPRITE" resourceName="MenuArrayLetterA" px="0" py="300" height="64" width="64"></sceneobject>
+            <sceneobject ID="5" type="CLICKABLE_SPRITE" resourceName="MenuArrayLetterA" px="100" py="0" height="64" width="64"></sceneobject>
+            <sceneobject ID="6" type="CLICKABLE_SPRITE" resourceName="MenuArrayLetterA" px="100" py="100" height="64" width="64"></sceneobject>
+            <sceneobject ID="7" type="CLICKABLE_SPRITE" resourceName="MenuArrayLetterA" px="100" py="200" height="64" width="64"></sceneobject>
+            <sceneobject ID="8" type="CLICKABLE_SPRITE" resourceName="MenuArrayLetterA" px="100" py="300" height="64" width="64"></sceneobject>
+        </scene>
+    </scenes>
+
+</resources>    
