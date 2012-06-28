@@ -3,5 +3,6 @@
 
     <string name="hello">Hello World, ABCDiaryActivity!</string>
     <string name="app_name">ABCDiary</string>
+    <color name="test">#112211</color>
 
 </resources>

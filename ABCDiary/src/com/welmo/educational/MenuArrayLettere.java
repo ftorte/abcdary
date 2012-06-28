@@ -71,7 +71,7 @@ public class MenuArrayLettere extends SimpleBaseGameActivity {
 		mResourceManager.init(this.getEngine(), this);
 
 		//LoadResources for letter A
-		mResourceManager.LoadResources("SceneLetterA");
+		//mResourceManager.LoadResources("SceneLetterA");
 
 	}
 

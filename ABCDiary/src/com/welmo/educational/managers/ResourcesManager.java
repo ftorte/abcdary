@@ -7,12 +7,16 @@ import org.andengine.extension.svg.opengl.texture.atlas.bitmap.SVGBitmapTextureA
 import org.andengine.opengl.font.Font;
 import org.andengine.opengl.font.FontFactory;
 import org.andengine.opengl.font.FontManager;
+import org.andengine.opengl.texture.ITexture;
 import org.andengine.opengl.texture.TextureManager;
 import org.andengine.opengl.texture.TextureOptions;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.region.ITextureRegion;
 
-import com.welmo.educational.utility.ParserXMLSceneDescriptor;
+import com.welmo.educational.scenes.description.ParserXMLSceneDescriptor;
+import com.welmo.educational.scenes.description.TextureDescriptor;
+import com.welmo.educational.scenes.description.TextureRegionDescriptor;
+import com.welmo.educational.scenes.description.XMLTags;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -122,22 +126,53 @@ public class ResourcesManager {
 		
 	}
 	
-	/*
-	public Font LoadFont(String FontName){
-		ScnComponentDsc scDesc = null;
-		if((scDesc=sceneConfig.fonts.get(FontName)) == null)
+	
+	/*public Font LoadFont(String FontName){
+		/*ScnComponentDsc scDesc = null;
+		if((scDesc=ResourceDescriptorsManager.fonts.get(FontName)) == null)
 			throw new NullPointerException(new String("The font " + FontName + " Is not a valid font name"));
 		createFont(scDesc[0], scDesc[1], Integer.parseInt(scDesc[2]));
+	}*/
+	
+	public ITextureRegion LoadTextureRegion(String textureRegionName){
+		ResourceDescriptorsManager pResDscMng = ResourceDescriptorsManager.getInstance();
+		TextureRegionDescriptor pTextRegDsc = pResDscMng.getTextureRegion(textureRegionName);
+		if(pTextRegDsc == null)
+			throw new IllegalArgumentException("In LoadTextureRegion: there is no description for the requested texture");
+		LoadTexture(pTextRegDsc.textureName);
+		return mapTextureRegions.get(textureRegionName);
 	}
 	
-	public Font LoadTextureRegion(String TextureRegionName){
-		ScnComponentDsc scDesc = null;
-		if((scDesc=sceneConfig.fonts.get(FontName)) == null)
-			throw new NullPointerException(new String("The font " + FontName + " Is not a valid font name"));
-		createTextures();
-		return mapTextureRegions.get(TextureRegionName);
+	public ITexture LoadTexture(String textureName){
+		ResourceDescriptorsManager pResDscMng = ResourceDescriptorsManager.getInstance();
+		TextureDescriptor pTextRegDsc = pResDscMng.getTexture(textureName);
+
+		//check if texture already exists
+		if(mapBitmapTexturesAtlas.get(pTextRegDsc.Name)!=null)
+			throw new IllegalArgumentException("In LoadTexture: Tentative to load a texture already loaded");
+
+		//Create the texture
+		BitmapTextureAtlas pTextureAtlas = new BitmapTextureAtlas(pTextRegDsc.Parameters[XMLTags.WIDTH_IDX], pTextRegDsc.Parameters[XMLTags.HEIGHT_IDX], TextureOptions.BILINEAR);
+		mapBitmapTexturesAtlas.put(pTextRegDsc.Name,pTextureAtlas);
+
+		//iterate to all textureregion and load in the engine
+		for (TextureRegionDescriptor pTRDsc:pTextRegDsc.Regions){	
+			
+			if(mapBitmapTexturesAtlas.get(pTRDsc.Name)!=null) // check that texture region is new
+				throw new IllegalArgumentException("In LoadTexture: Tentative to create a texture region that already exists ");
+
+			//Create texture region
+			mapTextureRegions.put(pTRDsc.Name, SVGBitmapTextureAtlasTextureRegionFactory.createFromAsset(pTextureAtlas, 
+					this.mCtx, pTRDsc.filename, pTRDsc.Parameters[XMLTags.WIDTH_IDX], pTRDsc.Parameters[XMLTags.HEIGHT_IDX], 
+					pTRDsc.Parameters[XMLTags.POSITION_X_IDX], pTRDsc.Parameters[XMLTags.POSITION_Y_IDX]));
+		}
+		
+		//(Re)Load textures in the engine
+		for(String key:mapBitmapTexturesAtlas.keySet())
+			mtextureManager.loadTexture(mapBitmapTexturesAtlas.get(key));
+		
+		return pTextureAtlas;
 	}
-	*/
 	
 	//**********************************************************************************************
 	// Private functions
@@ -184,19 +219,19 @@ public class ResourcesManager {
 	//**********************************************************************************************
 	// Get Resources Methods
 	//**********************************************************************************************	
-	public Font GetFont(String fontName){
+	/*public Font GetFont(String fontName){
 		final Font theFont = mapFonts.get(fontName);
 		if(theFont==null) 
-			throw new NullPointerException(new String("The font " + fontName + " Doesen't Exist"));
-			//this.LoadFont(fontName);
+			//throw new NullPointerException(new String("The font " + fontName + " Doesen't Exist"));
+			this.LoadFont(fontName);
 		return theFont;
-	}
+	}*/
 
 	public ITextureRegion GetTexture(String textureRegionName){
-		final ITextureRegion theTexture = mapTextureRegions.get(textureRegionName);
+		ITextureRegion theTexture = mapTextureRegions.get(textureRegionName);
 		if(theTexture==null) 
-			throw new NullPointerException(new String("The texture region  " + textureRegionName + " Doesn't Exist"));
-			//this.LoadTextureRegion(textureRegionName);
+			//throw new NullPointerException(new String("The texture region  " + textureRegionName + " Doesn't Exist"));
+			theTexture = LoadTextureRegion(textureRegionName);
 		return theTexture;
 	}
 	

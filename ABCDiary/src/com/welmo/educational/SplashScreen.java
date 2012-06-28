@@ -29,7 +29,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 import com.welmo.educational.managers.ResourcesManager;
-import com.welmo.educational.utility.ParserXMLSceneDescriptor;
+import com.welmo.educational.scenes.description.ParserXMLSceneDescriptor;
 
 import android.content.Intent;
 import android.util.Log;
