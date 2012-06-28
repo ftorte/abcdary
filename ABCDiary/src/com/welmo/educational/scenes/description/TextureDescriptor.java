@@ -1,6 +1,7 @@
-package com.welmo.educational.utility;
+package com.welmo.educational.scenes.description;
 
 import java.util.ArrayList;
+
 
 public class TextureDescriptor extends ResourceDescriptor {
 	// ===========================================================

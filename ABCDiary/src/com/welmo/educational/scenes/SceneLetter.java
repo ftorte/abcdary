@@ -21,6 +21,10 @@ import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.HorizontalAlign;
 
 import com.welmo.educational.managers.ResourcesManager;
+import com.welmo.educational.scenes.components.ClickableSprite;
+import com.welmo.educational.scenes.description.SceneDescriptor;
+import com.welmo.educational.scenes.description.SceneObjectDescriptor;
+import com.welmo.educational.scenes.description.XMLTags;
 
 
 import android.content.Context;
@@ -28,134 +32,36 @@ import android.graphics.Color;
 
 public class SceneLetter extends ManageableScene {
 
-	
-		// ===========================================================
+
+	// ===========================================================
 	// Constants	
 	// ===========================================================
 	//Log & Debug & trace
-		private static final String TAG = "SceneLetter";
-		private static final boolean TRACE = false; 
-		
-	public static final char[] LETTERS={	
-		'A','B','C','D','E','F','G',
-		'H','I','J','K','L','M','N',
-		'O','P','Q','R','S','T','U',
-		'V','W','X','Y','Z'};
-	public static final int 	NB_LETTERS 	= 27;
-	private static final int FONT_SIZE = 48;
+	private static final String TAG = "SceneLetter";
 	// ===========================================================
 	// Temporary scene descriptor to build schene
-	String[] sceneDescriptor = new String[]{
-				"1;4;",
-				"img=image.svg, snd=soundA.xxx, shd2= snd=soundA.xxx;", 
-				"img=image.svg, snd=soundA.xxx, shd2= snd=soundA.xxx;", 
-				"img=image.svg, snd=soundA.xxx, shd2= snd=soundA.xxx;", 
-				"img=image.svg, snd=soundA.xxx, shd2= snd=soundA.xxx;"};
-	
-	private class SceneWidgetDescriptor{
-		// Constants
-		private static final int TYPE_INVALID			=-1;
-		private static final int TYPE_TEXTURE_SPRITE	=0;
-		private static final int TYPE_FONT				=1;
-		
-			
-		// variables
-		public int type 			= TYPE_INVALID;
-		public int p1				= -1;
-		public int p2				= -1;
-		public int p3				= -1;
-		public int p4				= -1;
-		public String resourceName	="";
-		public String message		="";
-		public HorizontalAlign ha	=HorizontalAlign.CENTER;
-		boolean isClicable = false;
-	}
-	
-	SceneWidgetDescriptor[] scDsc = null;
-	
-	TickerText theText;
-	int nSceneLetter = 0;
-	int nNbScenes=0;
-	
-	Engine mEngine;
-	Context mContext;
-	//private Font mDroidFont;
-	
-	
-	public SceneLetter() {
-		scDsc = new SceneWidgetDescriptor[2];
-		//Background
-		scDsc[0] = new SceneWidgetDescriptor();
-		scDsc[0].type = SceneWidgetDescriptor.TYPE_TEXTURE_SPRITE;
-		scDsc[0].p1 = 0;
-		scDsc[0].p2 = 0;
-		scDsc[0].resourceName = "MenuBackGround";
-		
-		//text
-		scDsc[1] = new SceneWidgetDescriptor();
-		scDsc[1].type = SceneWidgetDescriptor.TYPE_FONT;
-		scDsc[1].p1 = 100;
-		scDsc[1].p2 = 40;
-		scDsc[1].p3 = 10;
-		scDsc[1].ha = HorizontalAlign.CENTER;
-		scDsc[1].resourceName = "FontDroid";
-		scDsc[1].message = "Droid Font" + 1000000;
-		
-		//Central Image
-		/*scDsc[2] = new SceneWidgetDescriptor();
-		scDsc[0].type = SceneWidgetDescriptor.TYPE_TEXTURE_SPRITE;
-		scDsc[0].p1 = 400;
-		scDsc[0].p2 = 200;
-		scDsc[0].resourceName = "TestLetterImage";*/
-		
-		
-	}
-
 	@Override
-	public void loadScene2(String Scenedescriptor, ResourcesManager res) {
-		loadScene( Scenedescriptor, res);
+	public void loadScene(String SceneName, ResourcesManager res) {
+		super.loadScene(SceneName, res);
 	}
-	@Override
-	public void loadScene(String Scenedescriptor, ResourcesManager res) {
-		
-		//if(TRACE) android.os.Debug.startMethodTracing("ABCDiary");	
-		this.mEngine.registerUpdateHandler(new FPSLogger());
 
-		for (int i = 0; i< scDsc.length; i++ )
-		{
-			SceneWidgetDescriptor dsc = scDsc[i];
-			
-			switch(dsc.type){
-			case  SceneWidgetDescriptor.TYPE_INVALID:break;
-			case  SceneWidgetDescriptor.TYPE_FONT:
-				/* Create Text*/
-				TickerTextOptions textOptions = new TickerTextOptions();
-				textOptions.setCharactersPerSecond(dsc.p3);
-				textOptions.setHorizontalAlign(dsc.ha);
-				this.attachChild(theText = new TickerText(dsc.p1, dsc.p2, res.GetFont(dsc.resourceName), 
-						dsc.message, textOptions, this.mEngine.getVertexBufferObjectManager()));
-				break;
+	// ===========================================================
+	// Inner private classes to handle on click events
+	// ===========================================================
+	private class ClicalbeSpriteLeastener implements ClickableSprite.IClickLeastener{
 
-			case  SceneWidgetDescriptor.TYPE_TEXTURE_SPRITE:
-				/* Create the background sprite and add it to the scene. */
-				final Sprite newSprite = new Sprite(dsc.p1, dsc.p2, res.GetTexture(dsc.resourceName), 
-						this.mEngine.getVertexBufferObjectManager());
-				this.attachChild(newSprite);
-				break;
-			}
+		private int miItemClicked=-1;
+		@Override
+		public void onClick(int ObjectID) {
+			miItemClicked = ObjectID;
 		}
-
+		@Override
+		public void reset() {
+			miItemClicked=-1;
+		}
+		@Override
+		public int getObjectID(){
+			return miItemClicked;
+		}
 	}
-
-	@Override
-	public void init(Engine theEngine, Context ctx) {
-		// TODO Auto-generated method stub
-		mEngine = theEngine;
-		mContext = ctx;
-	}
-	
-	public void resetScene(){
-		//theText.reset();
-	}
-
 }

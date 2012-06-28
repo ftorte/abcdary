@@ -137,6 +137,8 @@ public class ClickableSprite extends Sprite {
 	
 	public static interface  IClickLeastener{
 		public void onClick(int ObjectID);
+		public void reset();
+		public int getObjectID();
 	}
 
 	public IClickLeastener SetClickListener(IClickLeastener ClickListener) {
