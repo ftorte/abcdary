@@ -5,6 +5,7 @@ package com.welmo.educational.managers;
 import java.util.HashMap;
 
 import com.welmo.educational.scenes.description.ColorDescriptor;
+import com.welmo.educational.scenes.description.FontDescriptor;
 import com.welmo.educational.scenes.description.MultiViewSceneDescriptor;
 import com.welmo.educational.scenes.description.ParserXMLSceneDescriptor;
 import com.welmo.educational.scenes.description.SceneDescriptor;
@@ -21,11 +22,9 @@ public class ResourceDescriptorsManager {
 	protected HashMap<String,TextureDescriptor> 		hmTextureDscMap;
 	protected HashMap<String,TextureRegionDescriptor> 	hmTextureRegionDscMap;
 	protected HashMap<String,ColorDescriptor> 			hmColorDscMap;
+	protected HashMap<String,FontDescriptor> 			hmFontDscMap;
 	
-	//Scene
-	protected HashMap<String,SceneDescriptor> 			hmSceneDscMap;
-	protected HashMap<String,MultiViewSceneDescriptor> 	hmMVSceneDscMap;
-	
+	// singleton Instance
 	private static ResourceDescriptorsManager 	mInstance=null;
 	
 	//--------------------------------------------------------
@@ -34,9 +33,8 @@ public class ResourceDescriptorsManager {
 	private ResourceDescriptorsManager(){
 		hmTextureDscMap = new HashMap<String,TextureDescriptor>();
 		hmTextureRegionDscMap = new HashMap<String,TextureRegionDescriptor>();
-		hmSceneDscMap = new HashMap<String,SceneDescriptor>();
-		hmMVSceneDscMap = new HashMap<String,MultiViewSceneDescriptor>(); 
 		hmColorDscMap = new HashMap<String,ColorDescriptor>();
+		hmFontDscMap = new HashMap<String,FontDescriptor>();
 	}
 	@method
 	public static ResourceDescriptorsManager getInstance(){
@@ -82,40 +80,8 @@ public class ResourceDescriptorsManager {
 		return hmTextureRegionDscMap.get(name);
 	}
 	//--------------------------------------------------------
-	// SCENE
+	// COLOR
 	//--------------------------------------------------------
-	@method
-	//Add the description of a scene descriptions list
-	public void addScene(String name, SceneDescriptor scene){
-		if (hmSceneDscMap == null)
-			throw new NullPointerException("ResurceDescriptorsManager not initialized correctly"); 
-		hmSceneDscMap.put(name,scene);
-	}
-	@method
-	//Add the description of a scene descriptions list
-	public SceneDescriptor getScene(String name){
-		if (hmSceneDscMap == null)
-			throw new NullPointerException("ResurceDescriptorsManager not initialized correctly"); 
-		return hmSceneDscMap.get(name);
-	}
-	//--------------------------------------------------------
-		// MULTIVEIWSCENE
-		//--------------------------------------------------------
-	@method
-	//Add the description of a scene descriptions list
-	public void addMVScene(String name, MultiViewSceneDescriptor scene){
-		if (hmSceneDscMap == null)
-			throw new NullPointerException("ResurceDescriptorsManager not initialized correctly"); 
-		hmMVSceneDscMap.put(name,scene);
-	}
-	@method
-	//Add the description of a scene descriptions list
-	public MultiViewSceneDescriptor getMVScene(String name){
-		if (hmSceneDscMap == null)
-			throw new NullPointerException("ResurceDescriptorsManager not initialized correctly"); 
-		return hmMVSceneDscMap.get(name);
-	}
-	
 	@method
 	//Add the description of a scene descriptions list
 	public void addColor(String name, ColorDescriptor color){
@@ -129,5 +95,22 @@ public class ResourceDescriptorsManager {
 		if (hmColorDscMap == null)
 			throw new NullPointerException("ResurceDescriptorsManager not initialized correctly"); 
 		return hmColorDscMap.get(name);
+	}
+	//--------------------------------------------------------
+	// FONT
+	//--------------------------------------------------------
+	@method
+	//Add the description of a scene descriptions list
+	public void addFont(String name, FontDescriptor font){
+		if (hmFontDscMap == null)
+			throw new NullPointerException("ResurceDescriptorsManager not initialized correctly"); 
+		hmFontDscMap.put(name,font);
+	}
+	@method
+	//Add the description of a scene descriptions list
+	public FontDescriptor getFont(String name){
+		if (hmFontDscMap == null)
+			throw new NullPointerException("ResurceDescriptorsManager not initialized correctly"); 
+		return hmFontDscMap.get(name);
 	}
 }

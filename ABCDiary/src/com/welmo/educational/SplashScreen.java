@@ -20,6 +20,9 @@ import org.andengine.entity.modifier.SequenceEntityModifier;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.util.FPSLogger;
+import org.andengine.extension.svg.opengl.texture.atlas.bitmap.SVGBitmapTextureAtlasTextureRegionFactory;
+import org.andengine.opengl.texture.TextureOptions;
+import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.ui.activity.SimpleBaseGameActivity;
 import org.andengine.util.modifier.IModifier;
@@ -29,6 +32,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 import com.welmo.educational.managers.ResourcesManager;
+import com.welmo.educational.scenes.description.ParserXMLResourcesDescriptor;
 import com.welmo.educational.scenes.description.ParserXMLSceneDescriptor;
 
 import android.content.Intent;
@@ -49,10 +53,14 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 	private static final int SPLASH_DURATION = 3; 	// Duration in seconds
 	private static final float SPLASH_SCALE_FROM = 0.6f;	//Scale modifier
 	//private static final String IMAGE = "logo.png";
-	private static final Class<MenuArrayLettere> FOLLOWING_ACTIVITY = MenuArrayLettere.class;	
+	private static final Class<MainMenu> FOLLOWING_ACTIVITY = MainMenu.class;	
 
+	BitmapTextureAtlas pTextureAtals;
+	ITextureRegion	pTextureRegion;
+	
+	final String FONTHBASEPATH = "font/";
+	final String TEXTUREBASEPATH = "gfx/";
 
-	ResourcesManager mResourceManager;
 	
 	// ===========================================================
 	// Constructors
@@ -74,27 +82,26 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 	}
 
 	@Override
-	public void onCreateResources() {		
-		mResourceManager = new ResourcesManager();
-		mResourceManager.init(this.getEngine(), this);
-		//LoadResources
-		mResourceManager.LoadResources("SceneSplashScreen");
+	public void onCreateResources() {	
+		SVGBitmapTextureAtlasTextureRegionFactory.setAssetBasePath(TEXTUREBASEPATH);
+		pTextureAtals = new BitmapTextureAtlas(1024, 1024, TextureOptions.BILINEAR);
+		pTextureRegion = SVGBitmapTextureAtlasTextureRegionFactory.createFromAsset(pTextureAtals, this,
+				"colorful_animals_scalable_vector_graphics_svg_inkscape_adobe_illustrator_clip_art_clipart.svg", 800,480,0,0);
+		
+		this.mEngine.getTextureManager().loadTexture(pTextureAtals);
 	}
 
 	@Override
 	public Scene onCreateScene() {
 		this.mEngine.registerUpdateHandler(new FPSLogger());
 
-		final Scene scene = new Scene();
-
-		ITextureRegion spashRegion = mResourceManager.GetTexture("SplashScreen");
-		
+		final Scene scene = new Scene();		
 		/* Center the splash on the camera. */
-		final float centerX = (CAMERA_WIDTH - spashRegion.getWidth()) / 2;
-		final float centerY = (CAMERA_HEIGHT - spashRegion.getHeight()) / 2;
+		final float centerX = (CAMERA_WIDTH - pTextureRegion.getWidth()) / 2;
+		final float centerY = (CAMERA_HEIGHT - pTextureRegion.getHeight()) / 2;
 
 		/* Create the sprite and add it to the scene. */
-		final Sprite splashImage = new Sprite(centerX, centerY, spashRegion, this.getVertexBufferObjectManager());
+		final Sprite splashImage = new Sprite(centerX, centerY, pTextureRegion, this.getVertexBufferObjectManager());
 				
 		SequenceEntityModifier animation = new SequenceEntityModifier(
 				new DelayModifier(0.5f),
@@ -153,10 +160,19 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 			SAXParser sp = spf.newSAXParser(); 
 			XMLReader xr = sp.getXMLReader(); 
 
-			ParserXMLSceneDescriptor dataHandler = new ParserXMLSceneDescriptor(); 
-			xr.setContentHandler(dataHandler); 
-
-			xr.parse(new InputSource(this.getAssets().open("scenes/resources.xml"))); 
+			//parse resources descriptions
+			ParserXMLResourcesDescriptor resourceDescriptionHandler = new ParserXMLResourcesDescriptor(this); 
+			xr.setContentHandler(resourceDescriptionHandler); 
+			xr.parse(new InputSource(this.getAssets().open("scenes/ABCDiaryResources.xml"))); 
+			
+			//parse scene descriptions
+			ParserXMLSceneDescriptor sceneDescriptionHandler = new ParserXMLSceneDescriptor(this); 
+			xr.setContentHandler(sceneDescriptionHandler); 
+			//Parse all scene files
+			xr.parse(new InputSource(this.getAssets().open("scenes/ABCDiaryScenes.xml"))); 
+			xr.parse(new InputSource(this.getAssets().open("scenes/ABCDiaryMenuScene.xml"))); 
+		
+			
 			
 		} catch(ParserConfigurationException pce) { 
 			Log.e("SAX XML", "sax parse error", pce); 

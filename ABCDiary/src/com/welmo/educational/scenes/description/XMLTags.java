@@ -36,6 +36,20 @@ public class XMLTags {
 	public final static int BLUE_IDX				= 3;
 	//--------------------------------------------------------
 
+	//--------------------------------------------------------
+	//Font Resource
+	public final static String FONT					= "font";
+	public final static String FONTTEXTURE			= "font_texture";
+	public final static String TYPEFACE_FAMILY		= "typeface";
+	public final static String TYPEFACE_STYLE		= "typeface_style";
+	public final static String ANTIALIASING			= "antialiasing";
+	public final static String FONT_SIZE			= "size";
+	public final static String FONT_COLOR			= "color";
+	
+	public final static int FONT_SIZE_IDX			= 0;
+	public final static int FONT_COLOR_IDX			= 1;
+	
+	//--------------------------------------------------------
 	
 	
 	public final static String NAME					= "name";

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/resources"
+	xmlns:tns="http://www.example.org/resources" elementFormDefault="qualified">
+	
+	<!-- Texture & Texture regions -->
+	<element name="textures" type="tns:typeTextures"></element>
+	<element name="texture" type="tns:typeTexture"></element>
+	<element name="textureregion" type="tns:typeTextureRegion"></element>
+	
+	<!-- START Texture & Texture regions => types' definition-->
+	<complexType name="typeTextures">
+    	<sequence maxOccurs="1" minOccurs="1">
+			<element ref="tns:texture" maxOccurs="unbounded" minOccurs="1"></element>
+		</sequence>
+    	<attribute name="name" type="string"></attribute>
+    </complexType>
+	<complexType name="typeTexture">
+		<sequence maxOccurs="1" minOccurs="1">
+			<element ref="tns:textureregion" maxOccurs="unbounded" minOccurs="1"></element>
+		</sequence>
+		<attribute name="name" type="string" use="required"></attribute>
+		<attribute name="width" type="string" use="required"></attribute>
+		<attribute name="height" type="string" use="required"></attribute>
+	</complexType>
+	<complexType name="typeTextureRegion">
+			<attribute name="name" type="string" use="required"></attribute>
+			<attribute name="filename" type="string" use="required"></attribute>
+			<attribute name="height" type="string" use="required"></attribute>
+			<attribute name="width" type="string" use="required"></attribute>
+			<attribute name="px" type="string" use="required"></attribute>
+			<attribute name="py" type="string" use="required"></attribute>
+	</complexType>
+	<!-- END Texture & Texture regions -->
+	
+	<!-- START Colors -->
+	<element name="colors" type="tns:typeColors"></element>
+	<element name="color" type="tns:typeColor"></element>
+	<complexType name="typeColors">
+		<sequence maxOccurs="1" minOccurs="1">
+			<element ref="tns:color" maxOccurs="unbounded" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+	<complexType name="typeColor">
+		<attribute name="name" type="string" use="required"></attribute>
+		<attribute name="blue" type="string" use="required"></attribute>
+		<attribute name="green" type="string" use="required"></attribute>
+		<attribute name="red" type="string" use="required"></attribute>
+	</complexType>
+	<!-- END Colors -->
+	
+	<!-- START fonts -->
+	<element name="fonts" type="tns:typeFonts"></element>
+	<element name="fonttexture" type="tns:typeFontTexture"></element>
+	<element name="font" type="tns:typeFont"></element>
+	
+   	<complexType name="typeFonts">
+		<sequence maxOccurs="1" minOccurs="1">
+			<element ref="tns:fonttexture" maxOccurs="unbounded" minOccurs="1"></element>
+			<element ref="tns:font" maxOccurs="unbounded" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+	<complexType name="typeFontTexture">
+		<attribute name="name" type="string" use="required"></attribute>
+		<attribute name="height" type="string" use="required"></attribute>
+		<attribute name="width" type="string" use="required"></attribute>
+	</complexType>
+	<complexType name="typeFont">
+		<attribute name="name" type="string" use="required"></attribute>
+		<attribute name="font_texture" type="string" use="required"></attribute>
+	</complexType>
+	    
+</schema>

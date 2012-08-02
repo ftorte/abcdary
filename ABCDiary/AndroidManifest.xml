@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="MainManu" ></activity>
+        <activity android:name=".MainMenu" ></activity>
         <activity android:name=".MenuArrayLettere" ></activity>
         <activity android:name=".LetterActivity" ></activity>
     </application>

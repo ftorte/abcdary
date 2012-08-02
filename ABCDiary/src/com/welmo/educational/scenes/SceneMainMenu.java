@@ -1,6 +1,5 @@
 package com.welmo.educational.scenes;
 
-
 import org.andengine.engine.Engine;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.scene.Scene.IOnSceneTouchListener;
@@ -8,17 +7,17 @@ import org.andengine.input.touch.TouchEvent;
 import org.andengine.input.touch.detector.ClickDetector;
 import org.andengine.input.touch.detector.ClickDetector.IClickDetectorListener;
 
+import android.content.Context;
+import android.util.Log;
+
 import com.welmo.educational.MainMenu;
 import com.welmo.educational.MenuArrayLettere;
-import com.welmo.educational.managers.ResourceDescriptorsManager;
 import com.welmo.educational.managers.ResourcesManager;
 import com.welmo.educational.scenes.components.ClickableSprite;
 import com.welmo.educational.utility.MLOG;
 
-import android.content.Context;
-import android.util.Log;
 
-public class SceneMenuArray extends ManageableScene implements IClickDetectorListener, IOnSceneTouchListener
+public class SceneMainMenu extends ManageableScene implements IClickDetectorListener, IOnSceneTouchListener
 {
 
 	// ===========================================================
@@ -29,13 +28,11 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 	
 	//other constants
 	private static final int INVALID_CHAR_CLICKED = -1;
-	
-	private static final Class<MenuArrayLettere> ACTIVITY_MENUARRAY = MenuArrayLettere.class;	
 
 	// ===========================================================
 	// Fields - Items and global properties
 	// ===========================================================
-	protected MenuArrayLettere mApplication;
+	protected MainMenu mApplication;
 	
 	// ===========================================================
 	// Fields - Detectors
@@ -47,16 +44,16 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 	// ===========================================================
 	
 	//Constructor
-	public SceneMenuArray(MenuArrayLettere pApplication){
+	public SceneMainMenu(MainMenu pApplication){
 		super();
-		mClickLeastener=new SceneMenuArray.ClicalbeSpriteLeastener();
+		mClickLeastener=new SceneMainMenu.ClicalbeSpriteLeastener();
 		mApplication = pApplication;
 	}
 
 	//Constructor
-	public SceneMenuArray(){
+	public SceneMainMenu(){
 		super();
-		mClickLeastener=new SceneMenuArray.ClicalbeSpriteLeastener();
+		mClickLeastener=new SceneMainMenu.ClicalbeSpriteLeastener();
 	}
 
 	
@@ -136,7 +133,7 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 	@Override
 	public void init(Engine theEngine, Context ctx) {
 		super.init(theEngine, ctx);
-		this.mApplication = (MenuArrayLettere) ctx;
+		this.mApplication = (MainMenu) ctx;
 	}
 	
 	// ===========================================================
@@ -163,6 +160,7 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 	public void loadScene(String SceneName, ResourcesManager res) {
 		// TODO Auto-generated method stub
 		super.loadScene(SceneName, res);
+		// FT disable load resource res.EngineLoadResources(this.mEngine);
 		// enable the touch listener
 		this.onShow(this);
 	}

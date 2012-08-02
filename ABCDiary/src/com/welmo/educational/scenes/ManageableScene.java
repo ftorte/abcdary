@@ -6,6 +6,7 @@ import org.andengine.entity.sprite.Sprite;
 
 import com.welmo.educational.managers.ResourceDescriptorsManager;
 import com.welmo.educational.managers.ResourcesManager;
+import com.welmo.educational.managers.SceneDescriptorsManager;
 import com.welmo.educational.scenes.components.ClickableSprite;
 import com.welmo.educational.scenes.description.SceneDescriptor;
 import com.welmo.educational.scenes.description.SceneObjectDescriptor;
@@ -22,7 +23,9 @@ abstract  public class ManageableScene extends Scene {
 	private static final String 				TAG  = "ManageableScene";
 	protected Engine 							mEngine;
 	protected Context 							mContext;
-	protected ResourceDescriptorsManager 		pResDescMgr;
+	protected SceneDescriptorsManager 			pSDM;
+	protected ResourcesManager					pRM;
+	
 	protected ClickableSprite.IClickLeastener 	mClickLeastener;
 	
 	public void loadResources(){};
@@ -37,15 +40,18 @@ abstract  public class ManageableScene extends Scene {
 	
 	private void IntiScene(){
 		mClickLeastener =  new ClicalbeSpriteLeastener();
-		pResDescMgr = ResourceDescriptorsManager.getInstance();
+		pSDM = SceneDescriptorsManager.getInstance();
+		pRM = ResourcesManager.getInstance();
 	}
 	
-	public void loadScene(String SceneName) {};
+	public void loadScene(String SceneName) {
+		loadScene(SceneName,this.pRM);
+	};
 
-	public void loadScene(String SceneName,ResourcesManager res) {
+	public void loadScene(String SceneName,ResourcesManager res2) {
 		SceneDescriptor scDsc;
-		if((scDsc = pResDescMgr.getScene(SceneName))== null)
-			throw new NullPointerException("In ManageableScene: the scene: " + SceneName + "don't exists");
+		if((scDsc = pSDM.getScene(SceneName))== null)
+			throw new NullPointerException("In ManageableScene: the scene: " + SceneName + " don't exists");
 	
 		for(SceneObjectDescriptor scObjDsc:scDsc.scObjects){
 			switch(scObjDsc.type){
@@ -53,7 +59,7 @@ abstract  public class ManageableScene extends Scene {
 			case  SPRITE:
 				/* Create the background sprite and add it to the scene. */
 				final Sprite newSprite = new Sprite(scObjDsc.Parameters[XMLTags.POSITION_X_IDX], scObjDsc.Parameters[XMLTags.POSITION_Y_IDX], 
-						scObjDsc.Parameters[XMLTags.WIDTH_IDX], scObjDsc.Parameters[XMLTags.HEIGHT_IDX], res.GetTexture(scObjDsc.resourceName), 
+						scObjDsc.Parameters[XMLTags.WIDTH_IDX], scObjDsc.Parameters[XMLTags.HEIGHT_IDX], pRM.GetTextureRegion(scObjDsc.resourceName), 
 						this.mEngine.getVertexBufferObjectManager());
 				this.attachChild(newSprite);
 				break;
@@ -61,13 +67,15 @@ abstract  public class ManageableScene extends Scene {
 			case CLICKABLE_SPRITE:
 				/* Create the clickable sprites elements */
 				final ClickableSprite newClicableSprite = new ClickableSprite(scObjDsc.Parameters[XMLTags.POSITION_X_IDX], scObjDsc.Parameters[XMLTags.POSITION_Y_IDX], 
-						scObjDsc.Parameters[XMLTags.WIDTH_IDX], scObjDsc.Parameters[XMLTags.HEIGHT_IDX], res.GetTexture(scObjDsc.resourceName), 
+						scObjDsc.Parameters[XMLTags.WIDTH_IDX], scObjDsc.Parameters[XMLTags.HEIGHT_IDX], pRM.GetTextureRegion(scObjDsc.resourceName), 
 						this.mEngine.getVertexBufferObjectManager());
 				newClicableSprite.SetClickListener(mClickLeastener);
 				newClicableSprite.setID(scObjDsc.ID);
 				this.attachChild(newClicableSprite);
 				this.registerTouchArea(newClicableSprite);
 
+				break;
+			case FONT:
 				break;
 			}
 		}
@@ -89,15 +97,15 @@ abstract  public class ManageableScene extends Scene {
 
 		public void onClick(int ObjectID) {
 			if(MLOG.LOG) Log.i(TAG,"In Scene Not Inilialised click Listener");
-			throw new NullPointerException("ManageableScene In Scene Not Inilialised click Listenee");
+			throw new NullPointerException("ManageableScene In Scene Not Initialized click Listener");
 		}
 		public void reset() {
 			if(MLOG.LOG) Log.i(TAG,"In Scene Not Inilialised click Listener");
-			throw new NullPointerException("ManageableScene In Scene Not Inilialised click Listenee");
+			throw new NullPointerException("ManageableScene In Scene Not Initialized click Listener");
 		}
 		public int getObjectID(){
 			if(MLOG.LOG) Log.i(TAG,"In Scene Not Inilialised click Listener");
-			throw new NullPointerException("ManageableScene In Scene Not Inilialised click Listenee");
+			throw new NullPointerException("ManageableScene In Scene Not Initialized click Listener");
 		}
 	}
 
