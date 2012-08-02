@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <scenes xmlns="http://www.example.org/scene">
+        <scene name="ABCMainMenu">
+            <!-- Back Ground  -->
+            <sceneobject ID="100" height="512" px="0" py="0" resourceName="MenuBackGround" type="SPRITE" width="1024"></sceneobject>
+            <!-- 1st Line  -->
+            <sceneobject ID="1" height="30%" width="35%" px="10%" py="15%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" ></sceneobject>
+            <sceneobject ID="2" height="30%" width="35%" px="65%" py="15%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" ></sceneobject>
+            <!-- 2nd Line  -->
+            <sceneobject ID="3" height="30%" width="35%" px="10%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" ></sceneobject>
+            <sceneobject ID="4" height="10%" width="35%" px="65%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" ></sceneobject>
+            <sceneobject ID="5" height="10%" width="35%" px="65%" py="75%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" ></sceneobject>
+        </scene>
+    </scenes>

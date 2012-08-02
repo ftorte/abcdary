@@ -39,14 +39,6 @@ public class MenuArrayLettere extends SimpleBaseGameActivity {
 
 	public static final float CAMERA_WIDTH = 800;
 	public static final float CAMERA_HEIGHT = 480;
-	public static final float fLeftMargin = 0.05f;
-	public static final float fRightMargin = 0.05f;
-	public static final float fColSpace = 0.01f;
-	public static final float fTopMargin = 0.1f;
-	public static final float fBottomtMargin = 0.1f;
-	public static final float fRowSpace = 0.1f;
-	public static final int nNbRow = 3;
-	public static final int nNbCol = 7;		
 	
 	public static final	String INTENT_KEY_PARAM_A = "LetterID";
 	
@@ -54,7 +46,7 @@ public class MenuArrayLettere extends SimpleBaseGameActivity {
 	// Fields
 	// ===========================================================
 
-	SceneManager<SceneMenuArray> mSceneManager;
+	SceneManager<SceneMenuArray> mSceneLetterMenuManager;
 	SceneManager<SceneLetter> mSceneLetterManager;
 	ResourcesManager mResourceManager;
 
@@ -66,13 +58,13 @@ public class MenuArrayLettere extends SimpleBaseGameActivity {
 
 	@Override
 	protected void onCreateResources() {
-		
-		mResourceManager = new ResourcesManager();
-		mResourceManager.init(this.getEngine(), this);
-
-		//LoadResources for letter A
-		//mResourceManager.LoadResources("SceneLetterA");
-
+		mResourceManager = ResourcesManager.getInstance();
+		mResourceManager.init(this);
+		mResourceManager.GetTextureRegion("MenuItemLettere");
+		mResourceManager.GetTextureRegion("MenuArrayLetterA");
+		mResourceManager.GetTextureRegion("MenuBackGround");
+		mResourceManager.EngineLoadResources(this.mEngine);
+		this.mEngine.onReloadResources();
 	}
 
 	@Override
@@ -80,15 +72,15 @@ public class MenuArrayLettere extends SimpleBaseGameActivity {
 		
 		this.mEngine.registerUpdateHandler(new FPSLogger());
 
-		mSceneManager = new SceneManager<SceneMenuArray>(SceneMenuArray.class);
-		mSceneManager.init(this.getEngine(), this);
-		mSceneManager.BuildScenes("SceneLetterA","SceneLetterA",mResourceManager);
+		mSceneLetterMenuManager = new SceneManager<SceneMenuArray>(SceneMenuArray.class);
+		mSceneLetterMenuManager.init(this.getEngine(), this);
+		mSceneLetterMenuManager.BuildScenes("SceneLetterA","SceneLetterA",mResourceManager);
 
 		mSceneLetterManager = new SceneManager<SceneLetter>(SceneLetter.class);
 		mSceneLetterManager.init(this.getEngine(), this);
 		mSceneLetterManager.BuildScenes("Test","Test",mResourceManager);
 		
-		return mSceneManager.getScene("SceneLetterA");
+		return mSceneLetterMenuManager.getScene("SceneLetterA");
 	}
 	
 	public void LaunchLetterScreen(int letterID){
@@ -99,8 +91,8 @@ public class MenuArrayLettere extends SimpleBaseGameActivity {
 	}
 	@Override
 	public void onBackPressed() {
-		if(this.mEngine.getScene() == mSceneManager.getScene("SceneLetterA"))
+		if(this.mEngine.getScene() == mSceneLetterMenuManager.getScene("SceneLetterA"))
 			super.onBackPressed();
-		this.mEngine.setScene(mSceneManager.getScene("SceneLetterA"));
+		this.mEngine.setScene(mSceneLetterMenuManager.getScene("SceneLetterA"));
 	}
 }

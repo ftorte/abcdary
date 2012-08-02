@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns="http://www.example.org/resources">
+    <textures name="ABCDiary">
+        <texture name="MenuItemTexture" height="128" width="512">
+            <textureregion name="MenuItemLettere" filename="MenuItemLettere.svg" height="64" px="0" py="0" width="512"></textureregion>
+            <textureregion name="MenuItemCifre" filename="MenuItemCifre.svg" height="64" px="0" py="64" width="512"></textureregion>
+        </texture>
+        <texture name="MenuBackGroundTexture" height="512" width="1024">
+            <textureregion name="MenuBackGround" filename="colorful_animals_scalable_vector_graphics_svg_inkscape_adobe_illustrator_clip_art_clipart.svg" height="480" px="0" py="0" width="800"></textureregion>
+        </texture>
+        <texture name="MenuArrayLetterATexture" height="128" width="128">
+            <textureregion name="MenuArrayLetterA" filename="a.svg" height="128" px="0" py="0" width="128"></textureregion>
+        </texture>
+    </textures>
+	<colors>
+        <color name="LightSalmon" blue="7A" green="A0" red="FF"></color>
+        <color name="LightSalmon" blue="7A" green="A0" red="FF"></color>
+    </colors>
+    
+    <fonts>
+        <fonttexture name="FontTexture" height="256" width="256"></fonttexture>
+        <font name="FontAndroid" font_texture="FontTexture"></font>
+    </fonts>
+</resources>

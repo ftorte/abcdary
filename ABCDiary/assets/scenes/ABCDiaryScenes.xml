@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <scenes xmlns="http://www.example.org/scene">
+        <scene name="SceneLetterA">
+            <!-- Back Ground  -->
+            <sceneobject ID="100" height="512" px="0" py="0" resourceName="MenuBackGround" type="SPRITE" width="1024"></sceneobject>
+            <!-- 1st Line  -->
+            <sceneobject ID="1" height="20%" px="2%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="2" height="20%" px="14%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="3" height="20%" px="26%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="4" height="20%" px="38%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="5" height="20%" px="50%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="6" height="20%" px="62%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="7" height="20%" px="74%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="8" height="20%" px="86%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <!-- 2nd Line  -->
+            <sceneobject ID="9" height="20%" px="2%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="10" height="20%" px="14%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="11" height="20%" px="26%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="12" height="20%" px="38%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="13" height="20%" px="50%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="14" height="20%" px="62%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="15" height="20%" px="74%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="16" height="20%" px="86%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <!-- 3nd Line  -->
+            <sceneobject ID="17" height="20%" px="2%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="18" height="20%" px="14%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="19" height="20%" px="26%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="20" height="20%" px="38%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="21" height="20%" px="50%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="22" height="20%" px="62%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="23" height="20%" px="74%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="24" height="20%" px="86%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <!-- 4nd Line  -->
+            <sceneobject ID="25" height="20%" px="2%" py="80%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="26" height="20%" px="14%" py="80%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="27" height="20%" px="74%" py="80%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+            <sceneobject ID="28" height="20%" px="86%" py="80%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="10%"></sceneobject>
+        </scene>
+        <scene name="Test">
+            <sceneobject ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" type="SPRITE" width="1024"></sceneobject>
+            <sceneobject ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="64"></sceneobject>
+            <sceneobject ID="3" height="512" px="0" py="0" resourceName="FontAndroid" type="FONT" width="64"></sceneobject>
+        </scene>
+        <multiviewscene name="A">
+            <scene name="SceneA1">
+            	<sceneobject ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" type="SPRITE" width="1024"></sceneobject>
+            	<sceneobject ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="64"></sceneobject>
+            </scene>
+            <scene name="SceneA2">
+            	<sceneobject ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" type="SPRITE" width="1024"></sceneobject>
+            	<sceneobject ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="64"></sceneobject>
+            </scene>
+            <scene name="SceneA3">
+            	<sceneobject ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" type="SPRITE" width="1024"></sceneobject>
+            	<sceneobject ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="64"></sceneobject>
+            </scene>
+             <scene name="SceneA4">
+            	<sceneobject ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" type="SPRITE" width="1024"></sceneobject>
+            	<sceneobject ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="64"></sceneobject>
+            </scene>
+        </multiviewscene>
+    </scenes>

@@ -6,8 +6,13 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import android.content.Context;
+import android.graphics.Typeface;
+
 import com.welmo.educational.managers.ResourceDescriptorsManager;
+import com.welmo.educational.managers.SceneDescriptorsManager;
 import com.welmo.educational.scenes.description.SceneObjectDescriptor.SceneObjectTypes;
+import com.welmo.educational.utility.ScreenDimensionHelper;
 
 
 public class ParserXMLSceneDescriptor extends DefaultHandler {
@@ -15,12 +20,9 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 	//--------------------------------------------------------
 	// Variables
 	//--------------------------------------------------------
-	private ResourceDescriptorsManager		pResDescManager;
+	private SceneDescriptorsManager			pSceneDescManager;
+	private ScreenDimensionHelper			dimHelper=null;
 
-	//Containers for element description
-	protected TextureDescriptor				pTextureDsc;
-	protected TextureRegionDescriptor		pTextureRegionDsc;
-	protected ColorDescriptor				pColorDsc;
 	protected SceneDescriptor				pSceneDsc;
 	protected SceneObjectDescriptor			pSceneObjectDsc;
 	protected MultiViewSceneDescriptor		pMultiViewSceneDsc;
@@ -33,8 +35,9 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 		super.processingInstruction(target, data);
 	}
 
-	public ParserXMLSceneDescriptor() {
+	public ParserXMLSceneDescriptor(Context ctx) {
 		super();
+		dimHelper = ScreenDimensionHelper.getInstance(ctx);
 	}
 
 
@@ -49,7 +52,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 	// ===========================================================
 	public void startDocument() throws SAXException {
 		super.startDocument();
-		pResDescManager = ResourceDescriptorsManager.getInstance();
+		pSceneDescManager = SceneDescriptorsManager.getInstance();
 	}
 
 	@Override
@@ -57,47 +60,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 	 * Fonction étant déclenchée lorsque le parser trouve un tag XML
 	 * C'est cette méthode que nous allons utiliser pour instancier un nouveau feed
 	 */
-	public void startElement(String uri, String localName, String name,	Attributes attributes) throws SAXException {
-
-		if (localName.equalsIgnoreCase(XMLTags.TEXTURE)){
-	
-			if(this.pTextureDsc != null)
-				throw new NullPointerException("ParserXMLSceneDescriptor encountered texture description with another texture description inside");
-					pTextureDsc = new TextureDescriptor();
-
-			// Read texture description
-			pTextureDsc.ID=0;
-			pTextureDsc.Name = new String(attributes.getValue(XMLTags.NAME));
-			pTextureDsc.Parameters[XMLTags.HEIGHT_IDX]=Integer.parseInt(attributes.getValue(XMLTags.HEIGHT));
-			pTextureDsc.Parameters[XMLTags.WIDTH_IDX]=Integer.parseInt(attributes.getValue(XMLTags.WIDTH));
-			
-			pResDescManager.addTexture(pTextureDsc.Name, pTextureDsc);
-			return;
-		}
-		if (localName.equalsIgnoreCase(XMLTags.TEXTUREREGION)){
-		
-			if(this.pTextureRegionDsc != null) //check is new texture region
-				throw new NullPointerException("ParserXMLSceneDescriptor encountered texture description with another texture description inside");
-			
-			if(this.pTextureDsc == null) //check region is part of a texture
-				throw new NullPointerException("ParserXMLSceneDescriptor encountered textureregion description withou texture description");
-			
-			pTextureRegionDsc = new TextureRegionDescriptor();
-
-			pTextureRegionDsc.ID=0;
-			pTextureRegionDsc.Name = new String(attributes.getValue(XMLTags.NAME));
-			pTextureRegionDsc.filename = new String(attributes.getValue(XMLTags.FILE_NAME));
-			pTextureRegionDsc.Parameters[XMLTags.HEIGHT_IDX]=Integer.parseInt(attributes.getValue(XMLTags.HEIGHT));
-			pTextureRegionDsc.Parameters[XMLTags.WIDTH_IDX]=Integer.parseInt(attributes.getValue(XMLTags.WIDTH));
-			pTextureRegionDsc.Parameters[XMLTags.POSITION_X_IDX]=Integer.parseInt(attributes.getValue(XMLTags.POSITION_X));
-			pTextureRegionDsc.Parameters[XMLTags.POSITION_Y_IDX]=Integer.parseInt(attributes.getValue(XMLTags.POSITION_Y));
-			pTextureRegionDsc.textureName = new String(pTextureDsc.Name);					//add parent texture name to textureregion descriptor
-			
-			
-			pResDescManager.addTextureRegion(pTextureRegionDsc.Name, pTextureRegionDsc);	//add textureregion to maps or texture region
-			pTextureDsc.Regions.add(pTextureRegionDsc);										//add textureregion to list of region in parent texture
-			return;
-		}
+	public void startElement(String uri, String localName, String name,	Attributes attributes) throws SAXException {	
 		if (localName.equalsIgnoreCase(XMLTags.MULTIVIEWSCENE)){
 			if(this.pMultiViewSceneDsc != null)
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered multiview scene description with another multiview scene description inside");
@@ -106,7 +69,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			// Read scene description
 			pMultiViewSceneDsc.ID=0;
 			pMultiViewSceneDsc.Name = new String(attributes.getValue(XMLTags.NAME));
-			pResDescManager.addMVScene(pMultiViewSceneDsc.Name, pMultiViewSceneDsc);
+			pSceneDescManager.addMVScene(pMultiViewSceneDsc.Name, pMultiViewSceneDsc);
 			return;
 		}
 		if (localName.equalsIgnoreCase(XMLTags.SCENE)){
@@ -123,7 +86,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			// Read scene description
 			pSceneDsc.ID=0;
 			pSceneDsc.Name = new String(attributes.getValue(XMLTags.NAME));
-			pResDescManager.addScene(pSceneDsc.Name, pSceneDsc);
+			pSceneDescManager.addScene(pSceneDsc.Name, pSceneDsc);
 			return;
 		}
 		if (localName.equalsIgnoreCase(XMLTags.SCENE_OBJECT)){
@@ -142,29 +105,13 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			pSceneObjectDsc.ID=0;
 			pSceneObjectDsc.resourceName = new String(attributes.getValue(XMLTags.RESOURCE_NAME));
 			pSceneObjectDsc.type = SceneObjectTypes.valueOf(attributes.getValue(XMLTags.SCENE_TYPE));
-			pSceneObjectDsc.Parameters[XMLTags.POSITION_X_IDX] = Integer.parseInt(attributes.getValue(XMLTags.POSITION_X));
-			pSceneObjectDsc.Parameters[XMLTags.POSITION_Y_IDX] = Integer.parseInt(attributes.getValue(XMLTags.POSITION_Y));
-			pSceneObjectDsc.Parameters[XMLTags.WIDTH_IDX] = Integer.parseInt(attributes.getValue(XMLTags.WIDTH));
-			pSceneObjectDsc.Parameters[XMLTags.HEIGHT_IDX] = Integer.parseInt(attributes.getValue(XMLTags.HEIGHT));
+			pSceneObjectDsc.Parameters[XMLTags.POSITION_X_IDX] = dimHelper.parsPosition(ScreenDimensionHelper.X,attributes.getValue(XMLTags.POSITION_X));
+			pSceneObjectDsc.Parameters[XMLTags.POSITION_Y_IDX] = dimHelper.parsPosition(ScreenDimensionHelper.Y,attributes.getValue(XMLTags.POSITION_Y));
+			pSceneObjectDsc.Parameters[XMLTags.WIDTH_IDX] = dimHelper.parsLenght(ScreenDimensionHelper.W, attributes.getValue(XMLTags.WIDTH));
+			pSceneObjectDsc.Parameters[XMLTags.HEIGHT_IDX] = dimHelper.parsLenght(ScreenDimensionHelper.H, attributes.getValue(XMLTags.HEIGHT));
 
 			return;
 			
-		}
-		if (localName.equalsIgnoreCase(XMLTags.COLOR)){
-			
-			if(this.pColorDsc != null)
-				throw new NullPointerException("ParserXMLSceneDescriptor encountered color description inside another color description inside");
-			
-			pColorDsc = new ColorDescriptor();
-
-			// Read texture description
-			pColorDsc.Name = new String(attributes.getValue(XMLTags.NAME));
-			pColorDsc.Parameters[XMLTags.RED_IDX]=Integer.parseInt(attributes.getValue(XMLTags.RED), 16);
-			pColorDsc.Parameters[XMLTags.GREEN_IDX]=Integer.parseInt(attributes.getValue(XMLTags.GREEN), 16);
-			pColorDsc.Parameters[XMLTags.BLUE_IDX]=Integer.parseInt(attributes.getValue(XMLTags.BLUE), 16);
-			
-			pResDescManager.addColor(pColorDsc.Name, pColorDsc);
-			return;
 		}
 	}
 
@@ -176,14 +123,6 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 	// * On peut donc tranquillement les récupérer pour compléter
 	// * notre objet currentFeed
 	public void endElement(String uri, String localName, String name) throws SAXException {		
-
-		if (localName.equalsIgnoreCase(XMLTags.TEXTURE)){
-			pTextureDsc = null;
-		}
-		
-		if (localName.equalsIgnoreCase(XMLTags.TEXTUREREGION)){
-			pTextureRegionDsc = null;
-		}
 		if (localName.equalsIgnoreCase(XMLTags.SCENE)){
 			pSceneDsc = null;
 		}
@@ -193,10 +132,6 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 		if (localName.equalsIgnoreCase(XMLTags.SCENE_OBJECT)){
 			pSceneObjectDsc = null;
 		}
-		if (localName.equalsIgnoreCase(XMLTags.COLOR)){
-			pColorDsc = null;
-		}
-		
 	}
 
 
@@ -209,5 +144,4 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 		String lecture = new String(ch,start,length);
 		//if(buffer != null) buffer.append(lecture);
 	}
-
 }

@@ -32,7 +32,7 @@ public class SceneManager<T extends ManageableScene> {
 	// ===========================================================
 	private Engine 				mEngine=null;
 	private Context 			mContext=null;
-	
+		
 	HashMap<String, T> mapScenes = new HashMap<String, T>();
 	private final Class clss;
 	 
@@ -52,7 +52,7 @@ public class SceneManager<T extends ManageableScene> {
 	//crete scene and add to the map with name strSceneName
 	public void BuildScenes(String strSceneDescription, String strSceneName, ResourcesManager resResourcesManager){
 		if((mEngine == null) | (mContext == null)){ 
-			throw new NullPointerException("Scene Manager not initialized: mEngine or mContext are null"); 
+			throw new NullPointerException("Scene Manager not initialized: mEngine &/or mContext are null"); 
 		}
 		T scene = null;
 		try {

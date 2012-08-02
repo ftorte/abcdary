@@ -20,6 +20,7 @@ import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.HorizontalAlign;
 
+import com.welmo.educational.MenuArrayLettere;
 import com.welmo.educational.managers.ResourcesManager;
 import com.welmo.educational.scenes.components.ClickableSprite;
 import com.welmo.educational.scenes.description.SceneDescriptor;
@@ -43,6 +44,23 @@ public class SceneLetter extends ManageableScene {
 	@Override
 	public void loadScene(String SceneName, ResourcesManager res) {
 		super.loadScene(SceneName, res);
+	}
+
+	// ===========================================================
+	// Methods - Initialization and menu preparation
+	// ===========================================================
+
+	//Constructor
+	public SceneLetter(MenuArrayLettere pApplication){
+		super();
+		mClickLeastener=new SceneLetter.ClicalbeSpriteLeastener();
+		mApplication = pApplication;
+	}
+
+	//Constructor
+	public SceneLetter(){
+		super();
+		mClickLeastener=new SceneLetter.ClicalbeSpriteLeastener();
 	}
 
 	// ===========================================================
