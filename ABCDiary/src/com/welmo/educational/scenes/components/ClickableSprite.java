@@ -1,12 +1,12 @@
 package com.welmo.educational.scenes.components;
 
 import org.andengine.entity.sprite.Sprite;
+import org.andengine.entity.sprite.vbo.ISpriteVertexBufferObject;
 import org.andengine.input.touch.TouchEvent;
 import org.andengine.opengl.shader.ShaderProgram;
 import org.andengine.opengl.texture.region.ITextureRegion;
+import org.andengine.opengl.vbo.DrawType;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
-import org.andengine.opengl.vbo.VertexBufferObject.DrawType;
-
 import com.welmo.educational.utility.MLOG;
 
 import android.util.Log;
@@ -22,13 +22,21 @@ public class ClickableSprite extends Sprite {
 	// ===========================================================
 	// Fields
 	// ===========================================================
-	private IClickLeastener mClickListener=null;
+	private IClickLeastener mClickListener		=null;
+	private IActionOnSceneListener mActionListener	=null;
+	private String strOnClikcNextScene			="";
 	private int nID;
 	// ===========================================================
 	// Constructors
 	// ===========================================================
 
 
+	public String getOnClikcNextScene() {
+		return strOnClikcNextScene;
+	}
+	public void setOnClikcNextScene(String strOnClikcNextScene) {
+		this.strOnClikcNextScene = strOnClikcNextScene;
+	}
 	public ClickableSprite(float pX, float pY, float pWidth, float pHeight,
 			ITextureRegion pTextureRegion,
 			ISpriteVertexBufferObject pSpriteVertexBufferObject,
@@ -123,6 +131,7 @@ public class ClickableSprite extends Sprite {
 		case TouchEvent.ACTION_UP:
 			if (MLOG.LOG)Log.i(TAG,"onAreaTouched ACTION_DOWN = " + nID);
 			mClickListener.onClick(this.nID);
+			mActionListener.onActionChangeScene(IActionOnSceneListener.CHANGE_SCENE, this.strOnClikcNextScene);
 			break;
 		}
 		return false;
@@ -135,12 +144,15 @@ public class ClickableSprite extends Sprite {
 	}
 	
 	public static interface  IClickLeastener{
-		public void onClick(int ObjectID);
-		public void reset();
-		public int getObjectID();
+		public void onClick(int ObjectID); // Sprite call this interface to inform parent that has been clicked
+		//public void reset();
+		//public int getObjectID();
 	}
 
-	public IClickLeastener SetClickListener(IClickLeastener ClickListener) {
-		return mClickListener=ClickListener;
+	public void setActionListener(IClickLeastener clickListener) {
+		mClickListener=clickListener;
+	}
+	public void setActionOnSceneListener(IActionOnSceneListener actionLeastner) {
+		this.mActionListener=actionLeastner;
 	}
 }

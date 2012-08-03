@@ -1,8 +1,5 @@
 package com.welmo.educational.scenes.description;
 
-
-import java.util.ArrayList;
-
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -11,7 +8,7 @@ import android.content.Context;
 import android.graphics.Typeface;
 
 import com.welmo.educational.managers.ResourceDescriptorsManager;
-import com.welmo.educational.scenes.description.SceneObjectDescriptor.SceneObjectTypes;
+import com.welmo.educational.scenes.description.tags.ResTags;
 import com.welmo.educational.utility.ScreenDimensionHelper;
 
 
@@ -63,7 +60,7 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 	 */
 	public void startElement(String uri, String localName, String name,	Attributes attributes) throws SAXException {
 
-		if (localName.equalsIgnoreCase(XMLTags.TEXTURE)){
+		if (localName.equalsIgnoreCase(ResTags.R_TEXTURE)){
 	
 			if(this.pTextureDsc != null)
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered texture description with another texture description inside");
@@ -71,15 +68,15 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 
 			// Read texture description
 			pTextureDsc.ID=0;
-			pTextureDsc.Name = new String(attributes.getValue(XMLTags.NAME));
-			pTextureDsc.Parameters[XMLTags.HEIGHT_IDX]=Integer.parseInt(attributes.getValue(XMLTags.HEIGHT));
-			pTextureDsc.Parameters[XMLTags.WIDTH_IDX]=Integer.parseInt(attributes.getValue(XMLTags.WIDTH));
+			pTextureDsc.Name = new String(attributes.getValue(ResTags.R_A_NAME));
+			pTextureDsc.Parameters[ResTags.R_A_HEIGHT_IDX]=Integer.parseInt(attributes.getValue(ResTags.R_A_HEIGHT));
+			pTextureDsc.Parameters[ResTags.R_A_WIDTH_IDX]=Integer.parseInt(attributes.getValue(ResTags.R_A_WIDTH));
 			
 			pResDescManager.addTexture(pTextureDsc.Name, pTextureDsc);
 			return;
 		
 		}
-		if (localName.equalsIgnoreCase(XMLTags.FONT)){
+		if (localName.equalsIgnoreCase(ResTags.FONT)){
 			
 			if(this.pFontDsc != null)
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered font description with another font description inside");
@@ -87,37 +84,31 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 
 			// Read font description
 			pFontDsc.ID=0;
-			pFontDsc.Name = new String(attributes.getValue(XMLTags.NAME));
-			
-			/*int nattr = attributes.getLength();
-			for (int i = 0; i < attributes.getLength(); i++){
-				String attr = attributes.getValue(i);
-				select(attr)
-					case(XMLTags.TYPEFACE_FAMILY)*/
+			pFontDsc.Name = new String(attributes.getValue(ResTags.R_A_NAME));
 			
 			String strVal1,strVal2;
 			
 			//read Typeface configuration
-			if((strVal1 = attributes.getValue(XMLTags.TYPEFACE_FAMILY)) != null && (strVal2=attributes.getValue(XMLTags.TYPEFACE_STYLE)) != null)
+			if((strVal1 = attributes.getValue(ResTags.R_A_TYPEFACE_FAMILY)) != null && (strVal2=attributes.getValue(ResTags.R_A_TYPEFACE_STYLE)) != null)
 					pFontDsc.TypeFace = Typeface.create(strVal1,Integer.parseInt(strVal2));
 			
 			//read anti-aliasing configuration
-			if((strVal1 = attributes.getValue(XMLTags.ANTIALIASING)) != null)			
+			if((strVal1 = attributes.getValue(ResTags.R_A_ANTIALIASING)) != null)			
 				pFontDsc.AntiAlias = Boolean.parseBoolean(strVal1);
 			
 			//read FontSize configuration
-			if((strVal1 = attributes.getValue(XMLTags.FONT_SIZE)) != null)		
-				pFontDsc.Parameters[XMLTags.FONT_SIZE_IDX]=Integer.parseInt(attributes.getValue(XMLTags.FONT_SIZE));
+			if((strVal1 = attributes.getValue(ResTags.R_A_FONT_SIZE)) != null)		
+				pFontDsc.Parameters[ResTags.R_A_FONT_SIZE_IDX]=Integer.parseInt(attributes.getValue(ResTags.R_A_FONT_SIZE));
 			
 			//read FontColor configuration
-			if((strVal1 = attributes.getValue(XMLTags.FONT_COLOR)) != null)		
-				pFontDsc.Parameters[XMLTags.FONT_COLOR_IDX]=Integer.parseInt(attributes.getValue(XMLTags.FONT_COLOR));
+			if((strVal1 = attributes.getValue(ResTags.R_A_FONT_COLOR)) != null)		
+				pFontDsc.Parameters[ResTags.R_A_FONT_COLOR_IDX]=Integer.parseInt(attributes.getValue(ResTags.R_A_FONT_COLOR));
 		
 			pResDescManager.addFont(pFontDsc.Name, pFontDsc);
 			return;
 		}
 	
-		if (localName.equalsIgnoreCase(XMLTags.TEXTUREREGION)){
+		if (localName.equalsIgnoreCase(ResTags.R_TEXTUREREGION)){
 		
 			if(this.pTextureRegionDsc != null) //check is new texture region
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered texture description with another texture description inside");
@@ -128,12 +119,12 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 			pTextureRegionDsc = new TextureRegionDescriptor();
 
 			pTextureRegionDsc.ID=0;
-			pTextureRegionDsc.Name = new String(attributes.getValue(XMLTags.NAME));
-			pTextureRegionDsc.filename = new String(attributes.getValue(XMLTags.FILE_NAME));
-			pTextureRegionDsc.Parameters[XMLTags.HEIGHT_IDX]=dimHelper.parsLenght(ScreenDimensionHelper.H,attributes.getValue(XMLTags.HEIGHT));
-			pTextureRegionDsc.Parameters[XMLTags.WIDTH_IDX]=dimHelper.parsLenght(ScreenDimensionHelper.W,attributes.getValue(XMLTags.WIDTH));
-			pTextureRegionDsc.Parameters[XMLTags.POSITION_X_IDX]=dimHelper.parsPosition(ScreenDimensionHelper.X,attributes.getValue(XMLTags.POSITION_X));
-			pTextureRegionDsc.Parameters[XMLTags.POSITION_Y_IDX]=dimHelper.parsPosition(ScreenDimensionHelper.Y,attributes.getValue(XMLTags.POSITION_Y));
+			pTextureRegionDsc.Name = new String(attributes.getValue(ResTags.R_A_NAME));
+			pTextureRegionDsc.filename = new String(attributes.getValue(ResTags.R_A_FILE_NAME));
+			pTextureRegionDsc.Parameters[ResTags.R_A_HEIGHT_IDX]=dimHelper.parsLenght(ScreenDimensionHelper.H,attributes.getValue(ResTags.R_A_HEIGHT));
+			pTextureRegionDsc.Parameters[ResTags.R_A_WIDTH_IDX]=dimHelper.parsLenght(ScreenDimensionHelper.W,attributes.getValue(ResTags.R_A_WIDTH));
+			pTextureRegionDsc.Parameters[ResTags.R_A_POSITION_X_IDX]=dimHelper.parsPosition(ScreenDimensionHelper.X,attributes.getValue(ResTags.R_A_POSITION_X));
+			pTextureRegionDsc.Parameters[ResTags.R_A_POSITION_Y_IDX]=dimHelper.parsPosition(ScreenDimensionHelper.Y,attributes.getValue(ResTags.R_A_POSITION_Y));
 			pTextureRegionDsc.textureName = new String(pTextureDsc.Name);					//add parent texture name to textureregion descriptor
 			
 			pResDescManager.addTextureRegion(pTextureRegionDsc.Name, pTextureRegionDsc);	//add textureregion to maps or texture region
@@ -141,7 +132,7 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 			return;
 		}
 		
-		if (localName.equalsIgnoreCase(XMLTags.COLOR)){
+		if (localName.equalsIgnoreCase(ResTags.COLOR)){
 			
 			if(this.pColorDsc != null)
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered color description inside another color description inside");
@@ -149,10 +140,10 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 			pColorDsc = new ColorDescriptor();
 
 			// Read texture description
-			pColorDsc.Name = new String(attributes.getValue(XMLTags.NAME));
-			pColorDsc.Parameters[XMLTags.RED_IDX]=Integer.parseInt(attributes.getValue(XMLTags.RED), 16);
-			pColorDsc.Parameters[XMLTags.GREEN_IDX]=Integer.parseInt(attributes.getValue(XMLTags.GREEN), 16);
-			pColorDsc.Parameters[XMLTags.BLUE_IDX]=Integer.parseInt(attributes.getValue(XMLTags.BLUE), 16);
+			pColorDsc.Name = new String(attributes.getValue(ResTags.R_A_NAME));
+			pColorDsc.Parameters[ResTags.R_A_RED_IDX]=Integer.parseInt(attributes.getValue(ResTags.R_A_RED), 16);
+			pColorDsc.Parameters[ResTags.R_A_GREEN_IDX]=Integer.parseInt(attributes.getValue(ResTags.R_A_GREEN), 16);
+			pColorDsc.Parameters[ResTags.R_A_BLUE_IDX]=Integer.parseInt(attributes.getValue(ResTags.R_A_BLUE), 16);
 			
 			pResDescManager.addColor(pColorDsc.Name, pColorDsc);
 			return;
@@ -168,15 +159,15 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 	// * notre objet currentFeed
 	public void endElement(String uri, String localName, String name) throws SAXException {		
 
-		if (localName.equalsIgnoreCase(XMLTags.TEXTURE)){
-			pTextureDsc = null;
+		if (localName.equalsIgnoreCase(ResTags.R_TEXTURE)){
+			pTextureDsc  = null;
 		}
 		
-		if (localName.equalsIgnoreCase(XMLTags.TEXTUREREGION)){
+		if (localName.equalsIgnoreCase(ResTags.R_TEXTUREREGION)){
 			pTextureRegionDsc = null;
 		}
 		
-		if (localName.equalsIgnoreCase(XMLTags.COLOR)){
+		if (localName.equalsIgnoreCase(ResTags.COLOR)){
 			pColorDsc = null;
 		}
 		

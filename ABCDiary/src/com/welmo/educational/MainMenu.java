@@ -2,7 +2,7 @@ package com.welmo.educational;
 
 import org.andengine.engine.camera.Camera;
 import org.andengine.engine.options.EngineOptions;
-import org.andengine.engine.options.EngineOptions.ScreenOrientation;
+import org.andengine.engine.options.ScreenOrientation;
 import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.util.FPSLogger;
@@ -11,10 +11,7 @@ import org.andengine.ui.activity.SimpleBaseGameActivity;
 import android.content.Intent;
 
 import com.welmo.educational.managers.ResourcesManager;
-import com.welmo.educational.managers.SceneManager;
-import com.welmo.educational.scenes.SceneLetter;
 import com.welmo.educational.scenes.SceneMainMenu;
-import com.welmo.educational.scenes.SceneMenuArray;
 
 
 public class MainMenu extends SimpleBaseGameActivity {
@@ -46,7 +43,7 @@ public class MainMenu extends SimpleBaseGameActivity {
 	@Override
 	protected void onCreateResources() {
 		mResourceManager = ResourcesManager.getInstance();
-		mResourceManager.init(this);
+		mResourceManager.init(this, this.mEngine);
 		mResourceManager.GetTextureRegion("MenuItemLettere");
 		mResourceManager.GetTextureRegion("MenuArrayLetterA");
 		mResourceManager.GetTextureRegion("MenuBackGround");

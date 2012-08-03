@@ -18,7 +18,7 @@ import com.welmo.educational.scenes.description.FontDescriptor;
 import com.welmo.educational.scenes.description.ParserXMLSceneDescriptor;
 import com.welmo.educational.scenes.description.TextureDescriptor;
 import com.welmo.educational.scenes.description.TextureRegionDescriptor;
-import com.welmo.educational.scenes.description.XMLTags;
+import com.welmo.educational.scenes.description.tags.ResTags;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -34,6 +34,7 @@ public class ResourcesManager {
 	// Variables
 	// ===========================================================
 	Context mCtx;
+	Engine mEngine;
 	boolean initialized = false;
 
 	HashMap<String, Font> 					mapFonts;
@@ -61,14 +62,19 @@ public class ResourcesManager {
 		
 	// ===========================================================
 
-	public void init(Context ctx){
+	public void init(Context ctx, Engine eng){
 		if(!initialized){
 			// init resource manager with font & texture base path
 			FontFactory.setAssetBasePath(FONTHBASEPATH);
 			SVGBitmapTextureAtlasTextureRegionFactory.setAssetBasePath(TEXTUREBASEPATH);
 			//mCtx 	= ctx;
 			mCtx 	= ctx.getApplicationContext();
+			mEngine = eng;
 		}
+		else
+			//if init called for already initilized manager but with different context and engine throw an exception
+			if(mCtx != ctx || mEngine!= eng) //if intiliazation called on onother conxtx
+				throw new IllegalArgumentException("ResourceManager, Init called two times with different context");
 	}
 	
 	public void EngineLoadResources(Engine theEndgine){
@@ -86,7 +92,7 @@ public class ResourcesManager {
 			throw new IllegalArgumentException("In LoadTexture: Tentative to load a texture already loaded");
 
 		//Create the texture
-		BitmapTextureAtlas pTextureAtlas = new BitmapTextureAtlas(pTextRegDsc.Parameters[XMLTags.WIDTH_IDX], pTextRegDsc.Parameters[XMLTags.HEIGHT_IDX], TextureOptions.BILINEAR);
+		BitmapTextureAtlas pTextureAtlas = new BitmapTextureAtlas(mEngine.getTextureManager(), pTextRegDsc.Parameters[ResTags.R_A_WIDTH_IDX], pTextRegDsc.Parameters[ResTags.R_A_HEIGHT_IDX], TextureOptions.BILINEAR);
 		mapBitmapTexturesAtlas.put(pTextRegDsc.Name,pTextureAtlas);
 
 		//iterate to all textureregion define in the texture
@@ -97,8 +103,8 @@ public class ResourcesManager {
 
 			//Create texture region
 			mapTextureRegions.put(pTRDsc.Name, SVGBitmapTextureAtlasTextureRegionFactory.createFromAsset(pTextureAtlas, 
-					this.mCtx, pTRDsc.filename, pTRDsc.Parameters[XMLTags.WIDTH_IDX], pTRDsc.Parameters[XMLTags.HEIGHT_IDX], 
-					pTRDsc.Parameters[XMLTags.POSITION_X_IDX], pTRDsc.Parameters[XMLTags.POSITION_Y_IDX]));
+					this.mCtx, pTRDsc.filename, pTRDsc.Parameters[ResTags.R_A_WIDTH_IDX], pTRDsc.Parameters[ResTags.R_A_HEIGHT_IDX], 
+					pTRDsc.Parameters[ResTags.R_A_POSITION_X_IDX], pTRDsc.Parameters[ResTags.R_A_POSITION_Y_IDX]));
 		}
 				
 		return pTextureAtlas;
