@@ -9,7 +9,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.andengine.engine.camera.Camera;
 import org.andengine.engine.options.EngineOptions;
-import org.andengine.engine.options.EngineOptions.ScreenOrientation;
+import org.andengine.engine.options.ScreenOrientation;
 import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
 import org.andengine.entity.IEntity;
 import org.andengine.entity.modifier.AlphaModifier;
@@ -53,7 +53,7 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 	private static final int SPLASH_DURATION = 3; 	// Duration in seconds
 	private static final float SPLASH_SCALE_FROM = 0.6f;	//Scale modifier
 	//private static final String IMAGE = "logo.png";
-	private static final Class<MainMenu> FOLLOWING_ACTIVITY = MainMenu.class;	
+	private static final Class<MenuArrayLettere> FOLLOWING_ACTIVITY = MenuArrayLettere.class;	
 
 	BitmapTextureAtlas pTextureAtals;
 	ITextureRegion	pTextureRegion;
@@ -84,7 +84,7 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 	@Override
 	public void onCreateResources() {	
 		SVGBitmapTextureAtlasTextureRegionFactory.setAssetBasePath(TEXTUREBASEPATH);
-		pTextureAtals = new BitmapTextureAtlas(1024, 1024, TextureOptions.BILINEAR);
+		pTextureAtals = new BitmapTextureAtlas(this.mEngine.getTextureManager(),1024, 1024, TextureOptions.BILINEAR);
 		pTextureRegion = SVGBitmapTextureAtlasTextureRegionFactory.createFromAsset(pTextureAtals, this,
 				"colorful_animals_scalable_vector_graphics_svg_inkscape_adobe_illustrator_clip_art_clipart.svg", 800,480,0,0);
 		
@@ -131,8 +131,8 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 					@Override
 					public void run() {
 						//	Toast.makeText(SplashScreenActivity.this, "Sequence finished.", Toast.LENGTH_SHORT).show();
-						Intent intent = new Intent(SplashScreen.this, FOLLOWING_ACTIVITY);
-						startActivity(intent);
+						//[FT] Intent intent = new Intent(SplashScreen.this, FOLLOWING_ACTIVITY);
+						//[FT] startActivity(intent);
 						//finish();
 					}
 				});

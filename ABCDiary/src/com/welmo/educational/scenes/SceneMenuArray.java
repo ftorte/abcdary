@@ -2,8 +2,8 @@ package com.welmo.educational.scenes;
 
 
 import org.andengine.engine.Engine;
+import org.andengine.entity.scene.IOnSceneTouchListener;
 import org.andengine.entity.scene.Scene;
-import org.andengine.entity.scene.Scene.IOnSceneTouchListener;
 import org.andengine.input.touch.TouchEvent;
 import org.andengine.input.touch.detector.ClickDetector;
 import org.andengine.input.touch.detector.ClickDetector.IClickDetectorListener;
@@ -26,6 +26,7 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 	// ===========================================================
 	//Log & Debug
 	private static final String TAG = "MenuArrayScene";
+	private int miItemClicked=-1;
 	
 	//other constants
 	private static final int INVALID_CHAR_CLICKED = -1;
@@ -121,11 +122,9 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 			float pSceneX, float pSceneY) {
 
 		if(MLOG.LOG) Log.i(TAG,"onClick");
-		if(MLOG.LOG) Log.i(TAG,"Menu ID = " + this.mClickLeastener.getObjectID());
+		//if(MLOG.LOG) Log.i(TAG,"Menu ID = " + this.mClickLeastener.getObjectID());
 		
-		//Check if valid object
-		if(mClickLeastener.getObjectID() != this.INVALID_CHAR_CLICKED)
-			mApplication.LaunchLetterScreen(mClickLeastener.getObjectID());	
+		mApplication.LaunchLetterScreen(miItemClicked);	
 		
 		//reset click event
 		mClickLeastener.onClick(this.INVALID_CHAR_CLICKED);
@@ -144,18 +143,9 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 	// ===========================================================
 	private class ClicalbeSpriteLeastener implements ClickableSprite.IClickLeastener{
 
-		private int miItemClicked=-1;
 		@Override
 		public void onClick(int ObjectID) {
 			miItemClicked = ObjectID;
-		}
-		@Override
-		public void reset() {
-			miItemClicked=-1;
-		}
-		@Override
-		public int getObjectID(){
-			return miItemClicked;
 		}
 	}
 
@@ -165,5 +155,11 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 		super.loadScene(SceneName, res);
 		// enable the touch listener
 		this.onShow(this);
+	}
+
+	@Override
+	public void onActionChangeScene(int actionType, String nextScene) {
+		// TODO Auto-generated method stub
+		
 	}
 }

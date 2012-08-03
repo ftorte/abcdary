@@ -5,7 +5,6 @@ import android.view.Display;
 import android.view.WindowManager;
 
 import com.welmo.educational.managers.method;
-import com.welmo.educational.scenes.description.XMLTags;
 
 public class ScreenDimensionHelper {
 	

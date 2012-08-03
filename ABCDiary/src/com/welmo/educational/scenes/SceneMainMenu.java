@@ -1,8 +1,8 @@
 package com.welmo.educational.scenes;
 
 import org.andengine.engine.Engine;
+import org.andengine.entity.scene.IOnSceneTouchListener;
 import org.andengine.entity.scene.Scene;
-import org.andengine.entity.scene.Scene.IOnSceneTouchListener;
 import org.andengine.input.touch.TouchEvent;
 import org.andengine.input.touch.detector.ClickDetector;
 import org.andengine.input.touch.detector.ClickDetector.IClickDetectorListener;
@@ -24,15 +24,16 @@ public class SceneMainMenu extends ManageableScene implements IClickDetectorList
 	// Constants
 	// ===========================================================
 	//Log & Debug
-	private static final String TAG = "MenuArrayScene";
+	private static final String TAG = "SceneMainMenu";
 	
 	//other constants
 	private static final int INVALID_CHAR_CLICKED = -1;
+	private int miItemClicked=-1;
 
 	// ===========================================================
 	// Fields - Items and global properties
 	// ===========================================================
-	protected MainMenu mApplication;
+	protected MenuArrayLettere mApplication;
 	
 	// ===========================================================
 	// Fields - Detectors
@@ -44,7 +45,7 @@ public class SceneMainMenu extends ManageableScene implements IClickDetectorList
 	// ===========================================================
 	
 	//Constructor
-	public SceneMainMenu(MainMenu pApplication){
+	public SceneMainMenu(MenuArrayLettere pApplication){
 		super();
 		mClickLeastener=new SceneMainMenu.ClicalbeSpriteLeastener();
 		mApplication = pApplication;
@@ -118,11 +119,8 @@ public class SceneMainMenu extends ManageableScene implements IClickDetectorList
 			float pSceneX, float pSceneY) {
 
 		if(MLOG.LOG) Log.i(TAG,"onClick");
-		if(MLOG.LOG) Log.i(TAG,"Menu ID = " + this.mClickLeastener.getObjectID());
 		
-		//Check if valid object
-		if(mClickLeastener.getObjectID() != this.INVALID_CHAR_CLICKED)
-			mApplication.LaunchLetterScreen(mClickLeastener.getObjectID());	
+		mApplication.LaunchLetterScreen(miItemClicked);	
 		
 		//reset click event
 		mClickLeastener.onClick(this.INVALID_CHAR_CLICKED);
@@ -133,7 +131,7 @@ public class SceneMainMenu extends ManageableScene implements IClickDetectorList
 	@Override
 	public void init(Engine theEngine, Context ctx) {
 		super.init(theEngine, ctx);
-		this.mApplication = (MainMenu) ctx;
+		this.mApplication = (MenuArrayLettere) ctx;
 	}
 	
 	// ===========================================================
@@ -141,27 +139,24 @@ public class SceneMainMenu extends ManageableScene implements IClickDetectorList
 	// ===========================================================
 	private class ClicalbeSpriteLeastener implements ClickableSprite.IClickLeastener{
 
-		private int miItemClicked=-1;
 		@Override
 		public void onClick(int ObjectID) {
 			miItemClicked = ObjectID;
 		}
-		@Override
-		public void reset() {
-			miItemClicked=-1;
-		}
-		@Override
-		public int getObjectID(){
-			return miItemClicked;
-		}
 	}
 
 	@Override
-	public void loadScene(String SceneName, ResourcesManager res) {
+	public void loadScene(String SceneName) {
 		// TODO Auto-generated method stub
-		super.loadScene(SceneName, res);
+		super.loadScene(SceneName);
 		// FT disable load resource res.EngineLoadResources(this.mEngine);
 		// enable the touch listener
 		this.onShow(this);
+	}
+
+	@Override
+	public void onActionChangeScene(int actionType, String nextScene) {
+		// TODO Auto-generated method stub
+		
 	}
 }
