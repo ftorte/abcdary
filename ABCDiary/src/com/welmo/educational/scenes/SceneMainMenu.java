@@ -14,6 +14,7 @@ import com.welmo.educational.MainMenu;
 import com.welmo.educational.MenuArrayLettere;
 import com.welmo.educational.managers.ResourcesManager;
 import com.welmo.educational.scenes.components.ClickableSprite;
+import com.welmo.educational.scenes.description.Events.Action.ActionType;
 import com.welmo.educational.utility.MLOG;
 
 
@@ -47,14 +48,14 @@ public class SceneMainMenu extends ManageableScene implements IClickDetectorList
 	//Constructor
 	public SceneMainMenu(MenuArrayLettere pApplication){
 		super();
-		mClickLeastener=new SceneMainMenu.ClicalbeSpriteLeastener();
+		// [FT] mClickLeastener=new SceneMainMenu.ClicalbeSpriteLeastener();
 		mApplication = pApplication;
 	}
 
 	//Constructor
 	public SceneMainMenu(){
 		super();
-		mClickLeastener=new SceneMainMenu.ClicalbeSpriteLeastener();
+		// [FT] mClickLeastener=new SceneMainMenu.ClicalbeSpriteLeastener();
 	}
 
 	
@@ -120,10 +121,10 @@ public class SceneMainMenu extends ManageableScene implements IClickDetectorList
 
 		if(MLOG.LOG) Log.i(TAG,"onClick");
 		
-		mApplication.LaunchLetterScreen(miItemClicked);	
+		//[FT] mApplication.LaunchLetterScreen(miItemClicked);	
 		
 		//reset click event
-		mClickLeastener.onClick(this.INVALID_CHAR_CLICKED);
+		// [FT]	mClickLeastener.onClick(this.INVALID_CHAR_CLICKED);
 	}
 
 	
@@ -137,13 +138,13 @@ public class SceneMainMenu extends ManageableScene implements IClickDetectorList
 	// ===========================================================
 	// Inner private classes
 	// ===========================================================
-	private class ClicalbeSpriteLeastener implements ClickableSprite.IClickLeastener{
-
-		@Override
-		public void onClick(int ObjectID) {
-			miItemClicked = ObjectID;
-		}
-	}
+	// [FT] private class ClicalbeSpriteLeastener implements ClickableSprite.IClickLeastener{
+	// [FT]
+	// [FT]	@Override
+	// [FT]	public void onClick(int ObjectID) {
+	// [FT]		miItemClicked = ObjectID;
+	// [FT]	}
+	// [FT]}
 
 	@Override
 	public void loadScene(String SceneName) {
@@ -154,9 +155,10 @@ public class SceneMainMenu extends ManageableScene implements IClickDetectorList
 		this.onShow(this);
 	}
 
+	
 	@Override
-	public void onActionChangeScene(int actionType, String nextScene) {
-		// TODO Auto-generated method stub
+	public boolean onActionChangeScene(String nextScene) {
+		return false;// TODO Auto-generated method stub
 		
 	}
 }

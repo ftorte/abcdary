@@ -2,6 +2,8 @@ package com.welmo.educational.scenes;
 
 import org.andengine.engine.Engine;
 
+import com.welmo.educational.managers.SceneManager;
+
 import android.content.Context;
 
 public interface IManageableScene {

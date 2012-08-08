@@ -1,22 +1,31 @@
 package com.welmo.educational.scenes;
 
+import java.util.List;
+
 import org.andengine.engine.Engine;
+import org.andengine.entity.scene.ITouchArea;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.sprite.Sprite;
+import org.andengine.input.touch.TouchEvent;
 
 import com.welmo.educational.managers.ResourcesManager;
 import com.welmo.educational.managers.SceneDescriptorsManager;
+import com.welmo.educational.managers.SceneManager;
 import com.welmo.educational.scenes.components.ClickableSprite;
+import com.welmo.educational.scenes.components.CompoundSprite;
 import com.welmo.educational.scenes.components.IActionOnSceneListener;
 import com.welmo.educational.scenes.description.SceneDescriptor;
 import com.welmo.educational.scenes.description.SpriteDescriptor;
+import com.welmo.educational.scenes.description.Events.Action;
+import com.welmo.educational.scenes.description.Events.Action.ActionType;
+import com.welmo.educational.scenes.description.Events.Modifier;
 import com.welmo.educational.scenes.description.tags.ResTags;
 import com.welmo.educational.utility.MLOG;
 
 import android.content.Context;
 import android.util.Log;
 
-abstract  public class ManageableScene extends Scene implements IManageableScene, IActionOnSceneListener{
+public class ManageableScene extends Scene implements IManageableScene, IActionOnSceneListener{
 	//--------------------------------------------------------
 	// Variables
 	//--------------------------------------------------------
@@ -25,16 +34,17 @@ abstract  public class ManageableScene extends Scene implements IManageableScene
 	protected Context 							mContext;
 	protected SceneDescriptorsManager 			pSDM;
 	protected ResourcesManager					pRM;
+	protected SceneManager<?>					pSM;
 	
-	protected ClickableSprite.IClickLeastener 	mClickLeastener;
+	// [FT] protected ClickableSprite.IClickLeastener 	mClickLeastener;
 	
 	//public void loadResources(){};
 	
 	//protected Context mApplication = null;
 	
-	ManageableScene(){
+	public ManageableScene(){
 		//initialize dummy listeners
-		mClickLeastener=new ManageableScene.ClicalbeSpriteLeastener();
+		// [FT] mClickLeastener=new ManageableScene.ClicalbeSpriteLeastener();
 		pSDM = SceneDescriptorsManager.getInstance();
 		pRM = ResourcesManager.getInstance();
 	}
@@ -49,33 +59,51 @@ abstract  public class ManageableScene extends Scene implements IManageableScene
 			throw new NullPointerException("In ManageableScene: the scene: " + SceneName + " don't exists");
 	
 		for(SpriteDescriptor scObjDsc:scDsc.scObjects){
-			switch(scObjDsc.type){
-			
+			switch(scObjDsc.type){	
 			case  STATIC:
-				/* Create the background sprite and add it to the scene. */
-				final Sprite newSprite = new Sprite(scObjDsc.Parameters[ResTags.R_A_POSITION_X_IDX], scObjDsc.Parameters[ResTags.R_A_POSITION_Y_IDX], 
-						scObjDsc.Parameters[ResTags.R_A_WIDTH_IDX ], scObjDsc.Parameters[ResTags.R_A_HEIGHT_IDX], pRM.GetTextureRegion(scObjDsc.resourceName), 
-						this.mEngine.getVertexBufferObjectManager());
-				this.attachChild(newSprite);
-				break;
+				this.attachChild(createSprite(scObjDsc));
 				
 			case CLICKABLE:
-				/* Create the clickable sprites elements */
-				final ClickableSprite newClicableSprite = new ClickableSprite(scObjDsc.Parameters[ResTags.R_A_POSITION_X_IDX], scObjDsc.Parameters[ResTags.R_A_POSITION_Y_IDX], 
-						scObjDsc.Parameters[ResTags.R_A_WIDTH_IDX], scObjDsc.Parameters[ResTags.R_A_HEIGHT_IDX], pRM.GetTextureRegion(scObjDsc.resourceName), 
-						this.mEngine.getVertexBufferObjectManager());
-				newClicableSprite.setActionOnSceneListener(this);
-				newClicableSprite.setID(scObjDsc.ID);
-				newClicableSprite.setActionOnSceneListener(this);
-				newClicableSprite.setOnClikcNextScene(scObjDsc.nextScene);
-				this.attachChild(newClicableSprite);
-				this.registerTouchArea(newClicableSprite);
+				/* Create the clickable sprite elements */
+				this.attachChild(createClickableSprite(scObjDsc));
+				break;
 
+			case COMPOUND_SPRITE:
+				final CompoundSprite newEntity = new CompoundSprite(0, 0, 0,0, this.mEngine.getVertexBufferObjectManager());
+				newEntity.setID(scObjDsc.ID);
+				for( int i = 0; i < scObjDsc.coumpoundElements.size(); i++){
+					ClickableSprite newComponent = createClickableSprite(scObjDsc.coumpoundElements.get(i));
+					newEntity.attachComponentChild(newComponent.getX(), newComponent.getY(), newComponent.getWidth(), newComponent.getHeight(),newComponent);
+				};
+				this.attachChild(newEntity);
+				newEntity.setActionOnSceneListener(this);
+				newEntity.setPDescriptor(scObjDsc);
+				this.registerTouchArea(newEntity);
 				break;
 			default:
 				break;
 			}
 		}
+	}
+
+	
+	//Create components
+	private Sprite createSprite(SpriteDescriptor spDsc){
+		final Sprite newSprite = new Sprite(spDsc.Parameters[ResTags.R_A_POSITION_X_IDX], spDsc.Parameters[ResTags.R_A_POSITION_Y_IDX], 
+				spDsc.Parameters[ResTags.R_A_WIDTH_IDX ], spDsc.Parameters[ResTags.R_A_HEIGHT_IDX], pRM.GetTextureRegion(spDsc.resourceName), 
+				this.mEngine.getVertexBufferObjectManager());
+		return newSprite;
+	}
+	private ClickableSprite createClickableSprite(SpriteDescriptor spDsc){
+
+		final ClickableSprite newClicableSprite = new ClickableSprite(spDsc.Parameters[ResTags.R_A_POSITION_X_IDX], spDsc.Parameters[ResTags.R_A_POSITION_Y_IDX], 
+				spDsc.Parameters[ResTags.R_A_WIDTH_IDX], spDsc.Parameters[ResTags.R_A_HEIGHT_IDX], pRM.GetTextureRegion(spDsc.resourceName), 
+				this.mEngine.getVertexBufferObjectManager());
+		newClicableSprite.setID(spDsc.ID);
+		newClicableSprite.setActionOnSceneListener(this);
+		newClicableSprite.setPDescriptor(spDsc);
+		this.registerTouchArea(newClicableSprite);
+		return newClicableSprite;
 	}
 
 	public void init(Engine theEngine, Context ctx) {
@@ -89,20 +117,28 @@ abstract  public class ManageableScene extends Scene implements IManageableScene
 	// ===========================================================
 	// Dummy Class implementing IClickLeastener of ClicableSprite object
 	// ===========================================================
-	private class ClicalbeSpriteLeastener implements ClickableSprite.IClickLeastener{
+	
+	//Default Implementation of IActionOnSceneListener interface
+	@Override
+	public boolean onActionChangeScene(String nextScene) {
+		ManageableScene psc = pSM.getScene(nextScene);
+		if(psc != null){
+			mEngine.setScene(pSM.getScene(nextScene));
+			return true;
+		}
+		else
+			return false;
+	}
 
-		public void onClick(int ObjectID) {
-			if(MLOG.LOG) Log.i(TAG,"In Scene Not Inilialised click Listener");
-			throw new NullPointerException("ManageableScene In Scene Not Initialized click Listener");
-		}
-		/*public void reset() {
-			if(MLOG.LOG) Log.i(TAG,"In Scene Not Inilialised click Listener");
-			throw new NullPointerException("ManageableScene In Scene Not Initialized click Listener");
-		}
-		public int getObjectID(){
-			if(MLOG.LOG) Log.i(TAG,"In Scene Not Inilialised click Listener");
-			throw new NullPointerException("ManageableScene In Scene Not Initialized click Listener");
-		}*/
+	public void setSceneManager(SceneManager<?> sceneManager) {
+		this.pSM = sceneManager;
+	}
+
+	@Override
+	public void onStick(TouchEvent pSceneTouchEvent, float pTouchAreaLocalX,
+			float pTouchAreaLocalY, Action pModifierList) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

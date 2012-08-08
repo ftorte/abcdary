@@ -1,27 +1,19 @@
 package com.welmo.educational.scenes.description;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 public class SpriteDescriptor extends ResourceDescriptor {
 	// enumerators to manage object types & object events
 	public enum SpritesTypes {
-	    NO_TYPE, STATIC, CLICKABLE
-	}
-	public enum SpritesEvents {
-	    NO_EVENTS, ON_CLICK, ON_MOVE
-	}
-	public enum ActionType {
-		NO_ACTION, CHANGE_SCENE,
-	}
-	public enum ModifierType {
-	    NO_MODIFIER, MOVE, SCALE
+	    NO_TYPE, STATIC, CLICKABLE, COMPOUND_SPRITE
 	}
 	
 	public SpritesTypes type;
-	public String nextScene;
 	public String resourceName;
+	public List<SpriteDescriptor> coumpoundElements;
 	
-	public ArrayList<Modifier> modifiers;
-	public ArrayList<Action> actions;
+	SpriteDescriptor(){
+		coumpoundElements = new ArrayList<SpriteDescriptor>();
+	}
 }

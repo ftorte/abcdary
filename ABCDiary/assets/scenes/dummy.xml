@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!--
+            <compound_sprite ID="4" type="COMPOUND_SPRITE">
+            	<sprite ID="5" height="32" width="32" px="200" py="200" resourceName="MenuArrayLetterA" type="STATIC"></sprite>
+            	<sprite ID="6" height="32" width="32" px="200" py="200" resourceName="MenuArrayLetterA" type="STATIC"></sprite> 
+            	<action event="ON_MOVE" type="STICK" stick_with="2" stick_mode="MERGE"></action>      
+            	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
+            </compound_sprite>	
+            -->			

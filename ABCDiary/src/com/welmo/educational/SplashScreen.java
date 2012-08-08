@@ -131,8 +131,8 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 					@Override
 					public void run() {
 						//	Toast.makeText(SplashScreenActivity.this, "Sequence finished.", Toast.LENGTH_SHORT).show();
-						//[FT] Intent intent = new Intent(SplashScreen.this, FOLLOWING_ACTIVITY);
-						//[FT] startActivity(intent);
+						Intent intent = new Intent(SplashScreen.this, FOLLOWING_ACTIVITY);
+						startActivity(intent);
 						//finish();
 					}
 				});
