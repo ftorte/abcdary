@@ -70,6 +70,7 @@ public class ResourcesManager {
 			//mCtx 	= ctx;
 			mCtx 	= ctx.getApplicationContext();
 			mEngine = eng;
+			initialized = true;
 		}
 		else
 			//if init called for already initilized manager but with different context and engine throw an exception
@@ -115,7 +116,7 @@ public class ResourcesManager {
 		ResourceDescriptorsManager pResDscMng = ResourceDescriptorsManager.getInstance();
 		TextureRegionDescriptor pTextRegDsc = pResDscMng.getTextureRegion(textureRegionName);
 		if(pTextRegDsc == null)
-			throw new IllegalArgumentException("In LoadTextureRegion: there is no description for the requested texture");
+			throw new IllegalArgumentException("In LoadTextureRegion: there is no description for the requested texture = " + textureRegionName);
 		
 		//To load a texture region the manager load the texture and all child regions
 		LoadTexture(pTextRegDsc.textureName);

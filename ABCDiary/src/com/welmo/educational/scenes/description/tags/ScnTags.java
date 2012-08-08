@@ -14,7 +14,8 @@ public class ScnTags {
 	//Scene Objects
 	public final static String S_SPRITE 			= "sprite";
 	public final static String S_CLICKABLE_SPRITE 	= "clickable_sprite";
-	public final static String S_CLICKABLE_SPRITE2 	= "clickable_sprite2";
+	public final static String S_COMPOUND_SPRITE 	= "compound_sprite";
+	
 	public final static String S_ACTION 			= "action";
 	public final static String S_MODIFIER 			= "modifier";
 	//Scene Objects' parameters
@@ -22,7 +23,7 @@ public class ScnTags {
 	public final static String S_A_SCENE_CHANGE 	= "scene_change";
 	public final static String S_A_ID 				= "ID";
 	public final static String S_A_TYPE				= "type";
-	public final static String S_A_RESOURCE_NAME 		= "resourceName";
+	public final static String S_A_RESOURCE_NAME 	= "resourceName";
 	
 	public final static String S_A_EVENT 			= "event";
 	public final static String S_A_MOVE_FACTOR 		= "move_factor";

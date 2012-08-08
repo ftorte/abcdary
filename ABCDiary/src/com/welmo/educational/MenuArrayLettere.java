@@ -6,22 +6,8 @@ import org.andengine.engine.options.EngineOptions;
 import org.andengine.engine.options.ScreenOrientation;
 import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
 import org.andengine.entity.scene.Scene;
-import org.andengine.entity.scene.background.Background;
-import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.util.FPSLogger;
-import org.andengine.extension.svg.opengl.texture.atlas.bitmap.SVGBitmapTextureAtlasTextureRegionFactory;
-import org.andengine.opengl.texture.TextureOptions;
-import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
-import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
-import org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas;
-import org.andengine.opengl.texture.atlas.bitmap.source.IBitmapTextureAtlasSource;
-import org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder;
-import org.andengine.opengl.texture.atlas.buildable.builder.ITextureAtlasBuilder.TextureAtlasBuilderException;
-import org.andengine.opengl.texture.region.BaseTextureRegion;
-import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.ui.activity.SimpleBaseGameActivity;
-import org.andengine.util.debug.Debug;
-
 import com.welmo.educational.managers.ResourcesManager;
 import com.welmo.educational.managers.SceneManager;
 import com.welmo.educational.scenes.ManageableScene;
@@ -29,18 +15,14 @@ import com.welmo.educational.scenes.SceneLetter;
 import com.welmo.educational.scenes.SceneMainMenu;
 import com.welmo.educational.scenes.SceneMenuArray;
 
-import android.content.Intent;
-
-public class MenuArrayLettere extends SimpleBaseGameActivity {
+public class MenuArrayLettere extends SimpleBaseGameActivity /*implements IActionOnSceneListener*/ {
 	
 
 	// ===========================================================
 	// Constants
 	// ===========================================================
-
 	public static final float CAMERA_WIDTH = 800;
 	public static final float CAMERA_HEIGHT = 480;
-	
 	public static final	String INTENT_KEY_PARAM_A = "LetterID";
 	
 	// ===========================================================
@@ -49,6 +31,7 @@ public class MenuArrayLettere extends SimpleBaseGameActivity {
 
 	SceneManager<SceneMenuArray> 	mSceneLetterMenuManager;
 	SceneManager<SceneLetter> 		mSceneLetterManager;
+	SceneManager<ManageableScene> 	mSceneManager;
 	SceneMainMenu  					mSceneMainMenu;
 	ResourcesManager 				mResourceManager;
 
@@ -68,32 +51,16 @@ public class MenuArrayLettere extends SimpleBaseGameActivity {
 		mResourceManager.EngineLoadResources(this.mEngine);
 		this.mEngine.onReloadResources();
 	}
-
 	@Override
 	protected Scene onCreateScene() {
-		
 		this.mEngine.registerUpdateHandler(new FPSLogger());
-
-		mSceneLetterMenuManager = new SceneManager<SceneMenuArray>(SceneMenuArray.class);
-		mSceneLetterMenuManager.init(this.getEngine(), this);
-		mSceneLetterMenuManager.BuildScenes("SceneLetterA","SceneLetterA",mResourceManager);
-
-		mSceneLetterManager = new SceneManager<SceneLetter>(SceneLetter.class);
-		mSceneLetterManager.init(this.getEngine(), this);
-		mSceneLetterManager.BuildScenes("Test","Test",mResourceManager);
-		
-		mSceneMainMenu = new SceneMainMenu();
-		mSceneMainMenu.init(this.getEngine(), this);
-		mSceneMainMenu.loadScene("ABCMainMenu");
-		
-		//return mSceneLetterMenuManager.getScene("SceneLetterA");
-		return mSceneMainMenu;
-	}
-	
-	public void LaunchLetterScreen(int letterID){
-		SceneLetter theNewScene = mSceneLetterManager.getScene("Test");
-		theNewScene.resetScene();
-		this.mEngine.setScene(mSceneLetterManager.getScene("Test"));
+		mSceneManager = new SceneManager<ManageableScene>(ManageableScene.class);
+		mSceneManager.init(this.getEngine(), this);
+		mSceneManager.BuildScenes("SceneLetterA","SceneLetterA",mResourceManager);
+		mSceneManager.BuildScenes("Test","Test",mResourceManager);
+		mSceneManager.BuildScenes("Test2","Test2",mResourceManager);
+		mSceneManager.BuildScenes("ABCMainMenu","ABCMainMenu",mResourceManager);	
+		return mSceneManager.getScene("ABCMainMenu");
 		
 	}
 	@Override

@@ -3,6 +3,7 @@ package com.welmo.educational.scenes;
 import com.welmo.educational.MenuArrayLettere;
 import com.welmo.educational.managers.ResourcesManager;
 import com.welmo.educational.scenes.components.ClickableSprite;
+import com.welmo.educational.scenes.description.Events.Action.ActionType;
 
 public class SceneLetter extends ManageableScene {
 
@@ -28,31 +29,26 @@ public class SceneLetter extends ManageableScene {
 	//Constructor
 	public SceneLetter(MenuArrayLettere pApplication){
 		super();
-		mClickLeastener=new SceneLetter.ClicalbeSpriteLeastener();
+		// [FT] mClickLeastener=new SceneLetter.ClicalbeSpriteLeastener();
 		//[FT] mApplication = pApplication;
 	}
 
 	//Constructor
 	public SceneLetter(){
 		super();
-		mClickLeastener=new SceneLetter.ClicalbeSpriteLeastener();
+		// [FT] mClickLeastener=new SceneLetter.ClicalbeSpriteLeastener();
 	}
 
 	// ===========================================================
 	// Inner private classes to handle on click event
 	// ===========================================================
-	private class ClicalbeSpriteLeastener implements ClickableSprite.IClickLeastener{
+	// [FT] private class ClicalbeSpriteLeastener implements ClickableSprite.IClickLeastener{
+	// [FT]
+	// [FT]	@Override
+	// [FT]	public void onClick(int ObjectID) {
+	// [FT]		miItemClicked = ObjectID;
+	// [FT]	}
+	// [FT]
+	// [FT]}
 
-		@Override
-		public void onClick(int ObjectID) {
-			miItemClicked = ObjectID;
-		}
-
-	}
-
-	@Override
-	public void onActionChangeScene(int actionType, String nextScene) {
-		// TODO Auto-generated method stub
-		
-	}
 }

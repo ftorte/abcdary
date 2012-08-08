@@ -13,6 +13,7 @@ import com.welmo.educational.MenuArrayLettere;
 import com.welmo.educational.managers.ResourceDescriptorsManager;
 import com.welmo.educational.managers.ResourcesManager;
 import com.welmo.educational.scenes.components.ClickableSprite;
+import com.welmo.educational.scenes.description.Events.Action.ActionType;
 import com.welmo.educational.utility.MLOG;
 
 import android.content.Context;
@@ -50,14 +51,14 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 	//Constructor
 	public SceneMenuArray(MenuArrayLettere pApplication){
 		super();
-		mClickLeastener=new SceneMenuArray.ClicalbeSpriteLeastener();
+		// [FT] mClickLeastener=new SceneMenuArray.ClicalbeSpriteLeastener();
 		mApplication = pApplication;
 	}
 
 	//Constructor
 	public SceneMenuArray(){
 		super();
-		mClickLeastener=new SceneMenuArray.ClicalbeSpriteLeastener();
+		// [FT] mClickLeastener=new SceneMenuArray.ClicalbeSpriteLeastener();
 	}
 
 	
@@ -78,7 +79,7 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 		clickDetector.reset();
 		clickDetector.setEnabled(true);
 
-		scene.setOnSceneTouchListener(this);
+		scene.setOnSceneTouchListener( this);
 		this.setTouchAreaBindingOnActionDownEnabled(true);
 	}
 
@@ -124,10 +125,10 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 		if(MLOG.LOG) Log.i(TAG,"onClick");
 		//if(MLOG.LOG) Log.i(TAG,"Menu ID = " + this.mClickLeastener.getObjectID());
 		
-		mApplication.LaunchLetterScreen(miItemClicked);	
+		//[FT] mApplication.LaunchLetterScreen(miItemClicked);	
 		
 		//reset click event
-		mClickLeastener.onClick(this.INVALID_CHAR_CLICKED);
+		// [FT] mClickLeastener.onClick(this.INVALID_CHAR_CLICKED);
 	}
 
 	
@@ -141,13 +142,13 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 	// ===========================================================
 	// Inner private classes
 	// ===========================================================
-	private class ClicalbeSpriteLeastener implements ClickableSprite.IClickLeastener{
-
-		@Override
-		public void onClick(int ObjectID) {
-			miItemClicked = ObjectID;
-		}
-	}
+	// [FT]private class ClicalbeSpriteLeastener implements ClickableSprite.IClickLeastener{
+	// [FT]
+	// [FT]	@Override
+		// [FT]	public void onClick(int ObjectID) {
+	// [FT]		miItemClicked = ObjectID;
+	// [FT]	}
+	// [FT]}
 
 	@Override
 	public void loadScene(String SceneName, ResourcesManager res) {
@@ -157,9 +158,14 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 		this.onShow(this);
 	}
 
-	@Override
-	public void onActionChangeScene(int actionType, String nextScene) {
-		// TODO Auto-generated method stub
-		
-	}
+	/** 
+	 * Change this fonction or override it to defined the action on clic on an item whichi implement Action Change scene type.
+	 * 
+	 * @see org.andengine.input.touch.detector.ClickDetector.IClickDetectorListener#onClick(org.andengine.input.touch.detector.ClickDetector, int, float, float)
+	 */
+	/*@Override
+	public boolean onActionChangeScene(String nextScene) {
+		return mApplication.onActionChangeScene(nextScene);
+		//return super.onActionChangeScene(actionType, nextScene);
+	}*/
 }

@@ -8,9 +8,13 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.util.Log;
 
 import com.welmo.educational.managers.ResourceDescriptorsManager;
 import com.welmo.educational.managers.SceneDescriptorsManager;
+import com.welmo.educational.scenes.description.Events.Action;
+import com.welmo.educational.scenes.description.Events.EventDescriptionsManager;
+import com.welmo.educational.scenes.description.Events.Modifier;
 import com.welmo.educational.scenes.description.tags.ScnTags;
 import com.welmo.educational.utility.ScreenDimensionHelper;
 
@@ -20,11 +24,15 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 	//--------------------------------------------------------
 	// Variables
 	//--------------------------------------------------------
+	private static final String TAG = "ParserXMLSceneDescriptor";
+	
 	private SceneDescriptorsManager			pSceneDescManager;
 	private ScreenDimensionHelper			dimHelper=null;
+	private EventDescriptionsManager		pEventDscMgr;
 
 	protected SceneDescriptor				pSceneDsc;
 	protected SpriteDescriptor 				pSpriteDsc;
+	protected SpriteDescriptor 				pCompoundSpriteDsc;
 	protected MultiViewSceneDescriptor		pMultiViewSceneDsc;
 	protected Action		pAction;
 	protected Modifier		pModifier;
@@ -40,6 +48,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 	public ParserXMLSceneDescriptor(Context ctx) {
 		super();
 		dimHelper = ScreenDimensionHelper.getInstance(ctx);
+		pEventDscMgr = EventDescriptionsManager.getInstance();
 	}
 
 
@@ -63,6 +72,9 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 	 * C'est cette méthode que nous allons utiliser pour instancier un nouveau feed
 	 */
 	public void startElement(String uri, String localName, String name,	Attributes attributes) throws SAXException {	
+		
+		
+		
 		if (localName.equalsIgnoreCase(ScnTags.S_MULTIVIEWSCENE)){
 			if(this.pMultiViewSceneDsc != null)
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered multiview scene description with another multiview scene description inside");
@@ -99,54 +111,76 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered sceneobject description withou sceneo description");
 			
 			pSpriteDsc = new SpriteDescriptor();
-
-			//add sprite object to parent scene
-			pSceneDsc.scObjects.add(pSpriteDsc);										//add scene object to list of region in parent texture
-			
 			// Read the sprite
 			pSpriteDsc.ID=0;
 			pSpriteDsc.resourceName = new String(attributes.getValue(ScnTags.S_A_RESOURCE_NAME));
+			Log.i(TAG,attributes.getValue(ScnTags.S_A_TYPE));
+			pSpriteDsc.type = SpriteDescriptor.SpritesTypes.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
 			pSpriteDsc.Parameters[ScnTags.S_A_POSITION_X_IDX] = dimHelper.parsPosition(ScreenDimensionHelper.X,attributes.getValue(ScnTags.S_A_POSITION_X));
 			pSpriteDsc.Parameters[ScnTags.S_A_POSITION_Y_IDX] = dimHelper.parsPosition(ScreenDimensionHelper.Y,attributes.getValue(ScnTags.S_A_POSITION_Y));
 			pSpriteDsc.Parameters[ScnTags.S_A_WIDTH_IDX] = dimHelper.parsLenght(ScreenDimensionHelper.W, attributes.getValue(ScnTags.S_A_WIDTH));
 			pSpriteDsc.Parameters[ScnTags.S_A_HEIGHT_IDX] = dimHelper.parsLenght(ScreenDimensionHelper.H, attributes.getValue(ScnTags.S_A_HEIGHT));
-			pSpriteDsc.type = SpriteDescriptor.SpritesTypes.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
-			return;	
+
+			//check if the sprite is part of a compound sprite and add it to it else add it to the scene
+			if(pCompoundSpriteDsc != null)
+				pCompoundSpriteDsc.coumpoundElements.add(pSpriteDsc);
+			else
+				pSceneDsc.scObjects.add(pSpriteDsc);										//add scene object to list of region in parent texture				
 		}
+		
+		if (localName.equalsIgnoreCase(ScnTags.S_COMPOUND_SPRITE)){
+			if(this.pCompoundSpriteDsc != null) //check if new compound sprite
+				throw new NullPointerException("ParserXMLSceneDescriptor encountered compoundsprite description with another compoundsprite description inside");
+
+			if(this.pSceneDsc == null) //check if compound is part of a scene
+				throw new NullPointerException("ParserXMLSceneDescriptor encountered sceneobject description withou sceneo description");
+			pCompoundSpriteDsc = new SpriteDescriptor();
+			// Read the compound sprite parameters
+			pCompoundSpriteDsc.ID=0;
+			pCompoundSpriteDsc.type = SpriteDescriptor.SpritesTypes.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
+			//add compound sprite to scene
+			pSceneDsc.scObjects.add(pCompoundSpriteDsc);			 
+		}
+			
 		if (localName.equalsIgnoreCase(ScnTags.S_ACTION)){
 			if(this.pAction != null) //check if new action object descriptor
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered action description with another action description inside");
-			if(this.pSpriteDsc == null) //check if action is part of a sprite
-				throw new NullPointerException("ParserXMLSceneDescriptor encountered sceneobject description withou sceneo description");
+			if(this.pSpriteDsc == null && this.pCompoundSpriteDsc == null ) //check if action is part of a sprite
+				throw new NullPointerException("ParserXMLSceneDescriptor encountered acton description withou sprite or compound sprite");
 			
-			//create new action and add it to the sprite description
+			//create new action
 			pAction = new Action();
-			pSpriteDsc.actions.add(pAction);
 			
-			pAction.event=SpriteDescriptor.SpritesEvents.valueOf(attributes.getValue(ScnTags.S_A_EVENT));;
-			pAction.type=SpriteDescriptor.ActionType.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
-			switch (SpriteDescriptor.ActionType.valueOf(attributes.getValue(ScnTags.S_A_TYPE))){
+			// read type and init the correct parameter as per action type
+			pAction.type=Action.ActionType.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
+			switch (Action.ActionType.valueOf(attributes.getValue(ScnTags.S_A_TYPE))){
 				case CHANGE_SCENE:
 					pAction.NextScene=attributes.getValue(ScnTags.S_A_NEXT_SCENE);
 					break;
 				default:
 					break;
 			}
+			
+			// add the new event to the event list for the related object
+			if(this.pSpriteDsc != null)
+				pEventDscMgr.addAction(EventDescriptionsManager.Events.valueOf(attributes.getValue(ScnTags.S_A_EVENT)),pSpriteDsc,pAction);
+			else
+				pEventDscMgr.addAction(EventDescriptionsManager.Events.valueOf(attributes.getValue(ScnTags.S_A_EVENT)),pCompoundSpriteDsc,pAction);
 		}
 			
 		if (localName.equalsIgnoreCase(ScnTags.S_MODIFIER)){
 			if(this.pModifier != null) //check if new action object descriptor
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered action description with another action description inside");
-			if(this.pSpriteDsc == null) //check if action is part of a sprite
-				throw new NullPointerException("ParserXMLSceneDescriptor encountered sceneobject description withou sceneo description");
+			if(this.pSpriteDsc == null && this.pCompoundSpriteDsc == null ) //check if modifier is part of a sprite
+				throw new NullPointerException("ParserXMLSceneDescriptor encountered modifier description withou sprite or compound sprite");
 			
 			//create new action and add it to the sprite description
 			pModifier = new Modifier();
-			pSpriteDsc.modifiers.add(pModifier);
+			//pSpriteDsc.modifiers.add(pModifier);
 			
-			pModifier.event=SpriteDescriptor.SpritesEvents.valueOf(attributes.getValue(ScnTags.S_A_EVENT));;
-			pModifier.type=SpriteDescriptor.ModifierType.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
-			switch (SpriteDescriptor.ModifierType.valueOf(attributes.getValue(ScnTags.S_A_TYPE))){
+			//pModifier.event=SpriteDescriptor.SpritesEvents.valueOf(attributes.getValue(ScnTags.S_A_EVENT));;
+			pModifier.type=Modifier.ModifierType.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
+			switch (Modifier.ModifierType.valueOf(attributes.getValue(ScnTags.S_A_TYPE))){
 				case MOVE:
 					pModifier.fMoveFactor=Float.parseFloat(attributes.getValue(ScnTags.S_A_MOVE_FACTOR));
 					break;
@@ -157,6 +191,12 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 				default:
 					break;
 			}
+			// add the new event to the event list for the related object
+			if(this.pSpriteDsc != null)
+				pEventDscMgr.addModifier(EventDescriptionsManager.Events.valueOf(attributes.getValue(ScnTags.S_A_EVENT)),pSpriteDsc,pModifier);
+			else
+				pEventDscMgr.addModifier(EventDescriptionsManager.Events.valueOf(attributes.getValue(ScnTags.S_A_EVENT)),pCompoundSpriteDsc,pModifier);
+	
 		}
 	}
 
@@ -173,6 +213,8 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 		if (localName.equalsIgnoreCase(ScnTags.S_MULTIVIEWSCENE))pMultiViewSceneDsc = null;
 		if (localName.equalsIgnoreCase(ScnTags.S_SPRITE))pSpriteDsc = null;
 		if (localName.equalsIgnoreCase(ScnTags.S_ACTION))pAction = null; 
+		if (localName.equalsIgnoreCase(ScnTags.S_MODIFIER))pModifier = null; 
+		if (localName.equalsIgnoreCase(ScnTags.S_COMPOUND_SPRITE))pCompoundSpriteDsc = null;
 		
 	}
 

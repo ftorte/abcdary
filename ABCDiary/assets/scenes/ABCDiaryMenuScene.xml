@@ -2,13 +2,15 @@
   <scenes xmlns="http://www.example.org/scene">
         <scene name="ABCMainMenu">
             <!-- Back Ground  -->
-            <sceneobject ID="100" height="512" px="0" py="0" resourceName="MenuBackGround" type="SPRITE" width="1024"></sceneobject>
-            <!-- 1st Line  -->
-            <sceneobject ID="1" height="30%" width="35%" px="10%" py="15%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" ></sceneobject>
-            <sceneobject ID="2" height="30%" width="35%" px="65%" py="15%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" ></sceneobject>
+            <sprite ID="100" height="512" px="0" py="0" resourceName="MenuBackGround" type="STATIC" width="1024"></sprite>
+             <!-- 1st Line  -->
+            <sprite ID="1" height="30%" width="35%" px="10%" py="15%" resourceName="MenuArrayLetterA" type="CLICKABLE" >
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+            </sprite>
+            <sprite ID="2" height="30%" width="35%" px="65%" py="15%" resourceName="MenuArrayLetterA" type="STATIC" ></sprite>
             <!-- 2nd Line  -->
-            <sceneobject ID="3" height="30%" width="35%" px="10%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" ></sceneobject>
-            <sceneobject ID="4" height="10%" width="35%" px="65%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" ></sceneobject>
-            <sceneobject ID="5" height="10%" width="35%" px="65%" py="75%" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" ></sceneobject>
+            <sprite ID="3" height="30%" width="35%" px="10%" py="55%" resourceName="MenuArrayLetterA" type="STATIC" ></sprite>
+            <sprite ID="4" height="10%" width="35%" px="65%" py="55%" resourceName="MenuArrayLetterA" type="STATIC" ></sprite>
+            <sprite ID="5" height="10%" width="35%" px="65%" py="75%" resourceName="MenuArrayLetterA" type="STATIC" ></sprite>
         </scene>
     </scenes>

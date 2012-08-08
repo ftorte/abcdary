@@ -2,65 +2,144 @@
   <scenes xmlns="http://www.example.org/scene">
         <scene name="SceneLetterA">
             <!-- Back Ground  -->
-            <sprite ID="100" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024"></sprite>
+            <sprite ID="100" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024" type="STATIC"></sprite>
             <!-- 1st Line  -->
-            <clickable_sprite2 ID="1" height="20%" width="10%" px="2%" py="5%" resourceName="MenuArrayLetterA">
-                	<action event="ON-CLICK" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite2>
-                	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>
-                	<modified event="ON_MOVE" type="SXCEL" scale_factor="1"></modified>
-            </clickable_sprite> 
-            <clickable_sprite ID="2" height="20%" width="10%" px="14%" py="5%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="3" height="20%" width="10%" px="26%" py="5%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="4" height="20%" width="10%" px="38%" py="5%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="5" height="20%" width="10%" px="50%" py="5%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="6" height="20%" width="10%" px="62%" py="5%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="7" height="20%" width="10%" px="74%" py="5%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="8" height="20%" width="10%" px="86%" py="5%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
+            <sprite ID="1" height="20%" width="10%" px="2%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite> 
+            <sprite ID="2" height="20%" width="10%" px="14%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+           		<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test2"></action>
+            </sprite>
+            <sprite ID="3" height="20%" width="10%" px="26%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+           		<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="4" height="20%" width="10%" px="38%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                 <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>    
+            </sprite>
+            <sprite ID="5" height="20%" width="10%" px="50%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                 <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="6" height="20%" width="10%" px="62%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="7" height="20%" width="10%" px="74%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+           		<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="8" height="20%" width="10%" px="86%" py="5%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+           		<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
             <!-- 2nd Line  -->
-            <clickable_sprite ID="9" height="20%" width="10%" px="2%" py="30%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="10" height="20%" width="10%" px="14%" py="30%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="11" height="20%" width="10%" px="26%" py="30%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="12" height="20%" width="10%" px="38%" py="30%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="13" height="20%" width="10%" px="50%" py="30%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="14" height="20%" width="10%" px="62%" py="30%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="15" height="20%" width="10%" px="74%" py="30%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="16" height="20%" width="10%" px="86%" py="30%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
+            <sprite ID="9" height="20%" width="10%" px="2%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="10" height="20%" width="10%" px="14%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="11" height="20%" width="10%" px="26%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="12" height="20%" width="10%" px="38%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="13" height="20%" width="10%" px="50%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="14" height="20%" width="10%" px="62%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="15" height="20%" width="10%" px="74%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="16" height="20%" width="10%" px="86%" py="30%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
             <!-- 3nd Line  -->
-            <clickable_sprite ID="17" height="20%" width="10%" px="2%" py="55%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="18" height="20%" width="10%" px="14%" py="55%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="19" height="20%" width="10%" px="26%" py="55%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="20" height="20%" width="10%" px="38%" py="55%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="21" height="20%" width="10%" px="50%" py="55%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="22" height="20%" width="10%" px="62%" py="55%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="23" height="20%" width="10%" px="74%" py="55%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="24" height="20%" width="10%" px="86%" py="55%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
+            <sprite ID="17" height="20%" width="10%" px="2%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="18" height="20%" width="10%" px="14%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="19" height="20%" width="10%" px="26%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="20" height="20%" width="10%" px="38%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="21" height="20%" width="10%" px="50%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="22" height="20%" width="10%" px="62%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="23" height="20%" width="10%" px="74%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="24" height="20%" width="10%" px="86%" py="55%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
             <!-- 4nd Line  -->
-            <clickable_sprite ID="25" height="20%" width="10%" px="2%" py="80%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="26" height="20%" width="10%" px="14%" py="80%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="27" height="20%" width="10%" px="74%" py="80%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
-            <clickable_sprite ID="28" height="20%" width="10%" px="86%" py="80%" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="Test"></clickable_sprite>
+            <sprite ID="25" height="20%" width="10%" px="2%" py="80%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="26" height="20%" width="10%" px="14%" py="80%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="27" height="20%" width="10%" px="74%" py="80%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+            </sprite>
+            <sprite ID="28" height="20%" width="10%" px="86%" py="80%" resourceName="MenuArrayLetterA" type="CLICKABLE">
+                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="ABCMainMenu"></action>
+            </sprite>
         </scene>
         <scene name="Test">
-            <sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024"></sprite>
-            <clickable_sprite ID="2" height="64" width="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CHANGE_SCENE" next_scene="SceneLetterA"></clickable_sprite>
-            <clickable_sprite ID="3" height="512" px="0" py="0" resourceName="FontAndroid" type="FONT" width="64"></clickable_sprite>
+            <sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024" type="STATIC"></sprite>
+            <sprite ID="2" height="64" width="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CLICKABLE">
+            	<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>  
+            </sprite>
+            <sprite ID="3" height="64" width="64" px="200" py="200" resourceName="MenuArrayLetterA" type="CLICKABLE">
+            	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
+            </sprite>
+        </scene>
+        <scene name="Test2">
+            <sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024" type="STATIC"></sprite>
+            <sprite ID="2" height="64" width="64" px="100" py="100" resourceName="MenuArrayLetterA" type="CLICKABLE">
+            	<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>    
+            	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
+            </sprite>
+            <sprite ID="3" height="32" width="32" px="200" py="200" resourceName="MenuArrayLetterA" type="CLICKABLE">
+            	<action event="ON_MOVE" type="STICK" stick_with="2" stick_mode="MERGE"></action>      
+            	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
+            </sprite>	
+          
+            <compound_sprite ID="4" type="COMPOUND_SPRITE">
+            	<sprite ID="5" height="64" width="64" px="300" py="300" resourceName="MenuArrayLetterA" type="STATIC"></sprite>
+            	<sprite ID="6" height="64" width="64" px="350" py="350" resourceName="MenuArrayLetterA" type="STATIC"></sprite> 
+            	<sprite ID="7" height="64" width="64" px="650" py="250" resourceName="MenuArrayLetterA" type="STATIC"></sprite>     
+            	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
+            </compound_sprite>	
+            
+            <sprite ID="8" height="64" width="64" px="100" py="100" resourceName="MenuArrayLetterA" type="CLICKABLE">
+            	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
+            	<action event="ON_MOVE" type="STICK" stick_with="4" stick_mode="ATTTACH_LEFTH" px=></action>  
+            </sprite>
         </scene>
         <multiviewscene name="A">
             <scene name="SceneA1">
-            	<sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024"></sprite>
-            	<clickable_sprite ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="64"></clickable_sprite>
+            	<sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024" type="STATIC"></sprite>
+            	<sprite ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="STATIC" width="64"></sprite>
             </scene>
             <scene name="SceneA2">
-            	<sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024"></sprite>
-            	<clickable_sprite ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="64"></clickable_sprite>
+            	<sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024" type="STATIC"></sprite>
+            	<sprite ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="STATIC" width="64"></sprite>
             </scene>
             <scene name="SceneA3">
-            	<sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024"></sprite>
-            	<clickable_sprite ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="64"></clickable_sprite>
+            	<sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024" type="STATIC"></sprite>
+            	<sprite ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="STATIC" width="64"></sprite>
             </scene>
              <scene name="SceneA4">
-            	<sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024"></sprite>
-            	<clickable_sprite ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CLICKABLE_SPRITE" width="64"></clickable_sprite>
+            	<sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024" type="STATIC"></sprite>
+            	<sprite ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="STATIC" width="64"></sprite>
             </scene>
         </multiviewscene>
     </scenes>
