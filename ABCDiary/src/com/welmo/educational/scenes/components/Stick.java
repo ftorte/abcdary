@@ -1,58 +1,54 @@
 package com.welmo.educational.scenes.components;
 
+import org.andengine.entity.shape.IAreaShape;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.sprite.vbo.ISpriteVertexBufferObject;
 import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
 
-public final class Stick extends CompoundSprite{
+public final class Stick{
 	
-	
-	public Stick(float pX, float pY, float pWidth, float pHeight,
-			VertexBufferObjectManager pVertexBufferObjectManager) {
-		super(pX, pY, pWidth, pHeight, pVertexBufferObjectManager);
-		// TODO Auto-generated constructor stub
-	}
-	public enum StickFunctions {
-	    STICK_LEFTH, STICK_RIGHT, STICK_UP, STICK_BOTTOM, 
+	public enum StickMode {
+	    NO_STICK,STICK_OVER, STICK_LEFTH, STICK_RIGHT, STICK_UP, STICK_BOTTOM, 
 	    STICK_UP_LEFTH, STICK_UP_RIGHT, STICK_BOTTOM_LEFTH, STICK_BOTTOM_RIGHT 
 	}
 	
-	public void Lefth(Sprite entityToStick){
-		entityToStick.setPosition(this.getX() + this.getWidth(),this.getY());
-		this.attachSprite(entityToStick);
+	public static boolean isStickOn(IAreaShape entityToStick, IAreaShape entityToStickWith, float threshold){
+		double deltaXSqr = Math.pow(entityToStick.getX() - entityToStickWith.getX(), 2);
+		double deltaYSqr = Math.pow(entityToStick.getY() - entityToStickWith.getY(), 2);
+		double distance = Math.sqrt(deltaXSqr + deltaYSqr);
+		if (threshold >= distance) 
+			return true;
+		else
+			return false;	
 	}
 	
-	public void Right(Sprite entityToStick){
-		entityToStick.setPosition(this.getX() - entityToStick.getWidth(),this.getY());
-		this.attachSprite(entityToStick);
+	public static void lefth(IAreaShape entityToStick, IAreaShape entityToStickWith){
+		entityToStick.setPosition(entityToStickWith.getX() + entityToStickWith.getWidth(),entityToStickWith.getY());	
 	}
-	public void Up(Sprite entityToStick){
-		entityToStick.setPosition(this.getX(),this.getY() - entityToStick.getHeight());
-		this.attachSprite(entityToStick);
+	public static void right(IAreaShape entityToStick, IAreaShape entityToStickWith){
+		entityToStick.setPosition(entityToStickWith.getX() - entityToStick.getWidth(),entityToStickWith.getY());
 	}
-	public void Bottom(Sprite entityToStick){
-		entityToStick.setPosition(this.getX(),this.getY() + this.getHeight());
-		this.attachSprite(entityToStick);
+	public static void up(IAreaShape entityToStick, IAreaShape entityToStickWith){
+		entityToStick.setPosition(entityToStickWith.getX(),entityToStickWith.getY() - entityToStick.getHeight());
 	}
-	public void UpLefth(Sprite entityToStick){
-		entityToStick.setPosition(this.getX() + this.getWidth(),this.getY() - entityToStick.getHeight());
-		this.attachSprite(entityToStick);
+	public static void bottom(IAreaShape entityToStick, IAreaShape entityToStickWith){
+		entityToStick.setPosition(entityToStickWith.getX(),entityToStickWith.getY() + entityToStickWith.getHeight());
 	}
-	public void UpRight(Sprite entityToStick){
-		entityToStick.setPosition(this.getX() - entityToStick.getWidth(),this.getY() - entityToStick.getHeight());
-		this.attachSprite(entityToStick);
+	public static void upLefth(IAreaShape entityToStick, IAreaShape entityToStickWith){
+		entityToStick.setPosition(entityToStickWith.getX() + entityToStickWith.getWidth(),entityToStickWith.getY() - entityToStick.getHeight());
 	}
-	public void BottomLefth(Sprite entityToStick){
-		entityToStick.setPosition(this.getX() + this.getWidth(),this.getY() + this.getHeight());
-		this.attachSprite(entityToStick);
+	public static void upRight(IAreaShape entityToStick, IAreaShape entityToStickWith){
+		entityToStick.setPosition(entityToStickWith.getX() - entityToStick.getWidth(),entityToStickWith.getY() - entityToStick.getHeight());
 	}
-	public void BottomRight(Sprite entityToStick){
-		entityToStick.setPosition(this.getX() - entityToStick.getWidth(),this.getY() + this.getHeight());
-		this.attachSprite(entityToStick);
+	public static void bottomLefth(IAreaShape entityToStick, IAreaShape entityToStickWith){
+		entityToStick.setPosition(entityToStickWith.getX() + entityToStickWith.getWidth(),entityToStickWith.getY() + entityToStickWith.getHeight());
 	}
-	private void attachSprite(Sprite sprite){
-		this.attachComponentChild(sprite.getX(), sprite.getY(),sprite.getWidth(),sprite.getHeight(), sprite);
+	public static void bottomRight(IAreaShape entityToStick, IAreaShape entityToStickWith){
+		entityToStick.setPosition(entityToStickWith.getX() - entityToStick.getWidth(),entityToStickWith.getY() + entityToStickWith.getHeight());
+	}
+	public static void over(IAreaShape entityToStick, IAreaShape entityToStickWith){
+		entityToStick.setPosition(entityToStickWith.getX(),entityToStickWith.getY());
 	}
 }

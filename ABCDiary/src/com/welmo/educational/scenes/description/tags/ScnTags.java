@@ -18,6 +18,9 @@ public class ScnTags {
 	
 	public final static String S_ACTION 			= "action";
 	public final static String S_MODIFIER 			= "modifier";
+	public final static String S_A_STICK_WITH		= "stick_with";
+	public final static String S_A_STICK_MODE		= "stick_mode";
+	
 	//Scene Objects' parameters
 	public final static String S_A_NEXT_SCENE		= "next_scene";
 	public final static String S_A_SCENE_CHANGE 	= "scene_change";

@@ -132,7 +132,7 @@ public class CompoundSprite extends Rectangle{
 						case CHANGE_SCENE:
 							mActionListener.onActionChangeScene(act.NextScene);
 						case STICK:
-							mActionListener.onStick(pSceneTouchEvent,pTouchAreaLocalX, pTouchAreaLocalY, act);
+							mActionListener.onStick(this,act);
 						default:
 							break;
 						}

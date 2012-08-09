@@ -12,6 +12,7 @@ import android.util.Log;
 
 import com.welmo.educational.managers.ResourceDescriptorsManager;
 import com.welmo.educational.managers.SceneDescriptorsManager;
+import com.welmo.educational.scenes.components.Stick;
 import com.welmo.educational.scenes.description.Events.Action;
 import com.welmo.educational.scenes.description.Events.EventDescriptionsManager;
 import com.welmo.educational.scenes.description.Events.Modifier;
@@ -81,7 +82,6 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			pMultiViewSceneDsc = new MultiViewSceneDescriptor();
 
 			// Read scene description
-			pMultiViewSceneDsc.ID=0;
 			pMultiViewSceneDsc.Name = new String(attributes.getValue(ScnTags.S_A_NAME));
 			pSceneDescManager.addMVScene(pMultiViewSceneDsc.Name, pMultiViewSceneDsc);
 			return;
@@ -98,7 +98,6 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 				
 				
 			// Read scene description
-			pSceneDsc.ID=0;
 			pSceneDsc.Name = new String(attributes.getValue(ScnTags.S_A_NAME));
 			pSceneDescManager.addScene(pSceneDsc.Name, pSceneDsc);
 			return;
@@ -112,7 +111,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			
 			pSpriteDsc = new SpriteDescriptor();
 			// Read the sprite
-			pSpriteDsc.ID=0;
+			pSpriteDsc.ID=Integer.parseInt(attributes.getValue(ScnTags.S_A_ID));
 			pSpriteDsc.resourceName = new String(attributes.getValue(ScnTags.S_A_RESOURCE_NAME));
 			Log.i(TAG,attributes.getValue(ScnTags.S_A_TYPE));
 			pSpriteDsc.type = SpriteDescriptor.SpritesTypes.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
@@ -136,7 +135,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered sceneobject description withou sceneo description");
 			pCompoundSpriteDsc = new SpriteDescriptor();
 			// Read the compound sprite parameters
-			pCompoundSpriteDsc.ID=0;
+			pCompoundSpriteDsc.ID=Integer.parseInt(attributes.getValue(ScnTags.S_A_ID ));
 			pCompoundSpriteDsc.type = SpriteDescriptor.SpritesTypes.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
 			//add compound sprite to scene
 			pSceneDsc.scObjects.add(pCompoundSpriteDsc);			 
@@ -157,6 +156,9 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 				case CHANGE_SCENE:
 					pAction.NextScene=attributes.getValue(ScnTags.S_A_NEXT_SCENE);
 					break;
+				case STICK:	
+					pAction.stick_with=Integer.parseInt(attributes.getValue(ScnTags.S_A_STICK_WITH));
+					pAction.stickMode=Stick.StickMode.valueOf(attributes.getValue(ScnTags.S_A_STICK_MODE));
 				default:
 					break;
 			}

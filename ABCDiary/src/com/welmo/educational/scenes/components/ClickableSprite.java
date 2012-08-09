@@ -43,57 +43,11 @@ public class ClickableSprite extends Sprite {
 	// Constructors
 	// ===========================================================
 		
-	/* FT public String getOnClikcNextScene() {
-		return strOnClikcNextScene;
-	}
-	public void setOnClikcNextScene(String strOnClikcNextScene) {
-		this.strOnClikcNextScene = strOnClikcNextScene;
-	} */
-	
 	private void init(){
 		pEDMgr = EventDescriptionsManager.getInstance();
 	}
 	
-	/*public ClickableSprite(float pX, float pY, float pWidth, float pHeight,
-			ITextureRegion pTextureRegion,
-			ISpriteVertexBufferObject pSpriteVertexBufferObject,
-			ShaderProgram pShaderProgram) {
-		super(pX, pY, pWidth, pHeight, pTextureRegion, pSpriteVertexBufferObject,
-				pShaderProgram);
-		// TODO Auto-generated constructor stub
-		init(); 
-	}
-	public ClickableSprite(float pX, float pY, float pWidth, float pHeight,
-			ITextureRegion pTextureRegion,
-			ISpriteVertexBufferObject pSpriteVertexBufferObject) {
-		super(pX, pY, pWidth, pHeight, pTextureRegion, pSpriteVertexBufferObject);
-		// TODO Auto-generated constructor stub
-	}
-	public ClickableSprite(float pX, float pY, float pWidth, float pHeight,
-			ITextureRegion pTextureRegion,
-			VertexBufferObjectManager pVertexBufferObjectManager,
-			DrawType pDrawType, ShaderProgram pShaderProgram) {
-		super(pX, pY, pWidth, pHeight, pTextureRegion, pVertexBufferObjectManager,
-				pDrawType, pShaderProgram);
-		init(); 
-	}
-	public ClickableSprite(float pX, float pY, float pWidth, float pHeight,
-			ITextureRegion pTextureRegion,
-			VertexBufferObjectManager pVertexBufferObjectManager,
-			DrawType pDrawType) {
-		super(pX, pY, pWidth, pHeight, pTextureRegion, pVertexBufferObjectManager,
-				pDrawType);
-		init(); 
-	}
-	public ClickableSprite(float pX, float pY, float pWidth, float pHeight,
-			ITextureRegion pTextureRegion,
-			VertexBufferObjectManager pVertexBufferObjectManager,
-			ShaderProgram pShaderProgram) {
-		super(pX, pY, pWidth, pHeight, pTextureRegion, pVertexBufferObjectManager,
-				pShaderProgram);
-		init(); 
-		// TODO Auto-generated constructor stub
-	}*/
+	
 	public ClickableSprite(float pX, float pY, float pWidth, float pHeight,
 			ITextureRegion pTextureRegion,
 			VertexBufferObjectManager pVertexBufferObjectManager) {
@@ -101,52 +55,12 @@ public class ClickableSprite extends Sprite {
 		init(); 
 		// TODO Auto-generated constructor stub
 	}
-	/*public ClickableSprite(float pX, float pY, ITextureRegion pTextureRegion,
-			ISpriteVertexBufferObject pVertexBufferObject,
-			ShaderProgram pShaderProgram) {
-		super(pX, pY, pTextureRegion, pVertexBufferObject, pShaderProgram);
-		init(); 
-		// TODO Auto-generated constructor stub
-	}
-	public ClickableSprite(float pX, float pY, ITextureRegion pTextureRegion,
-			ISpriteVertexBufferObject pVertexBufferObject) {
-		super(pX, pY, pTextureRegion, pVertexBufferObject);
-		init(); 
-		// TODO Auto-generated constructor stub
-	}
-	public ClickableSprite(float pX, float pY, ITextureRegion pTextureRegion,
-			VertexBufferObjectManager pVertexBufferObjectManager,
-			DrawType pDrawType, ShaderProgram pShaderProgram) {
-		super(pX, pY, pTextureRegion, pVertexBufferObjectManager, pDrawType,
-				pShaderProgram);
-		init(); 
-		// TODO Auto-generated constructor stub
-	}
-	public ClickableSprite(float pX, float pY, ITextureRegion pTextureRegion,
-			VertexBufferObjectManager pVertexBufferObjectManager,
-			DrawType pDrawType) {
-		super(pX, pY, pTextureRegion, pVertexBufferObjectManager, pDrawType);
-		init(); 
-		// TODO Auto-generated constructor stub
-	}
-	public ClickableSprite(float pX, float pY, ITextureRegion pTextureRegion,
-			VertexBufferObjectManager pVertexBufferObjectManager,
-			ShaderProgram pShaderProgram) {
-		super(pX, pY, pTextureRegion, pVertexBufferObjectManager, pShaderProgram);
-		init(); 
-		// TODO Auto-generated constructor stub
-	}
-	public ClickableSprite(float pX, float pY, ITextureRegion pTextureRegion,
-			VertexBufferObjectManager pVertexBufferObjectManager) {
-		super(pX, pY, pTextureRegion, pVertexBufferObjectManager);
-		init(); 
-		// TODO Auto-generated constructor stub
-	}*/
-
+	
 	@Override
 	public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 			float pTouchAreaLocalX, float pTouchAreaLocalY) {
 		
+		boolean managed = false;
 		List<Action> pActionList = null;
 		List<Modifier> pModifierList = null;
 		
@@ -155,17 +69,14 @@ public class ClickableSprite extends Sprite {
 			if (MLOG.LOG)Log.i(TAG,"onAreaTouched ACTION_DOWN = " + nID);
 			break;
 		case TouchEvent.ACTION_MOVE:
-			if (MLOG.LOG)Log.i(TAG,"onAreaTouched ACTION_DOWN = " + nID);
-			pActionList = pEDMgr.getActionList(Events.ON_MOVE,this.getPDescriptor());
-			if (pActionList != null){
-				
-			}
+			if (MLOG.LOG)Log.i(TAG,"onAreaTouched ACTION_MOVE = " + nID);
 			pModifierList = pEDMgr.getModifierList(Events.ON_MOVE,this.getPDescriptor());
 			if (pModifierList != null){
 				for (Modifier mod: pModifierList) {
 					switch(mod.type){
 					case MOVE: 
 						this.setPosition(pSceneTouchEvent.getX() - this.getWidth() / 2, pSceneTouchEvent.getY() - this.getHeight() / 2);	
+						managed = true;
 						break;
 					case SCALE:
 						break;
@@ -173,11 +84,25 @@ public class ClickableSprite extends Sprite {
 						break;
 					}
 				}
-				return true;
+			}
+			if(mActionListener != null){
+				pActionList = pEDMgr.getActionList(Events.ON_MOVE,this.getPDescriptor());
+				if (pActionList != null){
+					for (Action act: pActionList) {
+						switch(act.type){
+						case STICK:
+							mActionListener.onStick(this, act);
+							managed = true;
+							break;
+						default:
+							break;
+						}
+					}
+				}
 			}
 			break;
 		case TouchEvent.ACTION_UP:
-			if (MLOG.LOG)Log.i(TAG,"onAreaTouched ACTION_DOWN = " + nID);
+			if (MLOG.LOG)Log.i(TAG,"onAreaTouched ACTION_UP= " + nID);
 			// [FT] mClickListener.onClick(this.nID);
 			if(mActionListener != null){
 				pActionList = pEDMgr.getActionList(Events.ON_CLICK,this.getPDescriptor());
@@ -186,18 +111,17 @@ public class ClickableSprite extends Sprite {
 						switch(act.type){
 						case CHANGE_SCENE:
 							mActionListener.onActionChangeScene(act.NextScene);
-						case STICK:
-							mActionListener.onStick(pSceneTouchEvent,pTouchAreaLocalX, pTouchAreaLocalY, act);
+							managed = true;
+							break;
 						default:
 							break;
 						}
 					}
-					return true;
 				}
 			}
 			break;
 		}
-		return false;
+		return managed;
 	}
 	
 	public int getID() {

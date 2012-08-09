@@ -1,5 +1,8 @@
 package com.welmo.educational.scenes.description.Events;
 
+import com.welmo.educational.scenes.components.Stick;
+import com.welmo.educational.scenes.components.Stick.StickMode;
+
 public class Action{
 	public enum ActionType {
 		NO_ACTION, CHANGE_SCENE,STICK
@@ -12,5 +15,5 @@ public class Action{
 	public ActionType type =ActionType.NO_ACTION;
 	public String NextScene="";
 	public int stick_with=0;
-	public ActionMode stickMode = ActionMode.NO_MODE;
+	public StickMode stickMode = Stick.StickMode.NO_STICK;
 }

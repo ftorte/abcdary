@@ -32,7 +32,7 @@ public class EventDescriptionsManager {
 		HashMap<Object,List<Modifier>> pObjectEvent = modifiers.get(evt);
 		if(pObjectEvent == null)
 			return null;
-		return modifiers.get(evt).get(o);
+		return pObjectEvent.get(o);
 	}
 	
 	public void addAction(Events evt, Object obj, Action act){

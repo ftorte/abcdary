@@ -6,10 +6,11 @@ public class ResTags {
 	//--------------------------------------------------------
 	//--------------------------------------------------------
 	//Texture & texture-region resource
-
+	// Elements
 	public final static String R_TEXTURE 				= "texture";
 	public final static String R_TEXTUREREGION			= "textureregion";
 	
+	//Attributes
 	public final static String R_A_NAME					= "name";
 	public final static String R_A_HEIGHT				= "height";
 	public final static String R_A_WIDTH				= "width";
@@ -39,9 +40,10 @@ public class ResTags {
 	//--------------------------------------------------------
 
 	//--------------------------------------------------------
-	//Font Resource
-	public final static String FONT					= "font";
-	public final static String R_A_FONTTEXTURE			= "font_texture";
+	//Fonts Resource
+	public final static String R_FONTS					= "fonts";
+	public final static String R_FONTTEXTURE			= "fonttexture";
+
 	public final static String R_A_TYPEFACE_FAMILY		= "typeface";
 	public final static String R_A_TYPEFACE_STYLE		= "typeface_style";
 	public final static String R_A_ANTIALIASING			= "antialiasing";
