@@ -8,8 +8,10 @@
         <texture name="MenuBackGroundTexture" height="512" width="1024">
             <textureregion name="MenuBackGround" filename="colorful_animals_scalable_vector_graphics_svg_inkscape_adobe_illustrator_clip_art_clipart.svg" height="480" px="0" py="0" width="800"></textureregion>
         </texture>
-        <texture name="MenuArrayLetterATexture" height="128" width="128">
+        <texture name="MenuArrayLetterATexture" height="256" width="256">
             <textureregion name="MenuArrayLetterA" filename="a.svg" height="128" px="0" py="0" width="128"></textureregion>
+           	<textureregion name="MenuArrayLetterB" filename="b.svg" height="128" px="128" py="0" width="128"></textureregion>
+            <textureregion name="MenuArrayLetterC" filename="c.svg" height="128" px="0" py="128" width="128"></textureregion>
         </texture>
     </textures>
 	<colors>
