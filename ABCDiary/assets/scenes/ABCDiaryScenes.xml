@@ -103,31 +103,41 @@
         </scene>
         <scene name="Test2">
             <sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024" type="STATIC"></sprite>
-            <sprite ID="2" height="64" width="64" px="100" py="100" resourceName="MenuArrayLetterA" type="CLICKABLE">
+            <sprite ID="2" height="64" width="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CLICKABLE">
             	<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>    
             	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
             </sprite>
-            <sprite ID="3" height="32" width="32" px="200" py="200" resourceName="MenuArrayLetterA" type="CLICKABLE">
-            	<action event="ON_MOVE" type="STICK" stick_with="2" stick_mode="MERGE"></action>      
+            <sprite ID="3" height="32" width="32" px="100" py="100" resourceName="MenuArrayLetterA" type="CLICKABLE">
             	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
             </sprite>	
           
-            <compound_sprite ID="4" type="COMPOUND_SPRITE">
-            	<sprite ID="5" height="64" width="64" px="300" py="300" resourceName="MenuArrayLetterA" type="STATIC"></sprite>
-            	<sprite ID="6" height="64" width="64" px="350" py="350" resourceName="MenuArrayLetterA" type="STATIC"></sprite> 
-            	<sprite ID="7" height="64" width="64" px="650" py="250" resourceName="MenuArrayLetterA" type="STATIC"></sprite>     
+            <sprite ID="8" height="100" width="100" px="200" py="200" resourceName="MenuArrayLetterA" type="CLICKABLE">
             	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
-            </compound_sprite>	
-            
-            <sprite ID="8" height="64" width="64" px="100" py="100" resourceName="MenuArrayLetterA" type="CLICKABLE">
-            	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
-            	<action event="ON_MOVE" type="STICK" stick_with="4" stick_mode="ATTTACH_LEFTH" px=></action>  
+            	<action event="ON_MOVE" type="STICK" stick_with="9" stick_mode="STICK_RIGHT"></action>  
             </sprite>
+              <sprite ID="9" height="100" width="100" px="400" py="300" resourceName="MenuArrayLetterB" type="CLICKABLE">
+            	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
+            	<action event="ON_MOVE" type="STICK" stick_with="10" stick_mode="STICK_RIGHT"></action>  
+            </sprite>
+              <sprite ID="10" height="100" width="100" px="600" py="400" resourceName="MenuArrayLetterC" type="CLICKABLE">
+            	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
+            	<action event="ON_MOVE" type="STICK" stick_with="11" stick_mode="STICK_OVER"></action>  
+            </sprite>
+            <sprite ID="11" height="100" width="100" px="800" py="200" resourceName="MenuArrayLetterA" type="STATIC">
+         
+
         </scene>
         <multiviewscene name="A">
             <scene name="SceneA1">
             	<sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024" type="STATIC"></sprite>
             	<sprite ID="2" height="64" px="0" py="0" resourceName="MenuArrayLetterA" type="STATIC" width="64"></sprite>
+            	<compound_sprite ID="4" type="COMPOUND_SPRITE">
+            		<sprite ID="5" height="64" width="64" px="300" py="300" resourceName="MenuArrayLetterA" type="STATIC"></sprite>
+            		<sprite ID="6" height="64" width="64" px="350" py="350" resourceName="MenuArrayLetterA" type="STATIC"></sprite> 
+            		<sprite ID="7" height="64" width="64" px="650" py="250" resourceName="MenuArrayLetterA" type="STATIC"></sprite>     
+            		<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
+            	</compound_sprite>	
+            
             </scene>
             <scene name="SceneA2">
             	<sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024" type="STATIC"></sprite>
