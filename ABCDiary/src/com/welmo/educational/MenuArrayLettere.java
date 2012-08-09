@@ -65,8 +65,22 @@ public class MenuArrayLettere extends SimpleBaseGameActivity /*implements IActio
 	}
 	@Override
 	public void onBackPressed() {
-		if(this.mEngine.getScene() == mSceneLetterMenuManager.getScene("SceneLetterA"))
+		Scene currentScene = this.mEngine.getScene();
+		if(currentScene == mSceneManager.getScene("ABCMainMenu")){
 			super.onBackPressed();
-		this.mEngine.setScene(mSceneLetterMenuManager.getScene("SceneLetterA"));
+			return;
+		}
+		if(currentScene == mSceneManager.getScene("Test2")){
+			this.mEngine.setScene(mSceneManager.getScene("Test"));
+			return;
+		}
+		if(currentScene == mSceneManager.getScene("Test")){
+			this.mEngine.setScene(mSceneManager.getScene("SceneLetterA"));
+			return;
+		}
+		if(currentScene == mSceneManager.getScene("SceneLetterA")){
+			this.mEngine.setScene(mSceneManager.getScene("ABCMainMenu"));
+			return;
+		}
 	}
 }
