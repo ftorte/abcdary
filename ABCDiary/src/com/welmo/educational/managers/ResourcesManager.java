@@ -7,6 +7,7 @@ import org.andengine.extension.svg.opengl.texture.atlas.bitmap.SVGBitmapTextureA
 import org.andengine.opengl.font.Font;
 import org.andengine.opengl.font.FontFactory;
 import org.andengine.opengl.font.FontManager;
+import org.andengine.opengl.font.IFont;
 import org.andengine.opengl.texture.ITexture;
 import org.andengine.opengl.texture.TextureManager;
 import org.andengine.opengl.texture.TextureOptions;
@@ -22,6 +23,7 @@ import com.welmo.educational.scenes.description.tags.ResTags;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 
 public class ResourcesManager {
 	// ===========================================================
@@ -111,6 +113,31 @@ public class ResourcesManager {
 		return pTextureAtlas;
 	}
 	
+	public IFont LoadFont(String fontName){
+		ResourceDescriptorsManager pResDscMng = ResourceDescriptorsManager.getInstance();
+		FontDescriptor pFontDsc = pResDscMng.getFont(fontName);
+		
+		//create font
+		Font newFont=null;
+		if(pFontDsc.filename.contentEquals("")){
+			//Create font from typeFace
+			newFont = FontFactory.create(mEngine.getFontManager(),
+					mEngine.getTextureManager(), pFontDsc.texture_sizeX,pFontDsc.texture_sizeY, pFontDsc.TypeFace, 
+					pFontDsc.Parameters[ResTags.R_A_FONT_SIZE_IDX]);
+		}
+		else{
+			final ITexture fontTexture = new BitmapTextureAtlas(Engine.getTextureManager(), pFontDsc.texture_sizeX,pFontDsc.texture_sizeY, TextureOptions.BILINEAR);
+			mFont = FontFactory.createFromAsset(fontTexture, Engine.getTextureManager(), 
+					pFontDsc.filename, pFontDsc.Parameters[ResTags.R_A_FONT_SIZE_IDX], pFontDsc.AntiAlias,
+					android.graphics.Color.WHITE).load(Engine.getTextureManager(), Engine.getFontManager());
+
+		}
+		//add font to font manger
+		this.mapFonts.put(pFontDsc.Name,newFont);
+		//return the new font just created
+		return newFont;
+	}
+
 
 	public ITextureRegion LoadTextureRegion(String textureRegionName){
 		ResourceDescriptorsManager pResDscMng = ResourceDescriptorsManager.getInstance();
@@ -125,13 +152,16 @@ public class ResourcesManager {
 		return mapTextureRegions.get(textureRegionName);
 	}
 	
-	public ITextureRegion GetTextureRegion(String textureRegionName){
+	public ITextureRegion etTextureRegion(String textureRegionName){
 		ITextureRegion theTexture = mapTextureRegions.get(textureRegionName);
 		//if the texture region is not already loaded in the resource manager load it
 		if(theTexture==null) 
 			theTexture = LoadTextureRegion(textureRegionName);
 		//return the found or loaded texture region
 		return theTexture;
+	}
+	public Color getColor(String textureRegionName){
+		return null;
 	}
 	
 }

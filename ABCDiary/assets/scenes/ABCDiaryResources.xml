@@ -16,11 +16,9 @@
     </textures>
 	<colors>
         <color name="LightSalmon" blue="7A" green="A0" red="FF"></color>
-        <color name="LightSalmon" blue="7A" green="A0" red="FF"></color>
     </colors>
     
     <fonts>
-        <fonttexture name="FontTexture" height="256" width="256"></fonttexture>
-        <font name="FontAndroid" font_texture="FontTexture"></font>
+        <font name="FontAndroid" texturedim="256x256" dim="32" color="LightSalmon" antialias="true" fontsourcefile="Droid.ttf"></font>
     </fonts>
 </resources>

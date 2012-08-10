@@ -42,13 +42,17 @@ public class ResTags {
 	//--------------------------------------------------------
 	//Fonts Resource
 	public final static String R_FONTS					= "fonts";
-	public final static String R_FONTTEXTURE			= "fonttexture";
+	public final static String R_FONT					= "font";
+
 
 	public final static String R_A_TYPEFACE_FAMILY		= "typeface";
 	public final static String R_A_TYPEFACE_STYLE		= "typeface_style";
 	public final static String R_A_ANTIALIASING			= "antialiasing";
 	public final static String R_A_FONT_SIZE			= "size";
 	public final static String R_A_FONT_COLOR			= "color";
+	public final static String R_A_TEXTURE_DIMX			= "txtdimX";
+	public final static String R_A_TEXTURE_DIMY			= "txtdimY";
+
 	
 	public final static int R_A_FONT_SIZE_IDX			= 0;
 	public final static int R_A_FONT_COLOR_IDX			= 1;
