@@ -76,7 +76,7 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 			return;
 		
 		}
-		if (localName.equalsIgnoreCase(ResTags.FONT)){
+		if (localName.equalsIgnoreCase(ResTags.R_FONT)){
 			
 			if(this.pFontDsc != null)
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered font description with another font description inside");
@@ -87,10 +87,14 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 			pFontDsc.Name = new String(attributes.getValue(ResTags.R_A_NAME));
 			
 			String strVal1,strVal2;
-			
-			//read Typeface configuration
-			if((strVal1 = attributes.getValue(ResTags.R_A_TYPEFACE_FAMILY)) != null && (strVal2=attributes.getValue(ResTags.R_A_TYPEFACE_STYLE)) != null)
+			pFontDsc.filename="";
+			//read Typeface configuration or filename
+			if((strVal1 = attributes.getValue(ResTags.R_A_TYPEFACE_FAMILY)) != null && (strVal2=attributes.getValue(ResTags.R_A_TYPEFACE_STYLE)) != null){
 					pFontDsc.TypeFace = Typeface.create(strVal1,Integer.parseInt(strVal2));
+			}
+			else{
+				pFontDsc.filename = attributes.getValue(ResTags.R_A_FILE_NAME);
+			}
 			
 			//read anti-aliasing configuration
 			if((strVal1 = attributes.getValue(ResTags.R_A_ANTIALIASING)) != null)			
@@ -102,8 +106,13 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 			
 			//read FontColor configuration
 			if((strVal1 = attributes.getValue(ResTags.R_A_FONT_COLOR)) != null)		
-				pFontDsc.Parameters[ResTags.R_A_FONT_COLOR_IDX]=Integer.parseInt(attributes.getValue(ResTags.R_A_FONT_COLOR));
-		
+				pFontDsc.color=attributes.getValue(ResTags.R_A_FONT_COLOR);
+			
+			//read Texture size
+			pFontDsc.texture_sizeX = Integer.parseInt(attributes.getValue(ResTags.R_A_TEXTURE_DIMX));
+			pFontDsc.texture_sizeY = Integer.parseInt(attributes.getValue(ResTags.R_A_TEXTURE_DIMY));
+			
+			//load descriptor in descriptor manager
 			pResDescManager.addFont(pFontDsc.Name, pFontDsc);
 			return;
 		}

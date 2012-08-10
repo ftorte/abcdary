@@ -123,9 +123,6 @@
             	<modifier event="ON_MOVE" type="MOVE" move_factor="1"></modifier>   
             	<action event="ON_MOVE" type="STICK" stick_with="11" stick_mode="STICK_OVER"></action>  
             </sprite>
-            <sprite ID="11" height="100" width="100" px="800" py="200" resourceName="MenuArrayLetterA" type="STATIC">
-         
-
         </scene>
         <multiviewscene name="A">
             <scene name="SceneA1">
