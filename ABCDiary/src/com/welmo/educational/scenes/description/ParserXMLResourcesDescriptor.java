@@ -179,6 +179,9 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 		if (localName.equalsIgnoreCase(ResTags.COLOR)){
 			pColorDsc = null;
 		}
+		if (localName.equalsIgnoreCase(ResTags.R_FONT)){
+			pFontDsc = null;
+		}
 		
 	}
 

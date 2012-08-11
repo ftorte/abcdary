@@ -151,9 +151,9 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 	// [FT]}
 
 	@Override
-	public void loadScene(String SceneName, ResourcesManager res) {
+	public void loadScene(String SceneName) {
 		// TODO Auto-generated method stub
-		super.loadScene(SceneName, res);
+		super.loadScene(SceneName);
 		// enable the touch listener
 		this.onShow(this);
 	}

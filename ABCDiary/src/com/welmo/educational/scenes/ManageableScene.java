@@ -7,6 +7,9 @@ import org.andengine.entity.scene.Scene;
 import org.andengine.entity.shape.IAreaShape;
 import org.andengine.entity.shape.RectangularShape;
 import org.andengine.entity.sprite.Sprite;
+import org.andengine.entity.text.Text;
+import org.andengine.entity.text.TextOptions;
+import org.andengine.util.HorizontalAlign;
 
 import com.welmo.educational.managers.ResourcesManager;
 import com.welmo.educational.managers.SceneDescriptorsManager;
@@ -17,6 +20,7 @@ import com.welmo.educational.scenes.components.IActionOnSceneListener;
 import com.welmo.educational.scenes.components.Stick;
 import com.welmo.educational.scenes.description.SceneDescriptor;
 import com.welmo.educational.scenes.description.SpriteDescriptor;
+import com.welmo.educational.scenes.description.TextDescriptor;
 import com.welmo.educational.scenes.description.Events.Action;
 import com.welmo.educational.scenes.description.tags.ResTags;
 
@@ -50,11 +54,11 @@ public class ManageableScene extends Scene implements IManageableScene, IActionO
 		mapOfObjects = new HashMap<Integer, IAreaShape>();
 	}
 	
-	public void loadScene(String SceneName) {
+	/*public void loadScene(String SceneName) {
 		loadScene(SceneName,this.pRM);
-	};
+	};*/
 
-	public void loadScene(String SceneName,ResourcesManager res2) {
+	public void loadScene(String SceneName) {
 		SceneDescriptor scDsc;
 		if((scDsc = pSDM.getScene(SceneName))== null)
 			throw new NullPointerException("In ManageableScene: the scene: " + SceneName + " don't exists");
@@ -65,7 +69,12 @@ public class ManageableScene extends Scene implements IManageableScene, IActionO
 				this.attachChild(createSprite(scObjDsc));
 			case CLICKABLE:
 				/* Create the clickable sprite elements */
-				this.attachChild(createClickableSprite(scObjDsc));
+				final ClickableSprite newClickable = createClickableSprite(scObjDsc);
+				for( int i = 0; i < scObjDsc.textElements.size(); i++){
+					final Text newText = createText(scObjDsc.textElements.get(i));
+					newClickable.attachChild(newText);
+				};
+				this.attachChild(newClickable);
 				break;
 
 			case COMPOUND_SPRITE:
@@ -74,6 +83,10 @@ public class ManageableScene extends Scene implements IManageableScene, IActionO
 				for( int i = 0; i < scObjDsc.coumpoundElements.size(); i++){
 					ClickableSprite newComponent = createClickableSprite(scObjDsc.coumpoundElements.get(i));
 					newEntity.attachComponentChild(newComponent.getX(), newComponent.getY(), newComponent.getWidth(), newComponent.getHeight(),newComponent);
+				};
+				for( int i = 0; i < scObjDsc.textElements.size(); i++){
+					final Text newText = createText(scObjDsc.textElements.get(i));
+					newEntity.attachChild(newText);
 				};
 				this.attachChild(newEntity);
 				newEntity.setActionOnSceneListener(this);
@@ -85,21 +98,36 @@ public class ManageableScene extends Scene implements IManageableScene, IActionO
 				break;
 			}
 		}
+		for(TextDescriptor scObjDsc:scDsc.scText){
+			switch(scObjDsc.type){	
+			case SIMPLE:
+				//TODO add to text description Text Optoion with default value
+				final Text newText = createText(scObjDsc);
+				this.attachChild(newText);
+				break;
+			default:
+				break;
+			}
+		}
 	}
 
 	
 	//Create components
 	private Sprite createSprite(SpriteDescriptor spDsc){
 		final Sprite newSprite = new Sprite(spDsc.Parameters[ResTags.R_A_POSITION_X_IDX], spDsc.Parameters[ResTags.R_A_POSITION_Y_IDX], 
-				spDsc.Parameters[ResTags.R_A_WIDTH_IDX ], spDsc.Parameters[ResTags.R_A_HEIGHT_IDX], pRM.GetTextureRegion(spDsc.resourceName), 
+				spDsc.Parameters[ResTags.R_A_WIDTH_IDX ], spDsc.Parameters[ResTags.R_A_HEIGHT_IDX], pRM.getTextureRegion(spDsc.resourceName), 
 				this.mEngine.getVertexBufferObjectManager());
 		mapOfObjects.put(spDsc.ID, newSprite); 
 		return newSprite;
 	}
+	private Text createText(TextDescriptor spTxtDsc){
+		return new Text(0, 0, pRM.getFont(spTxtDsc.resourceName), spTxtDsc.message,
+				new TextOptions(HorizontalAlign.CENTER), this.mEngine.getVertexBufferObjectManager());
+	}
 	private ClickableSprite createClickableSprite(SpriteDescriptor spDsc){
 
 		final ClickableSprite newClicableSprite = new ClickableSprite(spDsc.Parameters[ResTags.R_A_POSITION_X_IDX], spDsc.Parameters[ResTags.R_A_POSITION_Y_IDX], 
-				spDsc.Parameters[ResTags.R_A_WIDTH_IDX], spDsc.Parameters[ResTags.R_A_HEIGHT_IDX], pRM.GetTextureRegion(spDsc.resourceName), 
+				spDsc.Parameters[ResTags.R_A_WIDTH_IDX], spDsc.Parameters[ResTags.R_A_HEIGHT_IDX], pRM.getTextureRegion(spDsc.resourceName), 
 				this.mEngine.getVertexBufferObjectManager());
 		newClicableSprite.setID(spDsc.ID);
 		newClicableSprite.setActionOnSceneListener(this);

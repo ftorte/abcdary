@@ -19,6 +19,6 @@
     </colors>
     
     <fonts>
-        <font name="FontAndroid" texturedim="256x256" dim="32" color="LightSalmon" antialias="true" fontsourcefile="Droid.ttf"></font>
+        <font name="FontAndroid" txtdimX="256" txtdimY="256" size="32" color="LightSalmon" antialiasing="true" filename="Droid.ttf"></font>
     </fonts>
 </resources>

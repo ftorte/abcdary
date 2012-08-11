@@ -45,9 +45,9 @@ public class MenuArrayLettere extends SimpleBaseGameActivity /*implements IActio
 	protected void onCreateResources() {
 		mResourceManager = ResourcesManager.getInstance();
 		mResourceManager.init(this, this.mEngine);
-		mResourceManager.GetTextureRegion("MenuItemLettere");
-		mResourceManager.GetTextureRegion("MenuArrayLetterA");
-		mResourceManager.GetTextureRegion("MenuBackGround");
+		mResourceManager.getTextureRegion("MenuItemLettere");
+		mResourceManager.getTextureRegion("MenuArrayLetterA");
+		mResourceManager.getTextureRegion("MenuBackGround");
 		mResourceManager.EngineLoadResources(this.mEngine);
 		this.mEngine.onReloadResources();
 	}

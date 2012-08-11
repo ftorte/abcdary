@@ -12,8 +12,9 @@ public class SpriteDescriptor extends ResourceDescriptor {
 	public SpritesTypes type;
 	public String resourceName;
 	public List<SpriteDescriptor> coumpoundElements;
-	
+	public List<TextDescriptor> textElements;
 	SpriteDescriptor(){
 		coumpoundElements = new ArrayList<SpriteDescriptor>();
+		textElements = new ArrayList<TextDescriptor>();
 	}
 }

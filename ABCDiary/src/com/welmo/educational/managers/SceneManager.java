@@ -69,7 +69,7 @@ public class SceneManager<T extends ManageableScene> {
 			e.printStackTrace();
 		}
 		scene.init(mEngine, mContext);
-		scene.loadScene(strSceneName,resResourcesManager);
+		scene.loadScene(strSceneName);
 		scene.setSceneManager(this);
 		mapScenes.put(strSceneName, scene);
 		
