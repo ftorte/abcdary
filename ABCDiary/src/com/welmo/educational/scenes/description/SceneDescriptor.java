@@ -12,7 +12,7 @@ public class SceneDescriptor extends ResourceDescriptor {
 	// Member Variables
 	// ===========================================================
 	public ArrayList<SpriteDescriptor>	scObjects=null;
-
+	public ArrayList<TextDescriptor>	scText=null;
 	// ===========================================================
 	// Constructor
 	// ===========================================================
@@ -21,6 +21,7 @@ public class SceneDescriptor extends ResourceDescriptor {
 	@SuppressWarnings("static-access")
 	public SceneDescriptor() {
 		scObjects=new ArrayList<SpriteDescriptor>();
+		scText=new ArrayList<TextDescriptor>();
 	}
 
 

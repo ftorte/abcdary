@@ -16,13 +16,6 @@ public class SceneLetter extends ManageableScene {
 	private int miItemClicked=-1;
 	
 	// ===========================================================
-	// Temporary scene descriptor to build schene
-	@Override
-	public void loadScene(String SceneName, ResourcesManager res) {
-		super.loadScene(SceneName, res);
-	}
-
-	// ===========================================================
 	// Methods - Initialization and menu preparation
 	// ===========================================================
 

@@ -86,7 +86,7 @@ public class ResourcesManager {
 			textureManager.loadTexture(mapBitmapTexturesAtlas.get(key));
 	}
 
-	public ITexture LoadTexture(String textureName){
+	public ITexture loadTexture(String textureName){
 		ResourceDescriptorsManager pResDscMng = ResourceDescriptorsManager.getInstance();
 		TextureDescriptor pTextRegDsc = pResDscMng.getTexture(textureName);
 
@@ -113,7 +113,7 @@ public class ResourcesManager {
 		return pTextureAtlas;
 	}
 	
-	public IFont LoadFont(String fontName){
+	public IFont loadFont(String fontName){
 		ResourceDescriptorsManager pResDscMng = ResourceDescriptorsManager.getInstance();
 		FontDescriptor pFontDsc = pResDscMng.getFont(fontName);
 		
@@ -126,12 +126,14 @@ public class ResourcesManager {
 					pFontDsc.Parameters[ResTags.R_A_FONT_SIZE_IDX]);
 		}
 		else{
-			final ITexture fontTexture = new BitmapTextureAtlas(Engine.getTextureManager(), pFontDsc.texture_sizeX,pFontDsc.texture_sizeY, TextureOptions.BILINEAR);
-			mFont = FontFactory.createFromAsset(fontTexture, Engine.getTextureManager(), 
+			final ITexture fontTexture = new BitmapTextureAtlas(mEngine.getTextureManager(), pFontDsc.texture_sizeX,pFontDsc.texture_sizeY, TextureOptions.BILINEAR);
+			newFont = FontFactory.createFromAsset(mEngine.getFontManager(), fontTexture,this.mCtx.getAssets(), 
 					pFontDsc.filename, pFontDsc.Parameters[ResTags.R_A_FONT_SIZE_IDX], pFontDsc.AntiAlias,
-					android.graphics.Color.WHITE).load(Engine.getTextureManager(), Engine.getFontManager());
+					android.graphics.Color.GREEN);
+			newFont.load();
 
 		}
+		
 		//add font to font manger
 		this.mapFonts.put(pFontDsc.Name,newFont);
 		//return the new font just created
@@ -139,29 +141,37 @@ public class ResourcesManager {
 	}
 
 
-	public ITextureRegion LoadTextureRegion(String textureRegionName){
+	public ITextureRegion loadTextureRegion(String textureRegionName){
 		ResourceDescriptorsManager pResDscMng = ResourceDescriptorsManager.getInstance();
 		TextureRegionDescriptor pTextRegDsc = pResDscMng.getTextureRegion(textureRegionName);
 		if(pTextRegDsc == null)
 			throw new IllegalArgumentException("In LoadTextureRegion: there is no description for the requested texture = " + textureRegionName);
 		
 		//To load a texture region the manager load the texture and all child regions
-		LoadTexture(pTextRegDsc.textureName);
+		loadTexture(pTextRegDsc.textureName);
 		
 		//return the texture region that has just been loaded
 		return mapTextureRegions.get(textureRegionName);
 	}
 	
-	public ITextureRegion etTextureRegion(String textureRegionName){
+	public ITextureRegion getTextureRegion(String textureRegionName){
 		ITextureRegion theTexture = mapTextureRegions.get(textureRegionName);
 		//if the texture region is not already loaded in the resource manager load it
 		if(theTexture==null) 
-			theTexture = LoadTextureRegion(textureRegionName);
+			theTexture = loadTextureRegion(textureRegionName);
 		//return the found or loaded texture region
 		return theTexture;
 	}
 	public Color getColor(String textureRegionName){
 		return null;
+	}
+	public IFont getFont(String fontName){
+		IFont theFont = mapFonts.get(fontName);
+		//if the texture region is not already loaded in the resource manager load it
+		if(theFont==null) 
+			theFont = loadFont(fontName);
+		//return the found or loaded texture region
+		return theFont;
 	}
 	
 }

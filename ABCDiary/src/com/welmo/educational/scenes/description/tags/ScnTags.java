@@ -15,6 +15,7 @@ public class ScnTags {
 	public final static String S_SPRITE 			= "sprite";
 	public final static String S_CLICKABLE_SPRITE 	= "clickable_sprite";
 	public final static String S_COMPOUND_SPRITE 	= "compound_sprite";
+	public final static String S_TEXT 				= "text";
 	
 	public final static String S_ACTION 			= "action";
 	public final static String S_MODIFIER 			= "modifier";
@@ -43,6 +44,9 @@ public class ScnTags {
 	public final static int S_A_WIDTH_IDX			= 1;
 	public final static int S_A_POSITION_X_IDX		= 2;
 	public final static int S_A_POSITION_Y_IDX		= 3;
+	
+	//Font
+	public final static String S_A_MESSAGE 			= "message";
 	
 	
 }

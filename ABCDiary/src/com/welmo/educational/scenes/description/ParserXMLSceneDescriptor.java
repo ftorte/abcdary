@@ -35,8 +35,10 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 	protected SpriteDescriptor 				pSpriteDsc;
 	protected SpriteDescriptor 				pCompoundSpriteDsc;
 	protected MultiViewSceneDescriptor		pMultiViewSceneDsc;
-	protected Action		pAction;
-	protected Modifier		pModifier;
+	protected Action						pAction;
+	protected Modifier						pModifier;
+	protected TextDescriptor				pTextDescriptor;
+	
 	
 	
 	//--------------------------------------------------------
@@ -145,7 +147,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			if(this.pAction != null) //check if new action object descriptor
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered action description with another action description inside");
 			if(this.pSpriteDsc == null && this.pCompoundSpriteDsc == null ) //check if action is part of a sprite
-				throw new NullPointerException("ParserXMLSceneDescriptor encountered acton description withou sprite or compound sprite");
+				throw new NullPointerException("ParserXMLSceneDescriptor encountered acton description not in a sprite or compound sprite");
 			
 			//create new action
 			pAction = new Action();
@@ -174,7 +176,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			if(this.pModifier != null) //check if new action object descriptor
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered action description with another action description inside");
 			if(this.pSpriteDsc == null && this.pCompoundSpriteDsc == null ) //check if modifier is part of a sprite
-				throw new NullPointerException("ParserXMLSceneDescriptor encountered modifier description withou sprite or compound sprite");
+				throw new NullPointerException("ParserXMLSceneDescriptor encountered modifier description not in a sprite or compound sprite");
 			
 			//create new action and add it to the sprite description
 			pModifier = new Modifier();
@@ -200,6 +202,37 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 				pEventDscMgr.addModifier(EventDescriptionsManager.Events.valueOf(attributes.getValue(ScnTags.S_A_EVENT)),pCompoundSpriteDsc,pModifier);
 	
 		}
+		
+		if (localName.equalsIgnoreCase(ScnTags.S_TEXT)){
+			if(this.pTextDescriptor != null) //check if new action object descriptor
+				throw new NullPointerException("ParserXMLSceneDescriptor encountered text description with another text description inside");
+	
+			//create new action
+			pTextDescriptor = new TextDescriptor();
+			
+			// read type and init the correct parameter as per action type
+			//  <text ID="3" resourceName="FontAndroid" message="TXT" type="STATIC"></text>
+			  
+			pTextDescriptor.ID=Integer.parseInt(attributes.getValue(ScnTags.S_A_ID ));
+			pTextDescriptor.resourceName = attributes.getValue(ScnTags.S_A_RESOURCE_NAME);
+			pTextDescriptor.message = new String (attributes.getValue(ScnTags.S_A_MESSAGE));	
+			pTextDescriptor.type=TextDescriptor.TextTypes.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
+			
+
+			//check if the sprite is part of a compound sprite and add it to it else add it to the scene
+			if(pCompoundSpriteDsc != null){
+				pCompoundSpriteDsc.textElements.add(pTextDescriptor);
+			}
+			else {
+				if(pSpriteDsc != null){
+					pSpriteDsc.textElements.add(pTextDescriptor);
+				}
+				else {
+					pSceneDsc.scText.add(pTextDescriptor);
+				} 
+			}
+		} 
+		
 	}
 
 	@Override
@@ -217,6 +250,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 		if (localName.equalsIgnoreCase(ScnTags.S_ACTION))pAction = null; 
 		if (localName.equalsIgnoreCase(ScnTags.S_MODIFIER))pModifier = null; 
 		if (localName.equalsIgnoreCase(ScnTags.S_COMPOUND_SPRITE))pCompoundSpriteDsc = null;
+		if (localName.equalsIgnoreCase(ScnTags.S_TEXT))pTextDescriptor = null;
 		
 	}
 
