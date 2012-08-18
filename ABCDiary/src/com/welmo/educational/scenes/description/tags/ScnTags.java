@@ -16,9 +16,13 @@ public class ScnTags {
 	public final static String S_CLICKABLE_SPRITE 	= "clickable_sprite";
 	public final static String S_COMPOUND_SPRITE 	= "compound_sprite";
 	public final static String S_TEXT 				= "text";
+	public final static String S_BACKGROUND 		= "background";
 	
 	public final static String S_ACTION 			= "action";
 	public final static String S_MODIFIER 			= "modifier";
+	//--------------------------------------------------------
+	//Scene Objects' attributes
+
 	public final static String S_A_STICK_WITH		= "stick_with";
 	public final static String S_A_STICK_MODE		= "stick_mode";
 	
@@ -37,6 +41,7 @@ public class ScnTags {
 	public final static String S_A_WIDTH			= "width";
 	public final static String S_A_POSITION_X		= "px";
 	public final static String S_A_POSITION_Y		= "py";
+	public final static String S_A_ORIENTATION		= "orientation";
 	public final static String S_A_FILE_NAME		= "filename";
 	
 
@@ -47,6 +52,7 @@ public class ScnTags {
 	
 	//Font
 	public final static String S_A_MESSAGE 			= "message";
+	public final static String S_A_COLOR			= "color";
 	
 	
 }

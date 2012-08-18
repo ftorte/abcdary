@@ -2,8 +2,8 @@ package com.welmo.educational.managers;
 
 import java.util.HashMap;
 
-import com.welmo.educational.scenes.description.MultiViewSceneDescriptor;
-import com.welmo.educational.scenes.description.SceneDescriptor;
+import com.welmo.educational.scenes.components.descriptors.MultiViewSceneDescriptor;
+import com.welmo.educational.scenes.components.descriptors.SceneDescriptor;
 
 public class SceneDescriptorsManager {
 

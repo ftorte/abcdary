@@ -16,15 +16,15 @@
         android:label="@string/app_name" >
         <activity
             android:name=".SplashScreen"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainMenu" ></activity>
-        <activity android:name=".MenuArrayLettere" ></activity>
-        <activity android:name=".LetterActivity" ></activity>
+        <activity android:name=".MainMenu" android:screenOrientation="landscape"></activity>
+        <activity android:name=".MenuArrayLettere" android:screenOrientation="landscape"></activity>
+        <activity android:name=".LetterActivity" android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

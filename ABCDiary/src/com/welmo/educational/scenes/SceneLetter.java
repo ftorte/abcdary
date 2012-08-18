@@ -3,7 +3,7 @@ package com.welmo.educational.scenes;
 import com.welmo.educational.MenuArrayLettere;
 import com.welmo.educational.managers.ResourcesManager;
 import com.welmo.educational.scenes.components.ClickableSprite;
-import com.welmo.educational.scenes.description.Events.Action.ActionType;
+import com.welmo.educational.scenes.events.descriptors.Action.ActionType;
 
 public class SceneLetter extends ManageableScene {
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenes xmlns="http://www.example.org/scene">
+    <scene name="LetterD" >
+        <background ID="1" type="COLOR" color="LightSalmon" ></background>
+        <sprite ID="2" height="64" px="0" py="75%" resourceName="MenuArrayLetterA" type="STATIC" width="64" >
+        	<text ID="30" message="A" px="0" py="0" resourceName="DidactGothic" type="SIMPLE" color="LightSalmon" ></text>
+        </sprite>
+    </scene></scenes>

@@ -13,7 +13,7 @@ import com.welmo.educational.MenuArrayLettere;
 import com.welmo.educational.managers.ResourceDescriptorsManager;
 import com.welmo.educational.managers.ResourcesManager;
 import com.welmo.educational.scenes.components.ClickableSprite;
-import com.welmo.educational.scenes.description.Events.Action.ActionType;
+import com.welmo.educational.scenes.events.descriptors.Action.ActionType;
 import com.welmo.educational.utility.MLOG;
 
 import android.content.Context;
@@ -27,12 +27,12 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 	// ===========================================================
 	//Log & Debug
 	private static final String TAG = "MenuArrayScene";
-	private int miItemClicked=-1;
+	//private int miItemClicked=-1;
 	
 	//other constants
-	private static final int INVALID_CHAR_CLICKED = -1;
+	//private static final int INVALID_CHAR_CLICKED = -1;
 	
-	private static final Class<MenuArrayLettere> ACTIVITY_MENUARRAY = MenuArrayLettere.class;	
+	//private static final Class<MenuArrayLettere> ACTIVITY_MENUARRAY = MenuArrayLettere.class;	
 
 	// ===========================================================
 	// Fields - Items and global properties
@@ -82,8 +82,6 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 		scene.setOnSceneTouchListener( this);
 		this.setTouchAreaBindingOnActionDownEnabled(true);
 	}
-
-
 	/**
 	 * When menu is detach to be use, call this method to deactivate detector and touch events and reset container moves
 	 * 
@@ -94,7 +92,6 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 		clickDetector.setEnabled(false);
 		scene.setOnSceneTouchListener(null);
 	}
-
 	// ===========================================================
 	// Methods - Events IOnSceneTouchListener
 	// ===========================================================
@@ -109,7 +106,6 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 		 clickDetector.onTouchEvent(pSceneTouchEvent);
          return true;
 	}
-
 	// ===========================================================
 	// Methods - Events IClickDetectorListener
 	// ===========================================================
@@ -123,33 +119,12 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 			float pSceneX, float pSceneY) {
 
 		if(MLOG.LOG) Log.i(TAG,"onClick");
-		//if(MLOG.LOG) Log.i(TAG,"Menu ID = " + this.mClickLeastener.getObjectID());
-		
-		//[FT] mApplication.LaunchLetterScreen(miItemClicked);	
-		
-		//reset click event
-		// [FT] mClickLeastener.onClick(this.INVALID_CHAR_CLICKED);
 	}
-
-	
-
 	@Override
 	public void init(Engine theEngine, Context ctx) {
 		super.init(theEngine, ctx);
 		this.mApplication = (MenuArrayLettere) ctx;
 	}
-	
-	// ===========================================================
-	// Inner private classes
-	// ===========================================================
-	// [FT]private class ClicalbeSpriteLeastener implements ClickableSprite.IClickLeastener{
-	// [FT]
-	// [FT]	@Override
-		// [FT]	public void onClick(int ObjectID) {
-	// [FT]		miItemClicked = ObjectID;
-	// [FT]	}
-	// [FT]}
-
 	@Override
 	public void loadScene(String SceneName) {
 		// TODO Auto-generated method stub
@@ -157,15 +132,4 @@ public class SceneMenuArray extends ManageableScene implements IClickDetectorLis
 		// enable the touch listener
 		this.onShow(this);
 	}
-
-	/** 
-	 * Change this fonction or override it to defined the action on clic on an item whichi implement Action Change scene type.
-	 * 
-	 * @see org.andengine.input.touch.detector.ClickDetector.IClickDetectorListener#onClick(org.andengine.input.touch.detector.ClickDetector, int, float, float)
-	 */
-	/*@Override
-	public boolean onActionChangeScene(String nextScene) {
-		return mApplication.onActionChangeScene(nextScene);
-		//return super.onActionChangeScene(actionType, nextScene);
-	}*/
 }

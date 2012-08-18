@@ -14,7 +14,7 @@ import com.welmo.educational.MainMenu;
 import com.welmo.educational.MenuArrayLettere;
 import com.welmo.educational.managers.ResourcesManager;
 import com.welmo.educational.scenes.components.ClickableSprite;
-import com.welmo.educational.scenes.description.Events.Action.ActionType;
+import com.welmo.educational.scenes.events.descriptors.Action.ActionType;
 import com.welmo.educational.utility.MLOG;
 
 
@@ -28,8 +28,8 @@ public class SceneMainMenu extends ManageableScene implements IClickDetectorList
 	private static final String TAG = "SceneMainMenu";
 	
 	//other constants
-	private static final int INVALID_CHAR_CLICKED = -1;
-	private int miItemClicked=-1;
+	//private static final int INVALID_CHAR_CLICKED = -1;
+	//private int miItemClicked=-1;
 
 	// ===========================================================
 	// Fields - Items and global properties

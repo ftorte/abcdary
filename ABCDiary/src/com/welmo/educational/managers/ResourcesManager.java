@@ -6,24 +6,23 @@ import org.andengine.engine.Engine;
 import org.andengine.extension.svg.opengl.texture.atlas.bitmap.SVGBitmapTextureAtlasTextureRegionFactory;
 import org.andengine.opengl.font.Font;
 import org.andengine.opengl.font.FontFactory;
-import org.andengine.opengl.font.FontManager;
 import org.andengine.opengl.font.IFont;
 import org.andengine.opengl.texture.ITexture;
 import org.andengine.opengl.texture.TextureManager;
 import org.andengine.opengl.texture.TextureOptions;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.region.ITextureRegion;
+import org.andengine.util.color.Color;
 
-import com.welmo.educational.scenes.description.ColorDescriptor;
-import com.welmo.educational.scenes.description.FontDescriptor;
-import com.welmo.educational.scenes.description.ParserXMLSceneDescriptor;
-import com.welmo.educational.scenes.description.TextureDescriptor;
-import com.welmo.educational.scenes.description.TextureRegionDescriptor;
+import com.welmo.educational.resources.components.descriptors.ColorDescriptor;
+import com.welmo.educational.resources.components.descriptors.FontDescriptor;
+import com.welmo.educational.resources.components.descriptors.TextureDescriptor;
+import com.welmo.educational.resources.components.descriptors.TextureRegionDescriptor;
 import com.welmo.educational.scenes.description.tags.ResTags;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Typeface;
+
+
 
 public class ResourcesManager {
 	// ===========================================================
@@ -42,6 +41,7 @@ public class ResourcesManager {
 	HashMap<String, Font> 					mapFonts;
 	HashMap<String, ITextureRegion> 		mapTextureRegions;
 	HashMap<String, BitmapTextureAtlas> 	mapBitmapTexturesAtlas;
+	HashMap<String, Color> 					mapColors;
 
 	
 	// singleton Instance
@@ -54,6 +54,8 @@ public class ResourcesManager {
 		mapFonts = new HashMap<String, Font>();
 		mapTextureRegions = new HashMap<String, ITextureRegion>();
 		mapBitmapTexturesAtlas = new HashMap<String, BitmapTextureAtlas>();
+		mapColors = new HashMap<String, Color>();
+		initialized = false;
 	}
 	@method
 	public static ResourcesManager getInstance(){
@@ -129,7 +131,7 @@ public class ResourcesManager {
 			final ITexture fontTexture = new BitmapTextureAtlas(mEngine.getTextureManager(), pFontDsc.texture_sizeX,pFontDsc.texture_sizeY, TextureOptions.BILINEAR);
 			newFont = FontFactory.createFromAsset(mEngine.getFontManager(), fontTexture,this.mCtx.getAssets(), 
 					pFontDsc.filename, pFontDsc.Parameters[ResTags.R_A_FONT_SIZE_IDX], pFontDsc.AntiAlias,
-					android.graphics.Color.GREEN);
+					android.graphics.Color.WHITE);
 			newFont.load();
 
 		}
@@ -162,8 +164,31 @@ public class ResourcesManager {
 		//return the found or loaded texture region
 		return theTexture;
 	}
-	public Color getColor(String textureRegionName){
-		return null;
+	public Color loadColor(String colorName){
+		ResourceDescriptorsManager pResDscMng = ResourceDescriptorsManager.getInstance();
+		ColorDescriptor pColorDsc = pResDscMng.getColor(colorName);
+		
+		//create color
+		Color newColor = null;
+		newColor = new Color((float)(pColorDsc.Parameters[ResTags.R_A_RED_IDX]/255.0), 
+				(float)(pColorDsc.Parameters[ResTags.R_A_GREEN_IDX]/255.0),
+						(float)( pColorDsc.Parameters[ResTags.R_A_BLUE_IDX]/255.0));	
+		
+		//add font to font manger
+		this.mapColors.put(colorName,newColor);
+		
+		//return the new font just created
+		return newColor;
+	}
+		
+	public Color getColor(String colorName){
+		Color theColor = mapColors.get(colorName);
+		//if the texture region is not already loaded in the resource manager load it
+		if(theColor==null) 
+			theColor = loadColor(colorName);
+		//return the found or loaded texture region
+		return theColor;
+		
 	}
 	public IFont getFont(String fontName){
 		IFont theFont = mapFonts.get(fontName);

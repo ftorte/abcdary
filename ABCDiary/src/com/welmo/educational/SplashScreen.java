@@ -32,8 +32,8 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 import com.welmo.educational.managers.ResourcesManager;
-import com.welmo.educational.scenes.description.ParserXMLResourcesDescriptor;
-import com.welmo.educational.scenes.description.ParserXMLSceneDescriptor;
+import com.welmo.educational.resources.ParserXMLResourcesDescriptor;
+import com.welmo.educational.scenes.components.descriptors.ParserXMLSceneDescriptor;
 
 import android.content.Intent;
 import android.util.Log;
@@ -102,7 +102,9 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 
 		/* Create the sprite and add it to the scene. */
 		final Sprite splashImage = new Sprite(centerX, centerY, pTextureRegion, this.getVertexBufferObjectManager());
-				
+		
+		/* create background */
+		
 		SequenceEntityModifier animation = new SequenceEntityModifier(
 				new DelayModifier(0.5f),
 				new ParallelEntityModifier(
@@ -170,7 +172,8 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 			xr.setContentHandler(sceneDescriptionHandler); 
 			//Parse all scene files
 			xr.parse(new InputSource(this.getAssets().open("scenes/ABCDiaryScenes.xml"))); 
-			xr.parse(new InputSource(this.getAssets().open("scenes/ABCDiaryMenuScene.xml"))); 
+			xr.parse(new InputSource(this.getAssets().open("scenes/ABCDiaryMenuScene.xml")));
+			xr.parse(new InputSource(this.getAssets().open("scenes/LettersScenes.xml")));
 		
 			
 			
