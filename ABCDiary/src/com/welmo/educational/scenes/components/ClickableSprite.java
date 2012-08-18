@@ -12,11 +12,10 @@ import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.vbo.DrawType;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
-import com.welmo.educational.scenes.description.SpriteDescriptor;
-import com.welmo.educational.scenes.description.Events.Action;
-import com.welmo.educational.scenes.description.Events.EventDescriptionsManager;
-import com.welmo.educational.scenes.description.Events.EventDescriptionsManager.Events;
-import com.welmo.educational.scenes.description.Events.Modifier;
+import com.welmo.educational.scenes.events.descriptors.Action;
+import com.welmo.educational.scenes.events.descriptors.EventDescriptionsManager;
+import com.welmo.educational.scenes.events.descriptors.Modifier;
+import com.welmo.educational.scenes.events.descriptors.EventDescriptionsManager.Events;
 import com.welmo.educational.utility.MLOG;
 
 import android.util.Log;

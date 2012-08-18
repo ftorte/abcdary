@@ -4,13 +4,13 @@ package com.welmo.educational.managers;
 
 import java.util.HashMap;
 
-import com.welmo.educational.scenes.description.ColorDescriptor;
-import com.welmo.educational.scenes.description.FontDescriptor;
-import com.welmo.educational.scenes.description.MultiViewSceneDescriptor;
-import com.welmo.educational.scenes.description.ParserXMLSceneDescriptor;
-import com.welmo.educational.scenes.description.SceneDescriptor;
-import com.welmo.educational.scenes.description.TextureDescriptor;
-import com.welmo.educational.scenes.description.TextureRegionDescriptor;
+import com.welmo.educational.resources.components.descriptors.ColorDescriptor;
+import com.welmo.educational.resources.components.descriptors.FontDescriptor;
+import com.welmo.educational.resources.components.descriptors.TextureDescriptor;
+import com.welmo.educational.resources.components.descriptors.TextureRegionDescriptor;
+import com.welmo.educational.scenes.components.descriptors.MultiViewSceneDescriptor;
+import com.welmo.educational.scenes.components.descriptors.ParserXMLSceneDescriptor;
+import com.welmo.educational.scenes.components.descriptors.SceneDescriptor;
 
 
 public class ResourceDescriptorsManager {
