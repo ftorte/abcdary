@@ -17,13 +17,13 @@
                  <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="LetterD"></action>    
             </sprite>
             <sprite ID="5" height="13%" width="8%" px="50%" py="5%" resourceName="Big-E" type="CLICKABLE">
-                 <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+                 <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="LetterE"></action>
             </sprite>
             <sprite ID="6" height="13%" width="8%" px="62%" py="5%" resourceName="Big-F" type="CLICKABLE">
                 <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="7" height="13%" width="8%" px="74%" py="5%" resourceName="Big-G" type="CLICKABLE">
-           		<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+           		<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="LetterG"></action>
             </sprite>
             <sprite ID="8" height="13%" width="8%" px="86%" py="5%" resourceName="Big-H" type="CLICKABLE">
            		<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
