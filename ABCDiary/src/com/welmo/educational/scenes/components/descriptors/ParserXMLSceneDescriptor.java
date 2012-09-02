@@ -1,18 +1,17 @@
 package com.welmo.educational.scenes.components.descriptors;
 
-import java.util.ArrayList;
+
+
+import java.util.LinkedList;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.util.Log;
-
-import com.welmo.educational.managers.ResourceDescriptorsManager;
 import com.welmo.educational.managers.SceneDescriptorsManager;
 import com.welmo.educational.scenes.components.Stick;
+import com.welmo.educational.scenes.components.descriptors.BasicObjectDescriptor.Alignment;
 import com.welmo.educational.scenes.components.descriptors.BasicObjectDescriptor.IDimension;
 import com.welmo.educational.scenes.components.descriptors.BasicObjectDescriptor.IOrientation;
 import com.welmo.educational.scenes.components.descriptors.BasicObjectDescriptor.IPosition;
@@ -46,6 +45,11 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 	protected TextObjectDescriptor		pTextDescriptor;
 	
 	protected BackGroundObjectDescriptor			pBackGroundDescriptor;
+	
+	
+	//Object descriptors
+	protected LinkedList<BasicObjectDescriptor> 	pListObjDsc;
+	protected BasicObjectDescriptor					pCurrObjDsc;
 	
 	
 	
@@ -122,11 +126,12 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			// Read the sprite
 			pSpriteDsc.ID=Integer.parseInt(attributes.getValue(ScnTags.S_A_ID));
 			pSpriteDsc.textureName = new String(attributes.getValue(ScnTags.S_A_RESOURCE_NAME));
-			pSpriteDsc.type = SpriteObjectDescriptor.SpritesTypes.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
 			
 			this.parseAttributesPosition(pSpriteDsc.getPosition(),attributes);
 			this.parseAttributesDimensions(pSpriteDsc.getDimension(),attributes);
 			this.parseAttributesOrientation(pSpriteDsc.getOriantation(),attributes);
+			
+			pSpriteDsc.type = SpriteObjectDescriptor.SpritesTypes.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
 			
 			//check if the sprite is part of a compound sprite and add it to it else add it to the scene
 			if(pCompoundSpriteDsc != null)
@@ -250,22 +255,31 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 		} 
 		
 		if (localName.equalsIgnoreCase(ScnTags.S_BACKGROUND)){
-			if(this.pBackGroundDescriptor != null) //check if new action object descriptor
-				throw new NullPointerException("ParserXMLSceneDescriptor encountered background description with another background description inside");
-			//create new action
-			pBackGroundDescriptor = pSceneDsc.thebackGround;
-			pBackGroundDescriptor.ID=Integer.parseInt(attributes.getValue(ScnTags.S_A_ID ));
-			
-			//pModifier.event=SpriteDescriptor.SpritesEvents.valueOf(attributes.getValue(ScnTags.S_A_EVENT));;
-			pBackGroundDescriptor.type=BackGroundObjectDescriptor.BackGroundTypes.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
-			switch (pBackGroundDescriptor.type){
-				case COLOR:
-					pBackGroundDescriptor.color=attributes.getValue(ScnTags.S_A_COLOR);
-					break;
-				default:
-					break;
-			}		
+			readBackGroudDescription(attributes);
 		}
+	}
+	
+	private void readBackGroudDescription(Attributes attributes){
+		if(this.pBackGroundDescriptor != null) //check if new action object descriptor
+			throw new NullPointerException("ParserXMLSceneDescriptor encountered background description with another background description inside");
+		
+		//create new action
+		pBackGroundDescriptor = pSceneDsc.thebackGround;
+		pBackGroundDescriptor.ID=Integer.parseInt(attributes.getValue(ScnTags.S_A_ID ));
+
+		//pModifier.event=SpriteDescriptor.SpritesEvents.valueOf(attributes.getValue(ScnTags.S_A_EVENT));;
+		pBackGroundDescriptor.type=BackGroundObjectDescriptor.BackGroundTypes.valueOf(attributes.getValue(ScnTags.S_A_TYPE));
+		switch (pBackGroundDescriptor.type){
+		case COLOR:
+			pBackGroundDescriptor.color=attributes.getValue(ScnTags.S_A_COLOR);
+			break;
+		case SPRITE:
+			pBackGroundDescriptor.sprite = new SpriteObjectDescriptor();
+			//TODO readSpriteObject()
+			break;
+		default:
+			break;
+		}		
 	}
 	
 	private void parseAttributesPosition(IPosition pPosition,Attributes attributes){
@@ -277,7 +291,22 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			pPosition.setX(0);
 			pPosition.setY(0);
 		}
+		//read H Alignment
+		if(attributes.getValue(ScnTags.S_A_H_ALIGNEMENT) != null){ 
+			pPosition.setHorizontalAlignment(Alignment.valueOf(attributes.getValue(ScnTags.S_A_H_ALIGNEMENT)));
+		}
+		else{
+			pPosition.setHorizontalAlignment(Alignment.NO_ALIGNEMENT);
+		}
+		//read V Alignment
+		if(attributes.getValue(ScnTags.S_A_H_ALIGNEMENT) != null){ 
+			pPosition.setVerticalAlignment(Alignment.valueOf(attributes.getValue(ScnTags.S_A_V_ALIGNEMENT)));
+		}
+		else{
+			pPosition.setVerticalAlignment(Alignment.NO_ALIGNEMENT);
+		}
 	}
+	
 	private void parseAttributesDimensions(IDimension pDimensions,Attributes attributes){
 		if((attributes.getValue(ScnTags.S_A_WIDTH) != null) && (attributes.getValue(ScnTags.S_A_WIDTH) != null)){
 			pDimensions.setWidth(dimHelper.parsLenght(ScreenDimensionHelper.W, attributes.getValue(ScnTags.S_A_WIDTH)));
