@@ -22,9 +22,11 @@ public class CompoundSprite extends Rectangle{
 	// ===========================================================
 	//Log & Debug
 	private static final String TAG = "ClickableSprite";
-	private EventDescriptionsManager pEDMgr					= null;
-	private Object					 pDescriptor			= null;
-	private IActionOnSceneListener mActionListener			=null;
+	
+	private EventDescriptionsManager 	pEDMgr				= null;
+	private Object					 	pDescriptor			= null;
+	
+	private IActionOnSceneListener 		mActionListener		=null;
 
 	public CompoundSprite(float pX, float pY, float pWidth, float pHeight,
 			VertexBufferObjectManager pVertexBufferObjectManager) {
@@ -101,11 +103,12 @@ public class CompoundSprite extends Rectangle{
 			break;
 		case TouchEvent.ACTION_MOVE:
 			if (MLOG.LOG)Log.i(TAG,"onAreaTouched ACTION_DOWN = " + nID);
-			pActionList = pEDMgr.getActionList(Events.ON_MOVE,this.getPDescriptor());
+			//Get all action on Event Move attached to object this
+			pActionList = pEDMgr.getActionList(Events.ON_MOVE,this.pDescriptor);
 			if (pActionList != null){
 				
 			}
-			pModifierList = pEDMgr.getModifierList(Events.ON_MOVE,this.getPDescriptor());
+			pModifierList = pEDMgr.getModifierList(Events.ON_MOVE,this.pDescriptor);
 			if (pModifierList != null){
 				for (Modifier mod: pModifierList) {
 					switch(mod.type){

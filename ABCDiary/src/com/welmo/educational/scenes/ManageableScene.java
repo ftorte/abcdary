@@ -3,28 +3,31 @@ package com.welmo.educational.scenes;
 import java.util.HashMap;
 
 import org.andengine.engine.Engine;
+import org.andengine.entity.modifier.LoopEntityModifier;
+import org.andengine.entity.modifier.CardinalSplineMoveModifier.CardinalSplineMoveModifierConfig;
+import org.andengine.entity.modifier.PathModifier.Path;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.scene.background.Background;
+import org.andengine.entity.scene.background.SpriteBackground;
 import org.andengine.entity.shape.IAreaShape;
-import org.andengine.entity.shape.RectangularShape;
+import org.andengine.entity.sprite.AnimatedSprite;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.text.Text;
 import org.andengine.entity.text.TextOptions;
 import org.andengine.util.HorizontalAlign;
-import org.andengine.util.color.Color;
 
 import com.welmo.educational.managers.ResourcesManager;
 import com.welmo.educational.managers.SceneDescriptorsManager;
 import com.welmo.educational.managers.SceneManager;
+import com.welmo.educational.scenes.components.CardinalSplineMoveAndRotateModifier;
 import com.welmo.educational.scenes.components.ClickableSprite;
 import com.welmo.educational.scenes.components.CompoundSprite;
 import com.welmo.educational.scenes.components.IActionOnSceneListener;
 import com.welmo.educational.scenes.components.Stick;
-import com.welmo.educational.scenes.components.descriptors.BackGroundObjectDescriptor;
+import com.welmo.educational.scenes.components.TextComponent;
 import com.welmo.educational.scenes.components.descriptors.SceneDescriptor;
 import com.welmo.educational.scenes.components.descriptors.SpriteObjectDescriptor;
 import com.welmo.educational.scenes.components.descriptors.TextObjectDescriptor;
-import com.welmo.educational.scenes.description.tags.ResTags;
 import com.welmo.educational.scenes.events.descriptors.Action;
 
 
@@ -41,7 +44,7 @@ public class ManageableScene extends Scene implements IManageableScene, IActionO
 	protected SceneDescriptorsManager 			pSDM;
 	protected ResourcesManager					pRM;
 	protected SceneManager<?>					pSM;
-	protected HashMap<Integer, IAreaShape> 	mapOfObjects;
+	protected HashMap<Integer, IAreaShape> 		mapOfObjects;
 	
 	public ManageableScene(){
 		//initialize dummy listeners
@@ -54,11 +57,18 @@ public class ManageableScene extends Scene implements IManageableScene, IActionO
 		SceneDescriptor scDsc;
 		if((scDsc = pSDM.getScene(SceneName))== null)
 			throw new NullPointerException("In ManageableScene: the scene: " + SceneName + " don't exists");
-	
 
 		switch(scDsc.thebackGround.type){
 		case COLOR:
 			this.setBackground(new Background(pRM.getColor(scDsc.thebackGround.color)));
+			break;
+		case SPRITE:
+			SpriteObjectDescriptor pSDsc = scDsc.thebackGround.sprite;
+			final Sprite spriteBKG = new Sprite(0, 0, pSDsc.getDimension().getWidth(), pSDsc.getDimension().getHeight(), 
+				pRM.getTextureRegion(pSDsc.getTextureName()), 
+				this.mEngine.getVertexBufferObjectManager());
+				this.setBackground(new SpriteBackground(spriteBKG));
+				
 			break;
 		default:
 			break;
@@ -72,7 +82,8 @@ public class ManageableScene extends Scene implements IManageableScene, IActionO
 				/* Create the clickable sprite elements */
 				final ClickableSprite newClickable = createClickableSprite(scObjDsc);
 				for( int i = 0; i < scObjDsc.getTextElements().size(); i++){
-					final Text newText = createText(scObjDsc.getTextElements().get(i));
+					final TextComponent newText = createText(scObjDsc.getTextElements().get(i));
+					newText.align(scObjDsc.getTextElements().get(i), newClickable);
 					newClickable.attachChild(newText);
 				};
 				this.attachChild(newClickable);
@@ -80,21 +91,26 @@ public class ManageableScene extends Scene implements IManageableScene, IActionO
 
 			case COMPOUND_SPRITE:
 				final CompoundSprite newEntity = new CompoundSprite(0, 0, 0,0, this.mEngine.getVertexBufferObjectManager());
-				newEntity.setID(scObjDsc.ID);
+				newEntity.setID(scObjDsc.getID());
 				for( int i = 0; i < scObjDsc.getCoumpoundElements().size(); i++){
 					ClickableSprite newComponent = createClickableSprite(scObjDsc.getCoumpoundElements().get(i));
 					newEntity.attachComponentChild(newComponent.getX(), newComponent.getY(), newComponent.getWidth(), newComponent.getHeight(),newComponent);
 				};
 				for( int i = 0; i < scObjDsc.getTextElements().size(); i++){
-					final Text newText = createText(scObjDsc.getTextElements().get(i));
-				
+					final TextComponent newText = createText(scObjDsc.getTextElements().get(i));
+					newText.align(scObjDsc.getTextElements().get(i), newEntity);
 					newEntity.attachChild(newText);
 				};
 				this.attachChild(newEntity);
 				newEntity.setActionOnSceneListener(this);
 				newEntity.setPDescriptor(scObjDsc);
 				this.registerTouchArea(newEntity);
-				mapOfObjects.put(scObjDsc.ID, newEntity); 
+				mapOfObjects.put(scObjDsc.getID(), newEntity); 
+				break;
+			case ANIMATED:
+				/* Create the animated sprite elements */
+				final AnimatedSprite newAnimatedSprite = createAnimatedSprite(scObjDsc);
+				this.attachChild(newAnimatedSprite);
 				break;
 			default:
 				break;
@@ -104,7 +120,7 @@ public class ManageableScene extends Scene implements IManageableScene, IActionO
 			switch(scObjDsc.getType()){	
 			case SIMPLE:
 				//TODO add to text description Text Optoion with default value
-				final Text newText = createText(scObjDsc);
+				final TextComponent newText = createText(scObjDsc);
 				this.attachChild(newText);
 				break;
 			default:
@@ -121,41 +137,68 @@ public class ManageableScene extends Scene implements IManageableScene, IActionO
 				pRM.getTextureRegion(spDsc.getTextureName()), 
 				this.mEngine.getVertexBufferObjectManager());
 		
-		mapOfObjects.put(spDsc.ID, newSprite); 
+		mapOfObjects.put(spDsc.getID(), newSprite); 
 		return newSprite;
 	}
-	private Text createText(TextObjectDescriptor spTxtDsc){
-		Text newText = new Text(0, 0, pRM.getFont(spTxtDsc.getFontName()), spTxtDsc.getMessage(),
+	private TextComponent createText(TextObjectDescriptor spTxtDsc){
+		TextComponent newText = new TextComponent(0, 0, pRM.getFont(spTxtDsc.getFontName()), spTxtDsc.getMessage(),
 				new TextOptions(HorizontalAlign.CENTER), this.mEngine.getVertexBufferObjectManager());
-		//Set Text Color
-		newText.setColor(pRM.getColor(spTxtDsc.getColorName()));
-		//Set Position
-		newText.setPosition(spTxtDsc.getPosition().getX(),spTxtDsc.getPosition().getY());
 		
-		newText.setScaleCenter(0, 0);
-		newText.setScale(2);
+		newText.configure(spTxtDsc);
 		return newText;
-		
 	}
 	private ClickableSprite createClickableSprite(SpriteObjectDescriptor spDsc){
-
+		
 		final ClickableSprite newClicableSprite = new ClickableSprite(spDsc.getPosition().getX(),spDsc.getPosition().getY(), 
 				spDsc.getDimension().getWidth(), spDsc.getDimension().getHeight(),
-				pRM.getTextureRegion(spDsc.getTextureName()), 
+				this.pRM.getTextureRegion(spDsc.getTextureName()), 
 				this.mEngine.getVertexBufferObjectManager());
-		newClicableSprite.setID(spDsc.ID);
-		newClicableSprite.setActionOnSceneListener(this);
+		
+		//setup Id
+		newClicableSprite.setID(spDsc.getID());
 		newClicableSprite.setPDescriptor(spDsc);
 		
 		/* Setup Rotation*/
 		newClicableSprite.setRotationCenter(newClicableSprite.getWidth()/2, newClicableSprite.getHeight()/2);
 		newClicableSprite.setRotation(spDsc.getOriantation().getOriantation());
-		
+			
 		this.registerTouchArea(newClicableSprite);
-		mapOfObjects.put(spDsc.ID, newClicableSprite); 
+		mapOfObjects.put(spDsc.getID(), newClicableSprite); 
+		
+		newClicableSprite.setActionOnSceneListener(this);
 		return newClicableSprite;
 	}
 
+	private AnimatedSprite createAnimatedSprite(SpriteObjectDescriptor spDsc){
+		final AnimatedSprite animatedObject = new AnimatedSprite(100,100, 
+				pRM.getTiledTexture(spDsc.getTextureName()), 
+				this.mEngine.getVertexBufferObjectManager());
+		
+		final Path path = new Path(5).to(10, 10).to(10, 480 - 74).to(800 - 58, 480 - 74).to(800 - 58, 10).to(10, 10);
+
+		/* Add the proper animation when a waypoint of the path is passed. */
+		CardinalSplineMoveModifierConfig splineModifierConfig= new CardinalSplineMoveModifierConfig(8,0.4f);
+		
+		splineModifierConfig.setControlPoint(0, 233f, 88f);
+		splineModifierConfig.setControlPoint(1, 182f, 238f);
+		splineModifierConfig.setControlPoint(2, 68f,  194f);
+		splineModifierConfig.setControlPoint(3, 109f, 376f);
+		splineModifierConfig.setControlPoint(4, 290f, 357f);
+		splineModifierConfig.setControlPoint(5, 346f, 141f);
+		splineModifierConfig.setControlPoint(6, 259f, 154f);
+		splineModifierConfig.setControlPoint(7, 233f, 88f);
+		
+		CardinalSplineMoveAndRotateModifier splineModifier = new CardinalSplineMoveAndRotateModifier(30,splineModifierConfig);
+		
+		splineModifier.pEngine = this.mEngine;
+		splineModifier.pScene = this;
+		
+		
+		animatedObject.registerEntityModifier(new LoopEntityModifier(splineModifier));
+		
+		animatedObject.animate(100);
+		return animatedObject;
+	}
 	public void init(Engine theEngine, Context ctx) {
 		mEngine = theEngine;
 		mContext = ctx;

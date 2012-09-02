@@ -16,8 +16,6 @@ public class FontDescriptor extends ResourceDescriptor {
 	public int texture_sizeX;
 	public int texture_sizeY;
 	
-	
-	
 	// ===========================================================
 	// Member Variables
 	// ===========================================================

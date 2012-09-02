@@ -34,23 +34,14 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 	private EventDescriptionsManager		pEventDscMgr;
 
 	protected SceneDescriptor				pSceneDsc;
-	//protected SpriteDescriptor 				pSpriteDsc;
 	protected SpriteObjectDescriptor 		pSpriteDsc;
-	//protected SpriteDescriptor 				pCompoundSpriteDsc;
-	protected SpriteObjectDescriptor 				pCompoundSpriteDsc;
+	protected SpriteObjectDescriptor 		pCompoundSpriteDsc;
 	protected MultiViewSceneDescriptor		pMultiViewSceneDsc;
 	protected Action						pAction;
 	protected Modifier						pModifier;
-	//[FT] protected TextDescriptor				pTextDescriptor;
-	protected TextObjectDescriptor		pTextDescriptor;
+	protected TextObjectDescriptor			pTextDescriptor;
 	
-	protected BackGroundObjectDescriptor			pBackGroundDescriptor;
-	
-	
-	//Object descriptors
-	protected LinkedList<BasicObjectDescriptor> 	pListObjDsc;
-	protected BasicObjectDescriptor					pCurrObjDsc;
-	
+	protected BackGroundObjectDescriptor	pBackGroundDescriptor;
 	
 	
 	//--------------------------------------------------------
@@ -113,6 +104,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			// Read scene description
 			pSceneDsc.name = new String(attributes.getValue(ScnTags.S_A_NAME));
 			pSceneDescManager.addScene(pSceneDsc.name, pSceneDsc);
+			
 			return;
 		}
 		if (localName.equalsIgnoreCase(ScnTags.S_SPRITE)){
@@ -274,7 +266,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			pBackGroundDescriptor.color=attributes.getValue(ScnTags.S_A_COLOR);
 			break;
 		case SPRITE:
-			pBackGroundDescriptor.sprite = new SpriteObjectDescriptor();
+			//pBackGroundDescriptor.sprite = new SpriteObjectDescriptor();
 			//TODO readSpriteObject()
 			break;
 		default:
@@ -352,6 +344,5 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 	// * la balise de fermeture
 	public void characters(char[] ch,int start, int length)	throws SAXException{
 		String lecture = new String(ch,start,length);
-		//if(buffer != null) buffer.append(lecture);
 	}
 }

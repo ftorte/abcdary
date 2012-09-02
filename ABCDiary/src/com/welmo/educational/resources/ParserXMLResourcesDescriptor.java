@@ -8,10 +8,12 @@ import android.content.Context;
 import android.graphics.Typeface;
 
 import com.welmo.educational.managers.ResourceDescriptorsManager;
+import com.welmo.educational.resources.components.descriptors.BuildableTextureDescriptor;
 import com.welmo.educational.resources.components.descriptors.ColorDescriptor;
 import com.welmo.educational.resources.components.descriptors.FontDescriptor;
 import com.welmo.educational.resources.components.descriptors.TextureDescriptor;
 import com.welmo.educational.resources.components.descriptors.TextureRegionDescriptor;
+import com.welmo.educational.resources.components.descriptors.TiledTextureRegionDescriptor;
 import com.welmo.educational.scenes.description.tags.ResTags;
 import com.welmo.educational.utility.ScreenDimensionHelper;
 
@@ -29,6 +31,8 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 	protected FontDescriptor				pFontDsc;
 	protected TextureRegionDescriptor		pTextureRegionDsc;
 	protected ColorDescriptor				pColorDsc;
+	protected BuildableTextureDescriptor 	pBuildableTextureDsc;
+	protected TiledTextureRegionDescriptor	pTiledTextureRegionDsc;
 	
 	//--------------------------------------------------------
 	
@@ -161,6 +165,44 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 			pResDescManager.addColor(pColorDsc.Name, pColorDsc);
 			return;
 		}
+		
+		if (localName.equalsIgnoreCase(ResTags.R_BUILDABLETEXTURE)){
+			
+			if(this.pBuildableTextureDsc != null)
+				throw new NullPointerException("ParserXMLSceneDescriptor encountered texture description with another texture description inside");
+			pBuildableTextureDsc = new BuildableTextureDescriptor();
+
+			// Read texture description
+			pBuildableTextureDsc.ID=0;
+			pBuildableTextureDsc.Name = new String(attributes.getValue(ResTags.R_A_NAME));
+			pBuildableTextureDsc.Parameters[ResTags.R_A_HEIGHT_IDX]=Integer.parseInt(attributes.getValue(ResTags.R_A_HEIGHT));
+			pBuildableTextureDsc.Parameters[ResTags.R_A_WIDTH_IDX]=Integer.parseInt(attributes.getValue(ResTags.R_A_WIDTH));
+			
+			pResDescManager.addBuildableTexture(pBuildableTextureDsc.Name, pBuildableTextureDsc);
+			return;
+		
+		}
+		if (localName.equalsIgnoreCase(ResTags.R_TILEDTEXTUREREGION)){
+			
+			if(this.pTiledTextureRegionDsc != null) //check is new texture region
+				throw new NullPointerException("ParserXMLSceneDescriptor encountered texture description with another texture description inside");
+			
+			if(this.pBuildableTextureDsc == null) //check region is part of a texture
+				throw new NullPointerException("ParserXMLSceneDescriptor encountered textureregion description withou texture description");
+			
+			pTiledTextureRegionDsc = new TiledTextureRegionDescriptor();
+
+			pTiledTextureRegionDsc.ID=0;
+			pTiledTextureRegionDsc.Name = new String(attributes.getValue(ResTags.R_A_NAME));
+			pTiledTextureRegionDsc.filename = new String(attributes.getValue(ResTags.R_A_FILE_NAME));
+			pTiledTextureRegionDsc.textureName = new String(pBuildableTextureDsc.Name);	//add parent texture name to textureregion descriptor
+			pTiledTextureRegionDsc.column = Integer.parseInt(attributes.getValue(ResTags.R_A_COL));
+			pTiledTextureRegionDsc.row = Integer.parseInt(attributes.getValue(ResTags.R_A_ROW));
+			pResDescManager.addTiledTextureRegion(pTiledTextureRegionDsc.Name, pTiledTextureRegionDsc);	//add textureregion to maps or texture region
+			pBuildableTextureDsc.Regions.add(pTiledTextureRegionDsc);										//add textureregion to list of region in parent texture
+			return;
+		}
+		
 	}
 
 	@Override
@@ -185,6 +227,12 @@ public class ParserXMLResourcesDescriptor extends DefaultHandler {
 		}
 		if (localName.equalsIgnoreCase(ResTags.R_FONT)){
 			pFontDsc = null;
+		}
+		if (localName.equalsIgnoreCase(ResTags.R_TILEDTEXTUREREGION)){
+			pTiledTextureRegionDsc  = null;
+		}
+		if (localName.equalsIgnoreCase(ResTags.R_BUILDABLETEXTURE)){
+			pBuildableTextureDsc = null;
 		}
 		
 	}

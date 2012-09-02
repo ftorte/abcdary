@@ -28,11 +28,4 @@ public class SceneDescriptor extends BasicObjectDescriptor {
 		scText=new ArrayList<TextObjectDescriptor>();
 		thebackGround = new BackGroundObjectDescriptor();
 	}
-
-
-	@Override
-	public String toString() {
-		return "SpriteDescriptor" +  "]";
-	}
-
 }

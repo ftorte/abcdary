@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.andengine.entity.shape.IAreaShape;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.sprite.vbo.ISpriteVertexBufferObject;
 import org.andengine.input.touch.TouchEvent;
@@ -12,13 +13,16 @@ import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.vbo.DrawType;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
+import android.util.Log;
+
+import com.welmo.educational.scenes.components.descriptors.BasicObjectDescriptor.Alignment;
+import com.welmo.educational.scenes.components.descriptors.SpriteObjectDescriptor;
 import com.welmo.educational.scenes.events.descriptors.Action;
 import com.welmo.educational.scenes.events.descriptors.EventDescriptionsManager;
 import com.welmo.educational.scenes.events.descriptors.Modifier;
 import com.welmo.educational.scenes.events.descriptors.EventDescriptionsManager.Events;
 import com.welmo.educational.utility.MLOG;
 
-import android.util.Log;
 
 public class ClickableSprite extends Sprite {
 	
@@ -31,9 +35,7 @@ public class ClickableSprite extends Sprite {
 	// ===========================================================
 	// Fields
 	// ===========================================================
-	//private IClickLeastener mClickListener					=null;
 	private IActionOnSceneListener mActionListener			=null;
-	//private String strOnClikcNextScene						="";
 	private int nID											=-1;
 	private EventDescriptionsManager pEDMgr					= null;
 	private Object					 pDescriptor			= null;
@@ -45,14 +47,62 @@ public class ClickableSprite extends Sprite {
 	private void init(){
 		pEDMgr = EventDescriptionsManager.getInstance();
 	}
+
+	
+	public void configure(SpriteObjectDescriptor spDsc){
+		setID(spDsc.getID());
+		setPDescriptor(spDsc);
+		/* Setup Rotation*/
+		setRotationCenter(getWidth()/2, getHeight()/2);
+		setRotation(spDsc.getOriantation().getOriantation());
+		//set position			
+		setX(spDsc.getPosition().getX());
+		setY(spDsc.getPosition().getY());
+	}
+	
+	public void align(SpriteObjectDescriptor spDsc, IAreaShape theFather){
+		//Setup horizontal Alignment
+		Alignment alignment = spDsc.getPosition().getHorizzontalAlignment();
+		if(alignment != Alignment.NO_ALIGNEMENT){
+			switch(alignment){
+				case LEFTH:
+					this.setX(0);
+					break;
+				case RIGHT:
+					setX(theFather.getWidth()-this.getWidth());
+					break;
+				case CENTER:
+					setX(theFather.getWidth()/2-this.getWidth()/2);
+					break;
+				default:
+					break;
+			}
+		}
+		//Setup Vertical Alignment
+		alignment = spDsc.getPosition().getHorizzontalAlignment();
+		if(alignment != Alignment.NO_ALIGNEMENT){
+			switch(alignment){
+				case TOP:
+					this.setY(0);
+					break;
+				case BOTTOM:
+					setY(theFather.getHeight()-this.getHeight());
+					break;
+				case CENTER:
+					setY(theFather.getHeight()/2-this.getHeight()/2);
+					break;
+				default:
+					break;
+			}
+		}	
+	}
 	
 	
 	public ClickableSprite(float pX, float pY, float pWidth, float pHeight,
 			ITextureRegion pTextureRegion,
 			VertexBufferObjectManager pVertexBufferObjectManager) {
 		super(pX, pY, pWidth, pHeight, pTextureRegion, pVertexBufferObjectManager);
-		init(); 
-		// TODO Auto-generated constructor stub
+		init(); 		
 	}
 	
 	@Override
@@ -135,10 +185,6 @@ public class ClickableSprite extends Sprite {
 		//public void reset();
 		//public int getObjectID();
 	}
-
-	/*public void setActionListener(IClickLeastener clickListener) {
-		mClickListener=clickListener;
-	}*/
 	
 	public void setActionOnSceneListener(IActionOnSceneListener actionLeastner) {
 		this.mActionListener=actionLeastner;
