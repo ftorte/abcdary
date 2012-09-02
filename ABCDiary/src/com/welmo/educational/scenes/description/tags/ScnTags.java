@@ -14,6 +14,7 @@ public class ScnTags {
 	//Scene Objects
 	public final static String S_SPRITE 			= "sprite";
 	public final static String S_CLICKABLE_SPRITE 	= "clickable_sprite";
+	public final static String S_ANIMATED_SPRITE 	= "animated_sprite";
 	public final static String S_COMPOUND_SPRITE 	= "compound_sprite";
 	public final static String S_TEXT 				= "text";
 	public final static String S_BACKGROUND 		= "background";
@@ -54,5 +55,8 @@ public class ScnTags {
 	public final static String S_A_MESSAGE 			= "message";
 	public final static String S_A_COLOR			= "color";
 	
+	//Alignement
+	public final static String S_A_H_ALIGNEMENT 		= "h_alignment";
+	public final static String S_A_V_ALIGNEMENT 		= "v_alignment";
 	
 }

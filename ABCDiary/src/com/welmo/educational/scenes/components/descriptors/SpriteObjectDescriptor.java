@@ -6,7 +6,7 @@ import java.util.List;
 public class SpriteObjectDescriptor extends BasicObjectDescriptor{
 	// enumerators to manage object types & object events
 	public enum SpritesTypes {
-	    NO_TYPE, STATIC, CLICKABLE, COMPOUND_SPRITE
+	    NO_TYPE, STATIC, CLICKABLE, COMPOUND_SPRITE, ANIMATED
 	}
 	
 	protected SpritesTypes type;

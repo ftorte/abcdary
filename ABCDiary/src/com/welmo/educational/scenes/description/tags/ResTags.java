@@ -9,7 +9,12 @@ public class ResTags {
 	// Elements
 	public final static String R_TEXTURE 				= "texture";
 	public final static String R_TEXTUREREGION			= "textureregion";
-	
+
+	//Texture & texture-region resource
+	// Elements
+	public final static String R_BUILDABLETEXTURE 		= "buildable_texture";
+	public final static String R_TILEDTEXTUREREGION		= "tiled_texture_region";
+
 	//Attributes
 	public final static String R_A_NAME					= "name";
 	public final static String R_A_HEIGHT				= "height";
@@ -17,6 +22,9 @@ public class ResTags {
 	public final static String R_A_POSITION_X			= "px";
 	public final static String R_A_POSITION_Y			= "py";
 	public final static String R_A_FILE_NAME			= "filename";
+	
+	public final static String R_A_COL					= "column";
+	public final static String R_A_ROW 					= "row";
 	
 
 	public final static int R_A_HEIGHT_IDX				= 0;

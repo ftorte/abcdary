@@ -1,10 +1,6 @@
 package com.welmo.educational.scenes.components;
 
 import org.andengine.entity.shape.IAreaShape;
-import org.andengine.entity.sprite.Sprite;
-import org.andengine.entity.sprite.vbo.ISpriteVertexBufferObject;
-import org.andengine.opengl.texture.region.ITextureRegion;
-import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
 
 public final class Stick{

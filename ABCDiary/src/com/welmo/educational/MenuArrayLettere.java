@@ -29,8 +29,6 @@ public class MenuArrayLettere extends SimpleBaseGameActivity /*implements IActio
 	// Fields
 	// ===========================================================
 
-	//SceneManager<SceneMenuArray> 	mSceneLetterMenuManager;
-	//SceneManager<SceneLetter> 		mSceneLetterManager;
 	SceneManager<ManageableScene> 	mSceneManager;
 	SceneMainMenu  					mSceneMainMenu;
 	ResourcesManager 				mResourceManager;
@@ -48,7 +46,8 @@ public class MenuArrayLettere extends SimpleBaseGameActivity /*implements IActio
 		mResourceManager.getTextureRegion("MenuItemLettere");
 		mResourceManager.getTextureRegion("MenuArrayLetterA");
 		mResourceManager.getTextureRegion("MenuBackGround");
-		mResourceManager.getTextureRegion("Big-A");		
+		mResourceManager.getTextureRegion("Big-A");	
+		mResourceManager.getTiledTexture("TheBee_flightRight");	
 		mResourceManager.EngineLoadResources(this.mEngine);
 		this.mEngine.onReloadResources();
 	}
@@ -61,7 +60,10 @@ public class MenuArrayLettere extends SimpleBaseGameActivity /*implements IActio
 		mSceneManager.BuildScenes("Test","Test",mResourceManager);
 		mSceneManager.BuildScenes("Test2","Test2",mResourceManager);
 		mSceneManager.BuildScenes("ABCMainMenu","ABCMainMenu",mResourceManager);	
-		mSceneManager.BuildScenes("LetterD","LetterD",mResourceManager);	
+		mSceneManager.BuildScenes("LetterD","LetterD",mResourceManager);
+		mSceneManager.BuildScenes("LetterE","LetterE",mResourceManager);
+		mSceneManager.BuildScenes("LetterG","LetterG",mResourceManager);
+		
 		
 		return mSceneManager.getScene("ABCMainMenu");
 		
@@ -87,6 +89,14 @@ public class MenuArrayLettere extends SimpleBaseGameActivity /*implements IActio
 		}
 		if(currentScene == mSceneManager.getScene("LetterD")){
 			this.mEngine.setScene(mSceneManager.getScene("ABCMainMenu"));
+			return;
+		}
+		if(currentScene == mSceneManager.getScene("LetterE")){
+			this.mEngine.setScene(mSceneManager.getScene("SceneLetterA"));
+			return;
+		}
+		if(currentScene == mSceneManager.getScene("LetterG")){
+			this.mEngine.setScene(mSceneManager.getScene("SceneLetterA"));
 			return;
 		}
 	}

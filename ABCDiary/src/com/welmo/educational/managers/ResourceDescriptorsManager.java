@@ -4,10 +4,12 @@ package com.welmo.educational.managers;
 
 import java.util.HashMap;
 
+import com.welmo.educational.resources.components.descriptors.BuildableTextureDescriptor;
 import com.welmo.educational.resources.components.descriptors.ColorDescriptor;
 import com.welmo.educational.resources.components.descriptors.FontDescriptor;
 import com.welmo.educational.resources.components.descriptors.TextureDescriptor;
 import com.welmo.educational.resources.components.descriptors.TextureRegionDescriptor;
+import com.welmo.educational.resources.components.descriptors.TiledTextureRegionDescriptor;
 import com.welmo.educational.scenes.components.descriptors.MultiViewSceneDescriptor;
 import com.welmo.educational.scenes.components.descriptors.ParserXMLSceneDescriptor;
 import com.welmo.educational.scenes.components.descriptors.SceneDescriptor;
@@ -19,10 +21,12 @@ public class ResourceDescriptorsManager {
 	// Variables
 	//--------------------------------------------------------
 	// Resources
-	protected HashMap<String,TextureDescriptor> 		hmTextureDscMap;
-	protected HashMap<String,TextureRegionDescriptor> 	hmTextureRegionDscMap;
-	protected HashMap<String,ColorDescriptor> 			hmColorDscMap;
-	protected HashMap<String,FontDescriptor> 			hmFontDscMap;
+	protected HashMap<String,TextureDescriptor> 			hmTextureDscMap;
+	protected HashMap<String,TextureRegionDescriptor> 		hmTextureRegionDscMap;
+	protected HashMap<String,ColorDescriptor> 				hmColorDscMap;
+	protected HashMap<String,FontDescriptor> 				hmFontDscMap;
+	protected HashMap<String,BuildableTextureDescriptor>	hmBuildableTextureDscMap;
+	protected HashMap<String,TiledTextureRegionDescriptor>  hmTiledTextureRegionDscMap;
 	
 	// singleton Instance
 	private static ResourceDescriptorsManager 	mInstance=null;
@@ -35,6 +39,8 @@ public class ResourceDescriptorsManager {
 		hmTextureRegionDscMap = new HashMap<String,TextureRegionDescriptor>();
 		hmColorDscMap = new HashMap<String,ColorDescriptor>();
 		hmFontDscMap = new HashMap<String,FontDescriptor>();
+		hmBuildableTextureDscMap = new HashMap<String,BuildableTextureDescriptor>();
+		hmTiledTextureRegionDscMap = new HashMap<String,TiledTextureRegionDescriptor>();
 	}
 	@method
 	public static ResourceDescriptorsManager getInstance(){
@@ -112,5 +118,39 @@ public class ResourceDescriptorsManager {
 		if (hmFontDscMap == null)
 			throw new NullPointerException("ResurceDescriptorsManager not initialized correctly"); 
 		return hmFontDscMap.get(name);
+	}
+	
+	//--------------------------------------------------------
+	// BUILDABLETEXTURE
+	//--------------------------------------------------------
+	@method
+	//Add a texture description to the texture descriptions list
+	public void addBuildableTexture(String name, BuildableTextureDescriptor texture){
+		if (hmBuildableTextureDscMap == null)
+			throw new NullPointerException("ResurceDescriptorsManager not initialized correctly"); 
+		hmBuildableTextureDscMap.put(name,texture);
+	}
+	@method
+	public BuildableTextureDescriptor getBuildableTexture(String name){
+		if (hmTextureRegionDscMap == null)
+			throw new NullPointerException("ResurceDescriptorsManager not initialized correctly"); 
+		return hmBuildableTextureDscMap.get(name);
+	}
+
+	//--------------------------------------------------------
+	// TILEDTEXTUREREGION
+	//--------------------------------------------------------
+	@method
+	//Add the description of a texture region to the texture region descriptions list
+	public void addTiledTextureRegion(String name, TiledTextureRegionDescriptor textureRegion){
+		if (hmTiledTextureRegionDscMap == null)
+			throw new NullPointerException("ResurceDescriptorsManager not initialized correctly"); 
+		hmTiledTextureRegionDscMap.put(name,textureRegion);
+	}
+	@method
+	public TiledTextureRegionDescriptor getTiledTextureRegion(String name){
+		if (hmTiledTextureRegionDscMap == null)
+			throw new NullPointerException("ResurceDescriptorsManager not initialized correctly"); 
+		return hmTiledTextureRegionDscMap.get(name);
 	}
 }
