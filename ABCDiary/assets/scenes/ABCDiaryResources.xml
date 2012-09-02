@@ -12,7 +12,7 @@
             <textureregion name="MenuArrayLetterA" filename="a.svg" height="128" px="0" py="0" width="128"></textureregion>
            	<textureregion name="MenuArrayLetterB" filename="b.svg" height="128" px="128" py="0" width="128"></textureregion>
   			<textureregion name="BigA" filename="Big-A.svg" height="128" px="0" py="128" width="128"></textureregion>
- 			<textureregion name="BigB" filename="Big-B.svg" height="128" px="128" py="128" width="128"></textureregion>
+ 			<textureregion name="ButtonBG" filename="button_BG.svg" height="64" px="128" py="128" width="64"></textureregion>
          </texture>
          <texture name="AlphabetLetters" height="1024" width="512">
             <!-- first row -->
@@ -52,6 +52,9 @@
             <textureregion name="Numb5" filename="Big-A.svg" px="384" py="768" height="128" width="128"></textureregion>
             <textureregion name="Numb6" filename="Big-A.svg" px="384" py="896" height="128" width="128"></textureregion>         
     	</texture>
+    	<buildable_texture name="TheBee" height="1024" width="1024">
+            <tiled_texture_region name="TheBee_flightRight" filename="TestSpriteSheet.png" column="7" row="7"></tiled_texture_region>
+        </buildable_texture>
     </textures>
 	<colors>
         <color name="LightSalmon" blue="7A" green="A0" red="FF"></color>
@@ -63,7 +66,7 @@
     
     <fonts>
         <font name="FontAndroid" txtdimX="256" txtdimY="256" size="32" color="White" antialiasing="true" filename="Droid.ttf"></font>
-        <font name="DidactGothic" txtdimX="256" txtdimY="256" size="32" color="White" antialiasing="true" filename="DidactGothic.ttf"></font>
-        <font name="FullDeceSans" txtdimX="256" txtdimY="256" size="32" color="White" antialiasing="true" filename="Full-Dece-Sans-1.0.ttf"></font>
+        <font name="DidactGothic" txtdimX="256" txtdimY="256" size="64" color="White" antialiasing="true" filename="DidactGothic.ttf"></font>
+        <font name="FullDeceSans" txtdimX="256" txtdimY="256" size="64" color="White" antialiasing="true" filename="Full-Dece-Sans-1.0.ttf"></font>
 	</fonts>
 </resources>
