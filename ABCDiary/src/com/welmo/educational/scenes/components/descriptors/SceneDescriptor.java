@@ -13,10 +13,12 @@ public class SceneDescriptor extends BasicObjectDescriptor {
 	// ===========================================================
 	// Member Variables
 	// ===========================================================
-	public ArrayList<SpriteObjectDescriptor>	scObjects=null;
-	public ArrayList<TextObjectDescriptor>		scText=null;
-	public BackGroundObjectDescriptor			thebackGround=null;
-	String name="";
+	
+	//FT public ArrayList<SpriteObjectDescriptor>	scObjects=null;
+	//FT public ArrayList<TextObjectDescriptor>		scText=null;
+	//FT public BackGroundObjectDescriptor			thebackGround=null;
+	
+	String sceneName="";
 	// ===========================================================
 	// Constructor
 	// ===========================================================
@@ -24,8 +26,8 @@ public class SceneDescriptor extends BasicObjectDescriptor {
 
 	@SuppressWarnings("static-access")
 	public SceneDescriptor() {
-		scObjects=new ArrayList<SpriteObjectDescriptor>();
-		scText=new ArrayList<TextObjectDescriptor>();
-		thebackGround = new BackGroundObjectDescriptor();
+		//FT scObjects=new ArrayList<SpriteObjectDescriptor>();
+		//FT scText=new ArrayList<TextObjectDescriptor>();
+		//FT thebackGround = new BackGroundObjectDescriptor();
 	}
 }

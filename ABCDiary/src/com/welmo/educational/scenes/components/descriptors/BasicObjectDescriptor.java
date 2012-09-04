@@ -1,5 +1,8 @@
 package com.welmo.educational.scenes.components.descriptors;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public abstract class BasicObjectDescriptor{
 	public enum Alignment {
 	    NO_ALIGNEMENT, CENTER, LEFTH, TOP, BOTTOM, RIGHT
@@ -38,6 +41,7 @@ public abstract class BasicObjectDescriptor{
 	protected float 		orientation;
 	protected Alignment		horizzontalAlignment; 
 	protected Alignment		verticalAlignment;
+	public LinkedList<BasicObjectDescriptor> pChild;
 	//----------------------------------------------------------------------//
 	// Public methods
 	//----------------------------------------------------------------------//
@@ -97,5 +101,8 @@ public abstract class BasicObjectDescriptor{
 	}
 	public int getID(){
 		return ID;
+	}
+	public BasicObjectDescriptor(){
+		pChild = new LinkedList<BasicObjectDescriptor>();
 	}
 }

@@ -40,8 +40,10 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 	protected Action						pAction;
 	protected Modifier						pModifier;
 	protected TextObjectDescriptor			pTextDescriptor;
-	
 	protected BackGroundObjectDescriptor	pBackGroundDescriptor;
+	
+	protected LinkedList<BasicObjectDescriptor> pDescriptorsInProcessing;
+	protected BasicObjectDescriptor 			pCurrentDescriptorInProcessing;
 	
 	
 	//--------------------------------------------------------
@@ -55,6 +57,8 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 		super();
 		dimHelper = ScreenDimensionHelper.getInstance(ctx);
 		pEventDscMgr = EventDescriptionsManager.getInstance();
+		pDescriptorsInProcessing = new LinkedList<BasicObjectDescriptor>();
+		pCurrentDescriptorInProcessing = null;
 	}
 
 
@@ -79,8 +83,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 	 */
 	public void startElement(String uri, String localName, String name,	Attributes attributes) throws SAXException {	
 		
-		
-		
+	
 		if (localName.equalsIgnoreCase(ScnTags.S_MULTIVIEWSCENE)){
 			if(this.pMultiViewSceneDsc != null)
 				throw new NullPointerException("ParserXMLSceneDescriptor encountered multiview scene description with another multiview scene description inside");
@@ -102,8 +105,10 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			}
 				
 			// Read scene description
-			pSceneDsc.name = new String(attributes.getValue(ScnTags.S_A_NAME));
-			pSceneDescManager.addScene(pSceneDsc.name, pSceneDsc);
+			pSceneDsc.sceneName = new String(attributes.getValue(ScnTags.S_A_NAME));
+			pSceneDescManager.addScene(pSceneDsc.sceneName, pSceneDsc);
+			
+			pCurrentDescriptorInProcessing = pSceneDsc;
 			
 			return;
 		}
@@ -129,7 +134,11 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			if(pCompoundSpriteDsc != null)
 				pCompoundSpriteDsc.coumpoundElements.add(pSpriteDsc);
 			else
-				pSceneDsc.scObjects.add(pSpriteDsc);										//add scene object to list of region in parent texture				
+				pSceneDsc.pChild.add(pSpriteDsc);	//add scene object to list of region in parent texture		
+			
+			if(pBackGroundDescriptor!=null){
+				pCurrentDescriptorInProcessing.pChild.add(pSpriteDsc); //link child descriptor to father
+			}
 		}
 		
 		if (localName.equalsIgnoreCase(ScnTags.S_COMPOUND_SPRITE)){
@@ -148,7 +157,8 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			//manage position and dimensions
 			this.parseAttributesPosition(pCompoundSpriteDsc.getPosition(),attributes);
 			//add compound sprite to scene
-			pSceneDsc.scObjects.add(pCompoundSpriteDsc);			 
+			pSceneDsc.pChild.add(pCompoundSpriteDsc);	
+			
 		}
 			
 		if (localName.equalsIgnoreCase(ScnTags.S_ACTION)){
@@ -178,6 +188,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 				pEventDscMgr.addAction(EventDescriptionsManager.Events.valueOf(attributes.getValue(ScnTags.S_A_EVENT)),pSpriteDsc,pAction);
 			else
 				pEventDscMgr.addAction(EventDescriptionsManager.Events.valueOf(attributes.getValue(ScnTags.S_A_EVENT)),pCompoundSpriteDsc,pAction);
+		
 		}
 			
 		if (localName.equalsIgnoreCase(ScnTags.S_MODIFIER)){
@@ -220,7 +231,7 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			
 			// read type and init the correct parameter as per action type
 			//  <text ID="3" resourceName="FontAndroid" message="TXT" type="STATIC"></text>
-			  
+	  
 			pTextDescriptor.ID=Integer.parseInt(attributes.getValue(ScnTags.S_A_ID ));
 			
 			pTextDescriptor.FontName = attributes.getValue(ScnTags.S_A_RESOURCE_NAME);
@@ -241,22 +252,25 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 					pSpriteDsc.textElements.add(pTextDescriptor);
 				}
 				else {
-					pSceneDsc.scText.add(pTextDescriptor);
+					pSceneDsc.pChild.add(pTextDescriptor);
 				} 
 			}
+		
 		} 
 		
 		if (localName.equalsIgnoreCase(ScnTags.S_BACKGROUND)){
-			readBackGroudDescription(attributes);
+			pDescriptorsInProcessing.addLast(pCurrentDescriptorInProcessing); //Save father descriptor to FIFO
+			pCurrentDescriptorInProcessing = readBackGroudDescription(attributes); //Read new descriptor
+			pDescriptorsInProcessing.getLast().pChild.add(pCurrentDescriptorInProcessing); //link child descriptor to father
 		}
 	}
 	
-	private void readBackGroudDescription(Attributes attributes){
+	private BackGroundObjectDescriptor readBackGroudDescription(Attributes attributes){
 		if(this.pBackGroundDescriptor != null) //check if new action object descriptor
 			throw new NullPointerException("ParserXMLSceneDescriptor encountered background description with another background description inside");
 		
+		pBackGroundDescriptor = new BackGroundObjectDescriptor();
 		//create new action
-		pBackGroundDescriptor = pSceneDsc.thebackGround;
 		pBackGroundDescriptor.ID=Integer.parseInt(attributes.getValue(ScnTags.S_A_ID ));
 
 		//pModifier.event=SpriteDescriptor.SpritesEvents.valueOf(attributes.getValue(ScnTags.S_A_EVENT));;
@@ -271,7 +285,11 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			break;
 		default:
 			break;
-		}		
+		}
+		
+		//FT pSceneDsc.pChild.add(pBackGroundDescriptor);
+		
+		return pBackGroundDescriptor;
 	}
 	
 	private void parseAttributesPosition(IPosition pPosition,Attributes attributes){
@@ -298,7 +316,6 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 			pPosition.setVerticalAlignment(Alignment.NO_ALIGNEMENT);
 		}
 	}
-	
 	private void parseAttributesDimensions(IDimension pDimensions,Attributes attributes){
 		if((attributes.getValue(ScnTags.S_A_WIDTH) != null) && (attributes.getValue(ScnTags.S_A_WIDTH) != null)){
 			pDimensions.setWidth(dimHelper.parsLenght(ScreenDimensionHelper.W, attributes.getValue(ScnTags.S_A_WIDTH)));
@@ -316,7 +333,6 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 		else
 			pDimensions.setOriantation(0f);
 	}
-
 	@Override
 	// * Fonction étant déclenchée lorsque le parser à parsé
 	// * l'intérieur de la balise XML La méthode characters
@@ -333,7 +349,10 @@ public class ParserXMLSceneDescriptor extends DefaultHandler {
 		if (localName.equalsIgnoreCase(ScnTags.S_MODIFIER))pModifier = null; 
 		if (localName.equalsIgnoreCase(ScnTags.S_COMPOUND_SPRITE))pCompoundSpriteDsc = null;
 		if (localName.equalsIgnoreCase(ScnTags.S_TEXT))pTextDescriptor = null;
-		if (localName.equalsIgnoreCase(ScnTags.S_BACKGROUND))pBackGroundDescriptor = null;
+		if (localName.equalsIgnoreCase(ScnTags.S_BACKGROUND)){
+			pBackGroundDescriptor = null;
+			pCurrentDescriptorInProcessing = pDescriptorsInProcessing.removeLast();
+		}
 	}
 
 
