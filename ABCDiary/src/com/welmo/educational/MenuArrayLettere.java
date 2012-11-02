@@ -1,6 +1,7 @@
 package com.welmo.educational;
 
 
+import org.andengine.audio.music.Music;
 import org.andengine.engine.camera.Camera;
 import org.andengine.engine.options.EngineOptions;
 import org.andengine.engine.options.ScreenOrientation;
@@ -8,12 +9,11 @@ import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.util.FPSLogger;
 import org.andengine.ui.activity.SimpleBaseGameActivity;
-import com.welmo.educational.managers.ResourcesManager;
-import com.welmo.educational.managers.SceneManager;
-import com.welmo.educational.scenes.ManageableScene;
-import com.welmo.educational.scenes.SceneLetter;
-import com.welmo.educational.scenes.SceneMainMenu;
-import com.welmo.educational.scenes.SceneMenuArray;
+
+import com.welmo.andengine.managers.ResourcesManager;
+import com.welmo.andengine.managers.SceneManager;
+import com.welmo.andengine.scenes.IManageableScene;
+import com.welmo.andengine.scenes.ManageableScene;
 
 public class MenuArrayLettere extends SimpleBaseGameActivity /*implements IActionOnSceneListener*/ {
 	
@@ -23,19 +23,19 @@ public class MenuArrayLettere extends SimpleBaseGameActivity /*implements IActio
 	// ===========================================================
 	public static final float CAMERA_WIDTH = 800;
 	public static final float CAMERA_HEIGHT = 480;
-	public static final	String INTENT_KEY_PARAM_A = "LetterID";
 	
 	// ===========================================================
 	// Fields
 	// ===========================================================
-
-	SceneManager<ManageableScene> 	mSceneManager;
-	SceneMainMenu  					mSceneMainMenu;
+	SceneManager 					mSceneManager;
 	ResourcesManager 				mResourceManager;
 
 	public EngineOptions onCreateEngineOptions() {
 		final Camera camera = new Camera(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
 		EngineOptions engineOptions = new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED, new RatioResolutionPolicy(CAMERA_WIDTH, CAMERA_HEIGHT), camera);
+		//Enable audio option
+		engineOptions.getAudioOptions().setNeedsMusic(true);
+		engineOptions.getAudioOptions().setNeedsSound(true);
 		return engineOptions;
 	}
 
@@ -46,58 +46,50 @@ public class MenuArrayLettere extends SimpleBaseGameActivity /*implements IActio
 		mResourceManager.getTextureRegion("MenuItemLettere");
 		mResourceManager.getTextureRegion("MenuArrayLetterA");
 		mResourceManager.getTextureRegion("MenuBackGround");
+		mResourceManager.getTextureRegion("BcgA");
 		mResourceManager.getTextureRegion("Big-A");	
+		mResourceManager.getTextureRegion("flower_pink");
+		mResourceManager.getTextureRegion("flower_blue_small");
 		mResourceManager.getTiledTexture("TheBee_flightRight");	
+		mResourceManager.getTextureRegion("CardWiteBCG");
+		mResourceManager.getMusic("Vento_Desertico");
+		mResourceManager.getSound("Animal1");
+		
 		mResourceManager.EngineLoadResources(this.mEngine);
 		this.mEngine.onReloadResources();
 	}
 	@Override
 	protected Scene onCreateScene() {
 		this.mEngine.registerUpdateHandler(new FPSLogger());
-		mSceneManager = new SceneManager<ManageableScene>(ManageableScene.class);
+		mSceneManager = new SceneManager();
 		mSceneManager.init(this.getEngine(), this);
-		mSceneManager.BuildScenes("SceneLetterA","SceneLetterA",mResourceManager);
-		mSceneManager.BuildScenes("Test","Test",mResourceManager);
-		mSceneManager.BuildScenes("Test2","Test2",mResourceManager);
-		mSceneManager.BuildScenes("ABCMainMenu","ABCMainMenu",mResourceManager);	
-		mSceneManager.BuildScenes("LetterD","LetterD",mResourceManager);
-		mSceneManager.BuildScenes("LetterE","LetterE",mResourceManager);
-		mSceneManager.BuildScenes("LetterG","LetterG",mResourceManager);
+		mSceneManager.BuildScenes("SceneLetterA");
+		mSceneManager.BuildScenes("Test");
+		mSceneManager.BuildScenes("Test2");
+		mSceneManager.BuildScenes("ABCMainMenu");	
+		mSceneManager.BuildScenes("LetterD");
+		mSceneManager.BuildScenes("LetterE");
+		mSceneManager.BuildScenes("LetterG");
+		mSceneManager.BuildScenes("LetterA");
+		mSceneManager.BuildScenes("LetterB");
+		mSceneManager.BuildScenes("LetterH");
+		mSceneManager.BuildScenes("LetterI");
+		mSceneManager.BuildScenes("LetterL");
+		Music music = mResourceManager.getMusic("Vento_Desertico");
+		music.play();
 		
-		
-		return mSceneManager.getScene("ABCMainMenu");
+		return (Scene)mSceneManager.getScene("ABCMainMenu");
 		
 	}
 	@Override
 	public void onBackPressed() {
 		Scene currentScene = this.mEngine.getScene();
-		if(currentScene == mSceneManager.getScene("ABCMainMenu")){
-			super.onBackPressed();
-			return;
-		}
-		if(currentScene == mSceneManager.getScene("Test2")){
-			this.mEngine.setScene(mSceneManager.getScene("Test"));
-			return;
-		}
-		if(currentScene == mSceneManager.getScene("Test")){
-			this.mEngine.setScene(mSceneManager.getScene("SceneLetterA"));
-			return;
-		}
-		if(currentScene == mSceneManager.getScene("SceneLetterA")){
-			this.mEngine.setScene(mSceneManager.getScene("ABCMainMenu"));
-			return;
-		}
-		if(currentScene == mSceneManager.getScene("LetterD")){
-			this.mEngine.setScene(mSceneManager.getScene("ABCMainMenu"));
-			return;
-		}
-		if(currentScene == mSceneManager.getScene("LetterE")){
-			this.mEngine.setScene(mSceneManager.getScene("SceneLetterA"));
-			return;
-		}
-		if(currentScene == mSceneManager.getScene("LetterG")){
-			this.mEngine.setScene(mSceneManager.getScene("SceneLetterA"));
-			return;
+		if(currentScene instanceof IManageableScene){
+			String fatherSceneName = ((IManageableScene)currentScene).getFatherScene();
+			if(fatherSceneName.length() == 0)
+				super.onBackPressed();
+			else
+				this.mEngine.setScene((Scene)mSceneManager.getScene(fatherSceneName));
 		}
 	}
 }
