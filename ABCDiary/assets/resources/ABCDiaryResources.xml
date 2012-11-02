@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns="http://www.example.org/resources">
+    <textures name="ABCDiary">
+        <texture name="MenuItemTexture" height="128" width="512">
+            <textureregion name="MenuItemLettere" filename="MenuItemLettere.svg" height="64" px="0" py="0" width="512"></textureregion>
+            <textureregion name="MenuItemCifre" filename="MenuItemCifre.svg" height="64" px="0" py="64" width="512"></textureregion>
+        </texture>
+        <texture name="MenuBackGroundTexture" height="512" width="1024">
+            <textureregion name="MenuBackGround" filename="colorful_animals_scalable_vector_graphics_svg_inkscape_adobe_illustrator_clip_art_clipart.svg" height="480" px="0" py="0" width="800"></textureregion>
+        </texture>
+        <texture name="MenuArrayLetterATexture" height="256" width="256">
+            <textureregion name="MenuArrayLetterA" filename="a.svg" height="128" px="0" py="0" width="128"></textureregion>
+           	<textureregion name="MenuArrayLetterB" filename="b.svg" height="128" px="128" py="0" width="128"></textureregion>
+  			<textureregion name="BigA" filename="Big-A.svg" height="128" px="0" py="128" width="128"></textureregion>
+ 			<textureregion name="ButtonBG" filename="button_BG.svg" height="64" px="128" py="128" width="64"></textureregion>
+         </texture>
+         <texture name="AlphabetLetters" height="1024" width="512">
+            <!-- first row -->
+            <textureregion name="Big-A" filename="Big-A.svg" px="0" py="0" height="128" width="128"></textureregion>
+            <textureregion name="Big-B" filename="Big-B.svg" px="0" py="128" height="128" width="128"></textureregion>
+            <textureregion name="Big-C" filename="Big-C.svg" px="0" py="256" height="128" width="128"></textureregion>
+            <textureregion name="Big-D" filename="Big-D.svg" px="0" py="384" height="128" width="128"></textureregion>
+            <textureregion name="Big-E" filename="Big-E.svg" px="0" py="512" height="128" width="128"></textureregion>
+            <textureregion name="Big-F" filename="Big-F.svg" px="0" py="640" height="128" width="128"></textureregion>
+            <textureregion name="Big-G" filename="Big-G.svg" px="0" py="768" height="128" width="128"></textureregion>
+            <textureregion name="Big-H" filename="Big-H.svg" px="0" py="896" height="128" width="128"></textureregion>
+ 			<!-- second row -->
+            <textureregion name="Big-I" filename="Big-I.svg" px="128" py="0" height="128" width="128"></textureregion>
+            <textureregion name="Big-J" filename="Big-J.svg" px="128" py="128" height="128" width="128"></textureregion>
+            <textureregion name="Big-K" filename="Big-K.svg" px="128" py="256" height="128" width="128"></textureregion>
+            <textureregion name="Big-L" filename="Big-L.svg" px="128" py="384" height="128" width="128"></textureregion>
+            <textureregion name="Big-M" filename="Big-M.svg" px="128" py="512" height="128" width="128"></textureregion>
+            <textureregion name="Big-N" filename="Big-N.svg" px="128" py="640" height="128" width="128"></textureregion>
+            <textureregion name="Big-O" filename="Big-O.svg" px="128" py="768" height="128" width="128"></textureregion>
+            <textureregion name="Big-P" filename="Big-P.svg" px="128" py="896" height="128" width="128"></textureregion>
+            <!-- third row -->
+            <textureregion name="Big-Q" filename="Big-Q.svg" px="256" py="0" height="128" width="128"></textureregion>
+            <textureregion name="Big-R" filename="Big-R.svg" px="256" py="128" height="128" width="128"></textureregion>
+            <textureregion name="Big-S" filename="Big-S.svg" px="256" py="256" height="128" width="128"></textureregion>
+            <textureregion name="Big-T" filename="Big-T.svg" px="256" py="384" height="128" width="128"></textureregion>
+            <textureregion name="Big-U" filename="Big-U.svg" px="256" py="512" height="128" width="128"></textureregion>
+            <textureregion name="Big-V" filename="Big-V.svg" px="256" py="640" height="128" width="128"></textureregion>
+            <textureregion name="Big-W" filename="Big-W.svg" px="256" py="768" height="128" width="128"></textureregion>
+            <textureregion name="Big-X" filename="Big-X.svg" px="256" py="896" height="128" width="128"></textureregion>
+            <!-- fourth row -->
+            <textureregion name="Big-Y" filename="Big-Y.svg" px="384" py="0" height="128" width="128"></textureregion>
+            <textureregion name="Big-Z" filename="Big-Z.svg" px="384" py="128" height="128" width="128"></textureregion>
+            <textureregion name="Numb1" filename="Big-C.svg" px="384" py="256" height="128" width="128"></textureregion>
+            <textureregion name="Numb2" filename="Big-A.svg" px="384" py="384" height="128" width="128"></textureregion>
+            <textureregion name="Numb3" filename="Big-A.svg" px="384" py="512" height="128" width="128"></textureregion>
+            <textureregion name="Numb4" filename="Big-A.svg" px="384" py="640" height="128" width="128"></textureregion>
+            <textureregion name="Numb5" filename="Big-A.svg" px="384" py="768" height="128" width="128"></textureregion>
+            <textureregion name="Numb6" filename="Big-A.svg" px="384" py="896" height="128" width="128"></textureregion>         
+    	</texture>
+    	<buildable_texture name="TheBee" height="1024" width="1024">
+            <tiled_texture_region name="TheBee_flightRight" filename="TestSpriteSheet.png" column="7" row="7"></tiled_texture_region>
+        </buildable_texture>
+        <texture name="AlphabetBackGrounds" height="1024" width="512">
+          <textureregion name="BcgA" filename="BackgroundA.svg" px="0" py="0" height="800" width="480"></textureregion>         
+    	</texture>
+    	<texture name="CardLettersBackground" height="512" width="64">
+          <textureregion name="CardWiteBCG" filename="CardWhiteBcg.svg" px="0" py="0" height="80" width="64"></textureregion>         
+          <textureregion name="CardWiteBCGBlueSTK" filename="CardWhiteBcgBlueStk.svg" px="0" py="80" height="80" width="64"></textureregion>         
+          <textureregion name="CardWiteBCGRedSTK" filename="CardWhiteBcgRedStk.svg" px="0" py="160" height="80" width="64"></textureregion>         
+          <textureregion name="CardWiteBCGGreenSTK" filename="CardWhiteBcgGreenStk.svg" px="0" py="240" height="80" width="64"></textureregion>                     
+          <textureregion name="CardWiteBCGYellowSTK" filename="CardWhiteBcgYellowStk.svg" px="0" py="320" height="80" width="64"></textureregion>                     
+        </texture>
+    	<texture name="AlphabetComponents" height="1024" width="1024">
+          <textureregion name="Grass" filename="Background_grass.svg" px="0" py="0" height="400" width="240"></textureregion> 
+          <textureregion name="flower_pink" filename="flowers_pink.svg" px="0" py="400" height="180" width="260"></textureregion>       
+    	</texture>
+    	<texture name="Flowers" height="1024" width="1024">
+			<textureregion name="flower_blue_small" filename="flower_blue_small3D.svg" px="512" py="512" height="256" width="256"></textureregion> 
+            <textureregion name="flower_green_small" filename="flower_green_small.svg" px="0" py="0" height="256" width="256"></textureregion> 
+    	    <textureregion name="flower_pink_small" filename="flower_pink_small.svg" px="256" py="0" height="256" width="256"></textureregion>       
+    	</texture>
+    </textures>
+	<colors>
+        <color name="LightSalmon" blue="7A" green="A0" red="FF"></color>
+        <color name="Red" blue="00" green="00" red="FF"></color>
+   		<color name="Green" blue="00" green="FF" red="00"></color>
+   		<color name="Blue" blue="FF" green="00" red="00"></color>
+   		<color name="White" blue="FF" green="FF" red="FF"></color>
+        <color name="Forest_Green" red="22" green="8B" blue="22"></color>
+        <color name="Gold" red="FF" green="D7" blue="00"></color>
+        <color name="MediumVioletRed" red="C7" green="15" blue="85"></color> 
+    </colors>
+    
+    <fonts>
+        <font name="FontAndroid" txtdimX="256" txtdimY="256" size="32" color="White" antialiasing="true" filename="Droid.ttf"></font>
+        <font name="DidactGothic" txtdimX="256" txtdimY="256" size="64" color="White" antialiasing="true" filename="DidactGothic.ttf"></font>
+        <font name="FullDeceSans" txtdimX="256" txtdimY="256" size="32" color="White" antialiasing="true" filename="Full-Dece-Sans-1.0.ttf"></font>
+       	<font name="Schoolbell32" txtdimX="256" txtdimY="256" size="32" color="White" antialiasing="true" filename="Schoolbell.ttf"></font>
+       	<font name="Schoolbell64" txtdimX="256" txtdimY="256" size="64" color="White" antialiasing="true" filename="Schoolbell.ttf"></font>
+        <font name="Vegur64" txtdimX="512" txtdimY="512" size="64" color="White" antialiasing="true" filename="Vegur-Bold.otf"></font>
+        <font name="Vegur96" txtdimX="256" txtdimY="256" size="96" color="White" antialiasing="true" filename="Vegur-Bold.otf"></font>
+     </fonts>
+     <musics>
+         
+     </musics>
+       <music name="Vento_Desertico" filename="Luigi_Alessi_Vento_Desertico.mp3"></music>
+     <sounds>
+       <sound name="Animal1" filename="animals016.mp3"></sound>  
+     </sounds>
+</resources>
