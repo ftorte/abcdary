@@ -13,7 +13,6 @@ import org.andengine.ui.activity.SimpleBaseGameActivity;
 import com.welmo.andengine.managers.ResourcesManager;
 import com.welmo.andengine.managers.SceneManager;
 import com.welmo.andengine.scenes.IManageableScene;
-import com.welmo.andengine.scenes.ManageableScene;
 
 public class MenuArrayLettere extends SimpleBaseGameActivity /*implements IActionOnSceneListener*/ {
 	
