@@ -1,34 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scenes xmlns="http://www.example.org/scene">
-    <scene name="LetterD" >
+    <scene name="LetterA" sceneFather="SceneLetterA" class_name="com.welmo.andengine.scenes.ManageableScene">
+        <background ID="100" type="SPRITE" >
+              <sprite ID="100" height="480" px="0" py="0" resourceName="Grass" type="STATIC" width="800"></sprite>
+        </background> 
+        <sprite ID="100" height="270" px="30" py="200" resourceName="flower_pink" type="STATIC" width="390"></sprite>
+        <sprite ID="100" height="270" px="400" py="140" resourceName="flower_pink" type="STATIC" width="390"></sprite> 
+    </scene>
+    <scene name="LetterB" sceneFather="SceneLetterA">
+        <background ID="100" type="COLOR" color="Green"></background> 
+        <sprite ID="100" height="180" px="100" py="100" resourceName="flower_pink_small" type="STATIC" width="180"></sprite>
+        <sprite ID="100" height="180" px="300" py="100" resourceName="flower_green_small" type="STATIC" width="180"></sprite>
+        <sprite ID="100" height="180" px="600" py="100" resourceName="flower_blue_small" type="STATIC" width="180"></sprite>
+        <sprite ID="2" height="64" px="0" py="75%" resourceName="TheBee_flightRight" width="64" type="ANIMATED" ></sprite>
+    </scene>
+    <scene name="LetterD" sceneFather="SceneLetterA">
         <background ID="100" type="SPRITE" color="LightSalmon">
               <sprite ID="100" height="512" px="0" py="0" resourceName="MenuBackGround" type="STATIC" width="1024"></sprite>
         </background>  
+        <sprite ID="100" height="512" px="0" py="0" resourceName="MenuBackGround" type="STATIC" width="1024"></sprite>
         <sprite ID="2" height="64" px="0" py="75%" resourceName="MenuArrayLetterA" type="STATIC" width="64" >
         	<text ID="30" message="A" px="0" py="0" resourceName="DidactGothic" type="SIMPLE" color="LightSalmon" ></text>
         </sprite>
     </scene>
-    <scene name="LetterE" >
+    <scene name="LetterE" sceneFather="SceneLetterA">
         <background ID="1" type="SPRITE" color="LightSalmon" >
         	<sprite ID="100" height="512" px="0" py="0" resourceName="MenuBackGround" type="STATIC" width="1024"></sprite>
         </background>
         <sprite ID="2" height="64" px="0" py="75%" resourceName="TheBee_flightRight" width="64" type="ANIMATED" ></sprite>
     </scene>
-     <scene name="LetterG" >
+     <scene name="LetterG" sceneFather="SceneLetterA">
         <background ID="1" type="COLOR" color="LightSalmon" ></background>
-        <sprite ID="1" height="100" width="100" px="100" py="100" resourceName="ButtonBG" type="CLICKABLE">
-        	<text ID="101" message="A abeille" resourceName="FullDeceSans" type="SIMPLE" color="LightSalmon" h_alignment="LEFTH" v_alignment="TOP"></text>          
+        <sprite ID="1" height="100" width="100" px="100" py="100" resourceName="ButtonBG" color="LightSalmon" type="CLICKABLE">
+        	<text ID="101" message="Abe" resourceName="FullDeceSans" type="SIMPLE" color="LightSalmon" h_alignment="LEFTH" v_alignment="TOP"></text>          
         </sprite>
  		<sprite ID="2" height="100" width="100" px="320" py="100" resourceName="ButtonBG" type="CLICKABLE">
-            <text ID="102" message="B b" resourceName="FullDeceSans" type="SIMPLE" color="LightSalmon" h_alignment="RIGHT" v_alignment="TOP"></text>    
+            <text ID="102" message="Bou" resourceName="FullDeceSans" type="SIMPLE" color="LightSalmon" h_alignment="RIGHT" v_alignment="TOP"></text>    
         </sprite>
          <sprite ID="3" height="100" width="100" px="210" py="210" resourceName="ButtonBG" type="CLICKABLE">
-            <text ID="103" message="C c" resourceName="FullDeceSans" type="SIMPLE" color="LightSalmon" h_alignment="CENTER" v_alignment="CENTER"></text>    
+            <text ID="103" orientation="45" message="Center" resourceName="FullDeceSans" type="SIMPLE" color="Red" h_alignment="CENTER" v_alignment="CENTER"></text>    
         </sprite>
         <sprite ID="4" height="100" width="100" px="100" py="320" resourceName="ButtonBG" type="CLICKABLE">
-            <text ID="104" message="Dd" resourceName="FullDeceSans" type="SIMPLE" color="LightSalmon" h_alignment="LEFTH" v_alignment="BOTTOM"></text>    
+            <text ID="104" orientation="-30" message="Dro" resourceName="FullDeceSans" type="SIMPLE" color="LightSalmon" h_alignment="LEFTH" v_alignment="BOTTOM"></text>    
         </sprite>
   		<sprite ID="5" height="100" width="100" px="320" py="320" resourceName="ButtonBG" type="CLICKABLE">
-            <text ID="105" message="Ee" resourceName="FullDeceSans" type="SIMPLE" color="LightSalmon" h_alignment="RIGHT" v_alignment="BOTTOM"></text>    
+            <text ID="105" message="Ext" resourceName="FullDeceSans" type="SIMPLE" color="LightSalmon" h_alignment="RIGHT" v_alignment="BOTTOM"></text>    
         </sprite>   
-     </scene></scenes>
+     </scene>
+      <scene name="LetterH" sceneFather="SceneLetterA">
+        <background ID="1" type="COLOR" color="LightSalmon" ></background>
+        <text ID="11" message="A a" resourceName="Schoolbell32" type="SIMPLE" color="Blue" h_alignment="RIGHT" v_alignment="BOTTOM"></text>       
+        <text ID="12" height="100" width="100" message="A" resourceName="Schoolbell64" type="SIMPLE" color="Blue" h_alignment="RIGHT" v_alignment="BOTTOM"></text>          
+        <text ID="12" py="320" px="200" height="200" width="200" message="beille" resourceName="Schoolbell64" type="SIMPLE" color="Blue" h_alignment="RIGHT" v_alignment="BOTTOM"></text>          
+      </scene>
+      
+      <scene name="LetterI" sceneFather="SceneLetterA">
+        <background ID="1" type="COLOR" color="LightSalmon" ></background>  
+        <sprite ID="3" height="100" width="100" px="100" py="100" pz="200" resourceName="Big-C" type="STATIC"></sprite>
+        <sprite ID="4" height="100" width="100" px="150" py="150" pz="100" resourceName="Big-D" type="STATIC"></sprite>         
+        <sprite ID="5" height="100" width="100" px="320" py="320" pz="300" resourceName="Big-E" type="STATIC"></sprite>          
+       </scene></scenes>
