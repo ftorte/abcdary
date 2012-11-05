@@ -31,9 +31,9 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
-import com.welmo.educational.managers.ResourcesManager;
-import com.welmo.educational.resources.ParserXMLResourcesDescriptor;
-import com.welmo.educational.scenes.components.descriptors.ParserXMLSceneDescriptor;
+import com.welmo.andengine.resources.descriptors.components.ParserXMLResourcesDescriptor;
+import com.welmo.andengine.scenes.descriptors.components.ParserXMLSceneDescriptor;
+
 
 import android.content.Intent;
 import android.util.Log;
@@ -42,6 +42,7 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 	// ===========================================================
 	// Constants
 	// ===========================================================
+	private static final String TAG = "SplashScreen";
 
 	private static final int CAMERA_WIDTH = 800;
 	private static final int CAMERA_HEIGHT = 480;
@@ -104,7 +105,6 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 		final Sprite splashImage = new Sprite(centerX, centerY, pTextureRegion, this.getVertexBufferObjectManager());
 		
 		/* create background */
-		
 		SequenceEntityModifier animation = new SequenceEntityModifier(
 				new DelayModifier(0.5f),
 				new ParallelEntityModifier(
@@ -145,7 +145,8 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 		splashImage.registerEntityModifier(animation);		
 		scene.attachChild(splashImage);
 
-		_parseXml();
+		//Read resource and scene descriptors
+		readSceneAndResourcesDescriptors();
 		
 		/////////////////////////////////////
 		return scene;
@@ -155,7 +156,7 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 	// ===========================================================
 	// Methods
 	// ===========================================================
-	private void _parseXml() { 
+	private void readSceneAndResourcesDescriptors() { 
 		// sax stuff 
 		try { 
 			SAXParserFactory spf = SAXParserFactory.newInstance(); 
@@ -165,17 +166,20 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 			//parse resources descriptions
 			ParserXMLResourcesDescriptor resourceDescriptionHandler = new ParserXMLResourcesDescriptor(this); 
 			xr.setContentHandler(resourceDescriptionHandler); 
-			xr.parse(new InputSource(this.getAssets().open("scenes/ABCDiaryResources.xml"))); 
+			xr.parse(new InputSource(this.getAssets().open("resources/ABCDiaryResources.xml"))); 
 			
 			//parse scene descriptions
 			ParserXMLSceneDescriptor sceneDescriptionHandler = new ParserXMLSceneDescriptor(this); 
 			xr.setContentHandler(sceneDescriptionHandler); 
 			//Parse all scene files
-			xr.parse(new InputSource(this.getAssets().open("scenes/ABCDiaryScenes.xml"))); 
+			Log.i(TAG,"Parse scenes/ABCDiaryMenuScene.xml");
 			xr.parse(new InputSource(this.getAssets().open("scenes/ABCDiaryMenuScene.xml")));
+			Log.i(TAG,"Parse scenes/ABCDiaryScenes.xml");
+			xr.parse(new InputSource(this.getAssets().open("scenes/ABCDiaryScenes.xml")));
+			Log.i(TAG,"Parse scenes/LettersScenes.xml");
 			xr.parse(new InputSource(this.getAssets().open("scenes/LettersScenes.xml")));
-		
-			
+			Log.i(TAG,"Parse scenes/MenuOfLetters.xml");
+			xr.parse(new InputSource(this.getAssets().open("scenes/MenuOfLetters.xml")));		
 			
 		} catch(ParserConfigurationException pce) { 
 			Log.e("SAX XML", "sax parse error", pce); 
