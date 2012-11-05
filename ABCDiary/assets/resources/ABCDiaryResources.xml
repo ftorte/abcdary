@@ -101,5 +101,31 @@
        <music name="Vento_Desertico" filename="Luigi_Alessi_Vento_Desertico.mp3"></music>
      <sounds>
        <sound name="Animal1" filename="animals016.mp3"></sound>  
+       <sound name="a" filename="a.ogg"></sound>  
+       <sound name="b" filename="b.ogg"></sound>  
+       <sound name="c" filename="c.ogg"></sound>  
+       <sound name="d" filename="d.ogg"></sound>  
+       <sound name="e" filename="e.ogg"></sound>  
+       <sound name="f" filename="f.ogg"></sound>  
+       <sound name="g" filename="g.ogg"></sound>  
+       <sound name="h" filename="h.ogg"></sound>  
+       <sound name="i" filename="i.ogg"></sound>  
+       <sound name="j" filename="j.ogg"></sound>  
+       <sound name="k" filename="k.ogg"></sound>  
+       <sound name="l" filename="l.ogg"></sound>  
+       <sound name="m" filename="m.ogg"></sound>  
+       <sound name="n" filename="n.ogg"></sound>  
+       <sound name="o" filename="o.ogg"></sound>  
+       <sound name="p" filename="p.ogg"></sound>  
+       <sound name="q" filename="q.ogg"></sound>  
+       <sound name="r" filename="r.ogg"></sound>  
+       <sound name="s" filename="s.ogg"></sound>  
+       <sound name="t" filename="t.ogg"></sound>  
+       <sound name="u" filename="u.ogg"></sound>  
+       <sound name="v" filename="v.ogg"></sound>  
+       <sound name="w" filename="w.ogg"></sound>  
+       <sound name="x" filename="x.ogg"></sound>  
+       <sound name="y" filename="y.ogg"></sound> 
+       <sound name="z" filename="z.ogg"></sound>  
      </sounds>
 </resources>
