@@ -54,7 +54,7 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 	private static final int SPLASH_DURATION = 3; 	// Duration in seconds
 	private static final float SPLASH_SCALE_FROM = 0.6f;	//Scale modifier
 	//private static final String IMAGE = "logo.png";
-	private static final Class<MenuArrayLettere> FOLLOWING_ACTIVITY = MenuArrayLettere.class;	
+	private static final Class<ABCDaryApplication> FOLLOWING_ACTIVITY = ABCDaryApplication.class;	
 
 	BitmapTextureAtlas pTextureAtals;
 	ITextureRegion	pTextureRegion;
