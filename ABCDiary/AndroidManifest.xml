@@ -22,9 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainMenu" android:screenOrientation="landscape"></activity>
-        <activity android:name=".MenuArrayLettere" android:screenOrientation="landscape"></activity>
-        <activity android:name=".LetterActivity" android:screenOrientation="landscape"></activity>
+        <activity android:name=".ABCDaryApplication" android:screenOrientation="landscape"></activity>
     </application>
-
 </manifest>
