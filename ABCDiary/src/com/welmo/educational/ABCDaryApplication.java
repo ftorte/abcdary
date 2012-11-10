@@ -74,8 +74,8 @@ public class ABCDaryApplication extends SimpleBaseGameActivity /*implements IAct
 		mSceneManager.BuildScenes("LetterH");
 		mSceneManager.BuildScenes("LetterI");
 		mSceneManager.BuildScenes("LetterL");
-		Music music = mResourceManager.getMusic("Vento_Desertico");
-		music.play();
+		//Music music = mResourceManager.getMusic("Vento_Desertico");
+		//music.play();
 
 		return (Scene)mSceneManager.getScene("ABCMainMenu");
 
