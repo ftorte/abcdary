@@ -16,7 +16,9 @@
       <text ID="30" message="A" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
         h_alignment="CENTER" v_alignment="CENTER">
       </text>
-      <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler ID ="999" event="ON_CLICK">
+        <on_mod_action type="PLAY_SOUND" resourceName="a"></on_mod_action>
+      </event_handler>
     </sprite>
     <sprite name ="B" ID="3" height="111" width="85" px="112" py="71" pz="410"
       resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Blue" orientation="8">
@@ -30,21 +32,27 @@
       <text ID="30" message="C" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
         h_alignment="CENTER" v_alignment="CENTER">
       </text>
-      <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+	  <event_handler ID ="999" event="ON_CLICK">
+        <on_mod_action type="PLAY_SOUND" resourceName="b"></on_mod_action>
+      </event_handler>
     </sprite>
     <sprite name ="D" ID="5" height="111" width="88" px="101" py="225" pz="370"
       resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Gold" orientation="5">
       <text ID="30" message="D" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
         h_alignment="CENTER" v_alignment="CENTER">
       </text>
-      <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler ID ="999" event="ON_CLICK">
+        <on_mod_action type="PLAY_SOUND" resourceName="c"></on_mod_action>
+      </event_handler>
     </sprite>
     <sprite name ="E" ID="5" height="111" width="88" px="12" py="290" pz="360"
       resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Red" orientation="-15">
       <text ID="30" message="E" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
         h_alignment="CENTER" v_alignment="CENTER">
       </text>
-      <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler ID ="999" event="ON_CLICK">
+        <on_mod_action type="PLAY_SOUND" resourceName="d"></on_mod_action>
+      </event_handler>
     </sprite>
     <sprite name ="F" ID="4" height="111" width="88" px="171" py="300" pz="350"
       resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Blue" orientation="12">
@@ -163,28 +171,46 @@
         <text ID="30" message="V" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+        <event_handler ID ="999" event="ON_CLICK">
+          <on_mod_action type="PLAY_SOUND" resourceName="v"></on_mod_action>
+        </event_handler>
       </sprite>
       <sprite name ="W" ID="4" height="111" width="88" px="498" py="339" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Gold" orientation="9">
         <text ID="30" message="W" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+        <event_handler ID ="999" event="ON_CLICK">
+          <on_mod_action type="PLAY_SOUND" resourceName="w"></on_mod_action>
+        </event_handler>
       </sprite>
       <sprite name ="X" ID="4" height="111" width="88" px="482" py="23" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Blue" orientation="0">
         <text ID="30" message="X" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+        <event_handler ID ="999" event="ON_CLICK">
+          <on_mod_action type="PLAY_SOUND" resourceName="x"></on_mod_action>
+        </event_handler>
       </sprite>
       <sprite name ="Y" ID="4" height="111" width="88" px="609" py="342" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Gold" orientation="0">
         <text ID="30" message="Y" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+        <event_handler ID ="999" event="ON_CLICK">
+          <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+            <modifier typeSet="false" type="SCALE" scale_begin="1" scale_end="3"></modifier> 
+            <modifier typeSet="false" type="SCALE" scale_begin="3" scale_end="1"></modifier> 
+            <modifier typeSet="false" type="SCALE" scale_begin="1" scale_end="2"></modifier> 
+            <modifier typeSet="false" type="SCALE" scale_begin="2" scale_end="1"></modifier> 
+            <modifier typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"></modifier> 
+            <modifier typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"></modifier> 
+            <modifier typeSet="false" type="SCALE" scale_begin="1" scale_end="1.2"></modifier> 
+            <modifier typeSet="false" type="SCALE" scale_begin="1.2" scale_end="1"></modifier> 
+          </modifier_list>
+          <on_mod_action type="PLAY_SOUND" resourceName="y"></on_mod_action>
+        </event_handler>
       </sprite>
       <sprite name ="Z" ID="444" height="111" width="88" px="708" py="313" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Gold" orientation="18" 
@@ -203,6 +229,8 @@
             <modifier typeSet="false" type="SCALE" scale_begin="1" scale_end="1.2"></modifier> 
             <modifier typeSet="false" type="SCALE" scale_begin="1.2" scale_end="1"></modifier> 
           </modifier_list>
+          <on_mod_action type="PLAY_SOUND" resourceName="z"></on_mod_action>
+          <post_mod_action type="CHANGE_SCENE" next_scene="SceneLetterA"></post_mod_action>
         </event_handler>
     </sprite>
   </scene>
