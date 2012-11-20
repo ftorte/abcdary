@@ -55,9 +55,15 @@
     	<buildable_texture name="TheBee" height="1024" width="1024">
             <tiled_texture_region name="TheBee_flightRight" filename="TestSpriteSheet.png" column="7" row="7"></tiled_texture_region>
         </buildable_texture>
+        <buildable_texture name="TheCard" height="1024" width="1024">
+            <tiled_texture_region name="TheCardRegion" filename="CardQJ.png" column="2" row="1"></tiled_texture_region>
+        </buildable_texture>
         <texture name="AlphabetBackGrounds" height="1024" width="512">
           <textureregion name="BcgA" filename="BackgroundA.svg" px="0" py="0" height="800" width="480"></textureregion>         
     	</texture>
+        <buildable_texture name="The30DeckCard" height="1024" width="1024">
+            <tiled_texture_region name="The30DeckCardRegion" filename="DeckCards2.png" column="8" row="4"></tiled_texture_region>
+        </buildable_texture>
     	<texture name="CardLettersBackground" height="512" width="64">
           <textureregion name="CardWiteBCG" filename="CardWhiteBcg.svg" px="0" py="0" height="80" width="64"></textureregion>         
           <textureregion name="CardWiteBCGBlueSTK" filename="CardWhiteBcgBlueStk.svg" px="0" py="80" height="80" width="64"></textureregion>         
@@ -79,11 +85,17 @@
         <color name="LightSalmon" blue="7A" green="A0" red="FF"></color>
         <color name="Red" blue="00" green="00" red="FF"></color>
    		<color name="Green" blue="00" green="FF" red="00"></color>
-   		<color name="Blue" blue="FF" green="00" red="00"></color>
-   		<color name="White" blue="FF" green="FF" red="FF"></color>
+   		<color name="Blue" red="00" green="00"  blue="FF"></color>
+   		<color name="White" red="FF" green="FF" blue="FF"></color>
         <color name="Forest_Green" red="22" green="8B" blue="22"></color>
         <color name="Gold" red="FF" green="D7" blue="00"></color>
         <color name="MediumVioletRed" red="C7" green="15" blue="85"></color> 
+        <color name="GreeYellow" red="9A" green="CD" blue="32"></color> 
+        
+        <color name="RedScarlett" red="FF" green="1A" blue="00"></color> 
+        <color name="GuardsmanRed" red="CC" green="00" blue="00"></color> 
+        <color name="BlazeOrange" red="FF" green="66" blue="00"></color> 
+        greenyellow
     </colors>
     
     <fonts>
