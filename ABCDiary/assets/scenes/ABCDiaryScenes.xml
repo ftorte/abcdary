@@ -1,36 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <scenes>
        <scene name="SceneLetterA" sceneFather="ABCMainMenu">
+            <event_handler ID ="1000" event="ON_CLICK">
+              <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="SceneLetterA"/>
+            </event_handler>
+   
             <!-- Back Ground  -->
             <background ID="100" type="COLOR" color="LightSalmon"></background>
             <!-- 1st Line  -->
             <sprite ID="1" orientation="45" height="13%" width="8%" px="2%" py="5%" resourceName="Big-A" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="LetterA"></action>
+              <event_handler ID ="1000" event="ON_CLICK">
+                <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="LetterA"/>
+              </event_handler>
             </sprite> 
             <sprite ID="2" height="13%" width="8%" px="14%" py="5%" resourceName="Big-B" type="CLICKABLE">
-           		<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="LetterB"></action>
+             <event_handler ID ="1000" event="ON_CLICK">
+                <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="LetterB"/>
+              </event_handler>
             </sprite>
             <sprite ID="3" height="13%" width="8%" px="26%" py="5%" resourceName="Big-C" type="CLICKABLE">
-           		<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+             <event_handler ID ="1000" event="ON_CLICK">
+                <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="Test"/>
+              </event_handler>
             </sprite>
             <sprite ID="4" height="13%" width="8%" px="38%" py="5%" resourceName="Big-D" type="CLICKABLE">
-                 <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="LetterD"></action>    
+              <event_handler ID ="1000" event="ON_CLICK">
+                <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="LetterD"/>
+              </event_handler>   
             </sprite>
             <sprite ID="5" height="13%" width="8%" px="50%" py="5%" resourceName="Big-E" type="CLICKABLE">
-                 <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="LetterE"></action>
+              <event_handler ID ="1000" event="ON_CLICK">
+                <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="LetterE"/>
+              </event_handler> 
             </sprite>
             <sprite ID="6" height="13%" width="8%" px="62%" py="5%" resourceName="Big-F" type="CLICKABLE">
                 <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="7" height="13%" width="8%" px="74%" py="5%" resourceName="Big-G" type="CLICKABLE">
-           		<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="LetterG"></action>
+             <event_handler ID ="1000" event="ON_CLICK">
+                <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="LetterG"/>
+              </event_handler> 
             </sprite>
             <sprite ID="8" height="13%" width="8%" px="86%" py="5%" resourceName="Big-H" type="CLICKABLE">
-           		<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="LetterH"></action>
+              <event_handler ID ="1000" event="ON_CLICK">
+                <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="LetterH"/>
+              </event_handler>
             </sprite>
             <!-- 2nd Line  -->
             <sprite ID="9" height="13%" width="8%" px="2%" py="30%" resourceName="Big-I" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="LetterI"></action>
+                <event_handler ID ="1000" event="ON_CLICK">
+                <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="LetterI"/>
+              </event_handler>
             </sprite>
             <sprite ID="10" height="13%" width="8%" px="14%" py="30%" resourceName="Big-J" type="CLICKABLE">
                 <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
@@ -39,57 +59,49 @@
                 <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="12" height="13%" width="8%" px="38%" py="30%" resourceName="Big-L" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="LetterL"></action>
+                 <event_handler ID ="1000" event="ON_CLICK">
+                <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="LetterL"/>
+              </event_handler>
             </sprite>
             <sprite ID="13" height="13%" width="8%" px="50%" py="30%" resourceName="Big-M" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="14" height="13%" width="8%" px="62%" py="30%" resourceName="Big-N" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="15" height="13%" width="8%" px="74%" py="30%" resourceName="Big-O" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="16" height="13%" width="8%" px="86%" py="30%" resourceName="Big-P" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <!-- 3nd Line  -->
             <sprite ID="17" height="13%" width="8%" px="2%" py="55%" resourceName="Big-Q" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="18" height="13%" width="8%" px="14%" py="55%" resourceName="Big-R" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="19" height="13%" width="8%" px="26%" py="55%" resourceName="Big-S" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="20" height="13%" width="8%" px="38%" py="55%" resourceName="Big-T" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="21" height="13%" width="8%" px="50%" py="55%" resourceName="Big-U" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="22" height="13%" width="8%" px="62%" py="55%" resourceName="Big-V" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="23" height="13%" width="8%" px="74%" py="55%" resourceName="Big-W" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
+                <event_handler ID ="1000" event="ON_CLICK">
+                <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="MenuOfLetter2"/>
+              </event_handler>
             </sprite>
             <sprite ID="24" height="13%" width="8%" px="86%" py="55%" resourceName="Big-X" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <!-- 4nd Line  -->
             <sprite ID="25" height="13%" width="8%" px="2%" py="80%" resourceName="Big-Y" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="26" height="13%" width="8%" px="14%" py="80%" resourceName="Big-Z" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="27" height="13%" width="8%" px="74%" py="80%" resourceName="MenuArrayLetterA" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>
             </sprite>
             <sprite ID="28" height="13%" width="8%" px="86%" py="80%" resourceName="MenuArrayLetterA" type="CLICKABLE">
-                <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="ABCMainMenu"></action>
+                <event_handler ID ="1000" event="ON_CLICK">
+                <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="ABCMainMenu"/>
+              </event_handler>
             </sprite>
         </scene>
         <scene name="Test" sceneFather="SceneLetterA">
@@ -97,14 +109,18 @@
             	<sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024" type="STATIC"></sprite>
         	</background>
             <sprite ID="2" height="64" width="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CLICKABLE">
-            	<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>  
+              <event_handler ID ="1000" event="ON_CLICK">
+                <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="SceneLetterA"/>
+              </event_handler>            
             </sprite>
             <sprite ID="3" height="64" width="64" px="200" py="200" resourceName="MenuArrayLetterA" type="CLICKABLE"></sprite>
         </scene>
         <scene name="Test2" sceneFather="SceneLetterA">
             <sprite ID="1" height="512" px="0" py="0" resourceName="MenuBackGround" width="1024" type="STATIC"></sprite>
             <sprite ID="2" height="64" width="64" px="0" py="0" resourceName="MenuArrayLetterA" type="CLICKABLE">
-            	<action event="ON_CLICK" type="CHANGE_SCENE" next_scene="Test"></action>   
+              <event_handler ID ="1000" event="ON_CLICK">
+                <pre_mod_action ID="1" type="CHANGE_SCENE" next_scene="Test"/>
+              </event_handler>
             </sprite>
             <sprite ID="3" height="32" width="32" px="100" py="100" resourceName="MenuArrayLetterA" type="CLICKABLE"></sprite>	
             <text ID="3" py="0" px="0" resourceName="FontAndroid" message="TXT" type="SIMPLE" color="Blue"></text>
@@ -116,7 +132,8 @@
             </sprite>
               <sprite ID="9" height="100" width="100" px="400" py="300" resourceName="MenuArrayLetterB" type="CLICKABLE">
             	<action event="ON_MOVE" type="STICK" stick_with="10" stick_mode="STICK_RIGHT"></action>  
-            </sprite>
+            
+                          </sprite>
              <sprite ID="10" height="100" width="100" px="600" py="400" resourceName="MenuArrayLetterA" type="CLICKABLE">
             	<action event="ON_MOVE" type="STICK" stick_with="11" stick_mode="STICK_OVER"></action>  
             </sprite>
