@@ -59,4 +59,7 @@
         <sprite ID="3" height="100" width="100" px="100" py="100" pz="200" resourceName="Big-C" type="STATIC"></sprite>
         <sprite ID="4" height="100" width="100" px="150" py="150" pz="100" resourceName="Big-D" type="STATIC"></sprite>         
         <sprite ID="5" height="100" width="100" px="320" py="320" pz="300" resourceName="Big-E" type="STATIC"></sprite>          
+       </scene>
+       <scene name="LetterJ" sceneFather="SceneLetterA">
+          <background ID="1" type="COLOR" color="LightSalmon" ></background>  
        </scene></scenes>

@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scenes xmlns="http://www.example.org/scene">
-  <scene
-    name="LetterL"
-    class_name="com.welmo.andengine.scenes.ManageableScene"
-    sceneFather="SceneLetterA" >
+  <scene name="LetterL" class_name="com.welmo.andengine.scenes.ManageableScene" sceneFather="SceneLetterA" >
 
+    <event_handler ID ="1000" event="ON_CLICK">
+      <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+        <modifier ID="1" typeSet="false" type="SCALE" scale_begin="1" scale_end="3"></modifier> 
+        <modifier ID="2" typeSet="false" type="SCALE" scale_begin="3" scale_end="1"></modifier> 
+        <modifier ID="3" typeSet="false" type="SCALE" scale_begin="1" scale_end="2"></modifier> 
+        <modifier ID="4" typeSet="false" type="SCALE" scale_begin="2" scale_end="1"></modifier> 
+        <modifier ID="5" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"></modifier> 
+        <modifier ID="6" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"></modifier> 
+        <modifier ID="7" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.2"></modifier> 
+        <modifier ID="8" typeSet="false" type="SCALE" scale_begin="1.2" scale_end="1"></modifier> 
+        </modifier_list>
+        <on_mod_action ID="1" type="PLAY_SOUND" resourceName="z"></on_mod_action>
+        <!--         <post_mod_action ID="2" type="CHANGE_SCENE" next_scene="SceneLetterA"></post_mod_action>
+     -->
+    </event_handler>
+  
     <background
         ID="1"
         type="COLOR"
         color="LightSalmon" >
     </background>
-
-    <sprite name ="A" ID="2" height="111" width="88" px="12" py="27" pz="400"
-      resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Red" orientation="-14">
+    <sprite 
+    	name ="A" ID="2" height="111" width="88" px="12" py="27" pz="400" resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Red" orientation="-14">
       <text ID="30" message="A" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
         h_alignment="CENTER" v_alignment="CENTER">
       </text>
-      <event_handler ID ="999" event="ON_CLICK">
-        <on_mod_action type="PLAY_SOUND" resourceName="a"></on_mod_action>
+      <event_handler cloneID ="1000" event="ON_CLICK">
+          <on_mod_action ID="1" type="PLAY_SOUND" resourceName="a"></on_mod_action>
       </event_handler>
     </sprite>
     <sprite name ="B" ID="3" height="111" width="85" px="112" py="71" pz="410"
@@ -25,192 +37,174 @@
       <text ID="30" message="B" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
         h_alignment="CENTER" v_alignment="CENTER">
       </text>
-      <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
     </sprite>
     <sprite name ="C" ID="4" height="111" width="88" px="12" py="155" pz="380"
       resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Forest_Green" orientation="-10">
       <text ID="30" message="C" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
         h_alignment="CENTER" v_alignment="CENTER">
       </text>
-	  <event_handler ID ="999" event="ON_CLICK">
-        <on_mod_action type="PLAY_SOUND" resourceName="b"></on_mod_action>
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
     </sprite>
     <sprite name ="D" ID="5" height="111" width="88" px="101" py="225" pz="370"
       resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Gold" orientation="5">
       <text ID="30" message="D" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
         h_alignment="CENTER" v_alignment="CENTER">
       </text>
-      <event_handler ID ="999" event="ON_CLICK">
-        <on_mod_action type="PLAY_SOUND" resourceName="c"></on_mod_action>
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
     </sprite>
     <sprite name ="E" ID="5" height="111" width="88" px="12" py="290" pz="360"
       resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Red" orientation="-15">
       <text ID="30" message="E" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
         h_alignment="CENTER" v_alignment="CENTER">
       </text>
-      <event_handler ID ="999" event="ON_CLICK">
-        <on_mod_action type="PLAY_SOUND" resourceName="d"></on_mod_action>
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
     </sprite>
     <sprite name ="F" ID="4" height="111" width="88" px="171" py="300" pz="350"
       resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Blue" orientation="12">
       <text ID="30" message="F" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
         h_alignment="CENTER" v_alignment="CENTER">
       </text>
-      <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
     </sprite>
     <sprite name ="G" ID="4" height="111" width="88" px="213" py="241" pz="350"
       resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Red" orientation="-12">
       <text ID="30" message="G" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
         h_alignment="CENTER" v_alignment="CENTER">
       </text>
-      <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
     </sprite>
     <sprite name ="H" ID="4" height="111" width="88" px="167" py="127" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Forest_Green" orientation="8">
         <text ID="30" message="H" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
     </sprite>
     <sprite name ="I" ID="4" height="111" width="88" px="223" py="92" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Gold" orientation="-21">
         <text ID="30" message="I" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+     <event_handler cloneID ="1000" event="ON_CLICK">
+         <post_mod_action ID="2" type="CHANGE_SCENE" next_scene="MemoryPoker"></post_mod_action>*
+         <on_mod_action ID="1" type="PLAY_SOUND" resourceName="i"></on_mod_action>
+      </event_handler>
     </sprite>
     <sprite name ="J" ID="4" height="111" width="88" px="180" py="2" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Gold" orientation="11">
         <text ID="30" message="J" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK">
+         <post_mod_action ID="2" type="CHANGE_SCENE" next_scene="LetterJ"></post_mod_action>*
+         <on_mod_action ID="1" type="PLAY_SOUND" resourceName="j"></on_mod_action>
+      </event_handler>
     </sprite>
     <sprite name ="K" ID="4" height="111" width="88" px="424" py="81" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Blue" orientation="18">
         <text ID="30" message="K" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
     </sprite>
     <sprite name ="L" ID="4" height="111" width="88" px="450" py="251" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Red" orientation="21">
         <text ID="30" message="L" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
     </sprite>
     <sprite name ="M" ID="4" height="111" width="88" px="305" py="313" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Blue" orientation="11">
-        <text ID="30" message="M" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
+        <text ID="30" message="M" px="0" py="0" resourceName="Vegur64" type="SIMPLE"
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
     </sprite>
     <sprite name ="N" ID="4" height="111" width="88" px="75" py="369" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="MediumVioletRed" orientation="-13">
         <text ID="30" message="N" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
       </sprite>
       <sprite name ="O" ID="4" height="111" width="88" px="222" py="360" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Forest_Green" orientation="0">
         <text ID="30" message="O" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
       </sprite>
       <sprite name ="P" ID="4" height="111" width="88" px="365" py="360" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Red" orientation="-14">
         <text ID="30" message="P" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
       </sprite>
       <sprite name ="Q" ID="4" height="111" width="88" px="305" py="131" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Blue" orientation="14">
         <text ID="30" message="Q" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
       </sprite>
       <sprite name ="R" ID="4" height="111" width="88" px="636" py="190" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Gold" orientation="8">
         <text ID="30" message="R" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
       </sprite>    
       <sprite name ="S" ID="4" height="111" width="88" px="356" py="196" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Gold" orientation="-8">
         <text ID="30" message="S" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
       </sprite>
       <sprite name ="T" ID="4" height="111" width="88" px="476" py="175" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Red" orientation="-16">
         <text ID="30" message="T" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
       </sprite>
       <sprite name ="U" ID="4" height="111" width="88" px="346" py="8" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Blue" orientation="14">
         <text ID="30" message="U" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <action event="ON_CLICK" type="CHANGE_SCENE" next_scene="SceneLetterA"></action>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
       </sprite>
       <sprite name ="V" ID="4" height="111" width="88" px="536" py="259" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Gold" orientation="-15">
         <text ID="30" message="V" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <event_handler ID ="999" event="ON_CLICK">
-          <on_mod_action type="PLAY_SOUND" resourceName="v"></on_mod_action>
-        </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
       </sprite>
       <sprite name ="W" ID="4" height="111" width="88" px="498" py="339" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Gold" orientation="9">
         <text ID="30" message="W" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <event_handler ID ="999" event="ON_CLICK">
-          <on_mod_action type="PLAY_SOUND" resourceName="w"></on_mod_action>
-        </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
       </sprite>
       <sprite name ="X" ID="4" height="111" width="88" px="482" py="23" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Blue" orientation="0">
         <text ID="30" message="X" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <event_handler ID ="999" event="ON_CLICK">
-          <on_mod_action type="PLAY_SOUND" resourceName="x"></on_mod_action>
-        </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
       </sprite>
       <sprite name ="Y" ID="4" height="111" width="88" px="609" py="342" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Gold" orientation="0">
         <text ID="30" message="Y" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
-        <event_handler ID ="999" event="ON_CLICK">
-          <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
-            <modifier typeSet="false" type="SCALE" scale_begin="1" scale_end="3"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="3" scale_end="1"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="1" scale_end="2"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="2" scale_end="1"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="1" scale_end="1.2"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="1.2" scale_end="1"></modifier> 
-          </modifier_list>
-          <on_mod_action type="PLAY_SOUND" resourceName="y"></on_mod_action>
-        </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
       </sprite>
       <sprite name ="Z" ID="444" height="111" width="88" px="708" py="313" pz="350"
         resourceName="CardWiteBCGYellowSTK" type="CLICKABLE" color="Gold" orientation="18" 
@@ -218,20 +212,7 @@
         <text ID="30" message="Z" px="0" py="0" resourceName="Vegur64" type="SIMPLE" 
             h_alignment="CENTER" v_alignment="CENTER">
         </text> 
-        <event_handler ID ="999" event="ON_CLICK">
-          <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
-            <modifier typeSet="false" type="SCALE" scale_begin="1" scale_end="3"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="3" scale_end="1"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="1" scale_end="2"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="2" scale_end="1"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="1" scale_end="1.2"></modifier> 
-            <modifier typeSet="false" type="SCALE" scale_begin="1.2" scale_end="1"></modifier> 
-          </modifier_list>
-          <on_mod_action type="PLAY_SOUND" resourceName="z"></on_mod_action>
-          <post_mod_action type="CHANGE_SCENE" next_scene="SceneLetterA"></post_mod_action>
-        </event_handler>
-    </sprite>
+      <event_handler cloneID ="1000" event="ON_CLICK"/>
+      </sprite>
   </scene>
 </scenes>

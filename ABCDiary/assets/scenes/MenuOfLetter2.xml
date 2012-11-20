@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenes xmlns="http://www.example.org/scene">
+  <scene name="MenuOfLetter2" class_name="com.welmo.andengine.scenes.ManageableScene" sceneFather="SceneLetterA" >
+    <background
+        ID="1"
+        type="COLOR"
+        color="White" >
+    </background>
+    <event_handler ID ="1000" event="ON_CLICK">
+      <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+        <modifier ID="2" typeSet="false" type="SCALE" scale_begin="3" scale_end="1"></modifier> 
+        </modifier_list>
+        <on_mod_action ID="1" type="PLAY_SOUND" resourceName="z"/>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <!-- <post_mod_action ID="1" type="CHANGE_SCENE" next_scene="SceneLetterA"/>  -->
+    </event_handler>
+    <event_handler ID ="1001" event="ON_CLICK">
+      <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+        <modifier ID="1" typeSet="false" type="SCALE" scale_begin="1" scale_end="3"></modifier> 
+        <modifier ID="2" typeSet="false" type="SCALE" scale_begin="3" scale_end="1"></modifier> 
+        </modifier_list>
+        <on_mod_action ID="1" type="PLAY_SOUND" resourceName="z"/>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <!--  <post_mod_action ID="1" type="CHANGE_SCENE" next_scene="SceneLetterA"/>  -->
+    </event_handler>
+    <!-- First Line -->
+	<sprite ID="1" height="90" width="90" px="26" py="54" resourceName="ButtonBG" color="GreeYellow" type="CLICKABLE">
+        <text ID="101" message="A" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK">
+          <on_mod_action ID="1" type="PLAY_SOUND" resourceName="a"></on_mod_action>
+        </event_handler>
+    </sprite>
+    <sprite ID="2" height="90" width="90" px="120" py="54" resourceName="ButtonBG" color="Red" type="CLICKABLE">
+    	<text ID="101" message="B" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK">
+          <on_mod_action ID="1" type="PLAY_SOUND" resourceName="b"></on_mod_action>
+        </event_handler>
+    </sprite>
+    <sprite ID="3" height="90" width="90" px="214" py="54" resourceName="ButtonBG" color="MediumVioletRed" type="CLICKABLE">
+    	<text ID="101" message="C" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK">
+          <on_mod_action ID="1" type="PLAY_SOUND" resourceName="c"></on_mod_action>
+        </event_handler>
+    </sprite>
+    <sprite ID="4" height="90" width="90" px="308" py="54" resourceName="ButtonBG" color="Blue" type="CLICKABLE">
+    	<text ID="101" message="D" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK">
+          <on_mod_action ID="1" type="PLAY_SOUND" resourceName="d"></on_mod_action>
+        </event_handler>    </sprite>
+    <sprite ID="5" height="90" width="90" px="402" py="54" resourceName="ButtonBG" color="Gold" type="CLICKABLE">
+    	<text ID="101" message="E" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="6" height="90" width="90" px="496" py="54" resourceName="ButtonBG" color="Forest_Green" type="CLICKABLE">
+    	<text ID="101" message="F" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="7" height="90" width="90" px="590" py="54" resourceName="ButtonBG" color="BlazeOrange" type="CLICKABLE">
+    	<text ID="101" message="G" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>                 
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="8" height="90" width="90" px="684" py="54" resourceName="ButtonBG" color="GuardsmanRed" type="CLICKABLE">
+    	<text ID="101" message="H" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <!-- Second Line -->
+	  <sprite ID="1" height="90" width="90" px="26" py="148" resourceName="ButtonBG" color="Gold" type="CLICKABLE">
+        <text ID="101" message="I" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="2" height="90" width="90" px="120" py="148" resourceName="ButtonBG" color="Forest_Green" type="CLICKABLE">
+    	<text ID="101" message="J" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="3" height="90" width="90" px="214" py="148" resourceName="ButtonBG" color="Blue" type="CLICKABLE">
+    	<text ID="101" message="K" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="4" height="90" width="90" px="308" py="148" resourceName="ButtonBG" color="MediumVioletRed" type="CLICKABLE">
+    	<text ID="101" message="L" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="5" height="90" width="90" px="402" py="148" resourceName="ButtonBG" color="BlazeOrange" type="CLICKABLE">
+    	<text ID="101" message="M" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="6" height="90" width="90" px="496" py="148" resourceName="ButtonBG" color="Gold" type="CLICKABLE">
+    	<text ID="101" message="N" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="7" height="90" width="90" px="590" py="148" resourceName="ButtonBG" color="Red" type="CLICKABLE">
+    	<text ID="101" message="O" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="8" height="90" width="90" px="684" py="148" resourceName="ButtonBG" color="MediumVioletRed" type="CLICKABLE">
+    	<text ID="101" message="P" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <!-- Third Line -->
+	  <sprite ID="1" height="90" width="90" px="26" py="242" resourceName="ButtonBG" color="MediumVioletRed" type="CLICKABLE">
+        <text ID="101" message="Q" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="2" height="90" width="90" px="120" py="242" resourceName="ButtonBG" color="Blue" type="CLICKABLE">
+    	<text ID="101" message="R" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="3" height="90" width="90" px="214" py="242" resourceName="ButtonBG" color="Red" type="CLICKABLE">
+    	<text ID="101" message="S" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="4" height="90" width="90" px="308" py="242" resourceName="ButtonBG" color="Gold" type="CLICKABLE">
+    	<text ID="101" message="T" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="5" height="90" width="90" px="402" py="242" resourceName="ButtonBG" color="MediumVioletRed" type="CLICKABLE">
+    	<text ID="101" message="U" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="6" height="90" width="90" px="496" py="242" resourceName="ButtonBG" color="GuardsmanRed" type="CLICKABLE">
+    	<text ID="101" message="V" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="7" height="90" width="90" px="590" py="242" resourceName="ButtonBG" color="Blue" type="CLICKABLE">
+    	<text ID="101" message="W" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="8" height="90" width="90" px="684" py="242" resourceName="ButtonBG" color="Forest_Green" type="CLICKABLE">
+    	<text ID="101" message="X" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    
+    <!-- Fort Line -->
+	  <sprite ID="1" height="90" width="90" px="26" py="336" resourceName="ButtonBG" color="Red" type="CLICKABLE">
+        <text ID="101" message="Y" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="2" height="90" width="90" px="120" py="336" resourceName="ButtonBG" color="MediumVioletRed" type="CLICKABLE">
+    	<text ID="101" message="Z" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+    <sprite ID="8" height="90" width="184" px="590" py="336" resourceName="ButtonBG" color="BlazeOrange" type="CLICKABLE">
+    	<text ID="101" message="BACK" resourceName="FullDeceSans" type="SIMPLE" color="White" h_alignment="CENTER" v_alignment="CENTER"></text>         
+        <event_handler cloneID ="1000" event="ON_CLICK"/>
+    </sprite>
+	</scene>
+</scenes>
