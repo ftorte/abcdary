@@ -33,6 +33,7 @@ public class ABCDaryApplication extends SimpleBaseGameActivity /*implements IAct
 		final Camera camera = new Camera(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
 		EngineOptions engineOptions = new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED, new RatioResolutionPolicy(CAMERA_WIDTH, CAMERA_HEIGHT), camera);
 		//Enable audio option
+		camera.setZClippingPlanes(-1000, 1000);
 		engineOptions.getAudioOptions().setNeedsMusic(true);
 		engineOptions.getAudioOptions().setNeedsSound(true);
 		return engineOptions;
@@ -49,11 +50,12 @@ public class ABCDaryApplication extends SimpleBaseGameActivity /*implements IAct
 		mResourceManager.getTextureRegion("Big-A");	
 		mResourceManager.getTextureRegion("flower_pink");
 		mResourceManager.getTextureRegion("flower_blue_small");
-		mResourceManager.getTiledTexture("TheBee_flightRight");	
+		mResourceManager.getTiledTextureRegion("TheBee_flightRight");	
 		mResourceManager.getTextureRegion("CardWiteBCG");
 		mResourceManager.getMusic("Vento_Desertico");
 		mResourceManager.getSound("Animal1");
-
+		mResourceManager.getTiledTextureRegion("TheCardRegion");
+		mResourceManager.getTiledTextureRegion("The30DeckCardRegion");
 		mResourceManager.EngineLoadResources(this.mEngine);
 		this.mEngine.onReloadResources();
 	}
@@ -74,6 +76,10 @@ public class ABCDaryApplication extends SimpleBaseGameActivity /*implements IAct
 		mSceneManager.BuildScenes("LetterH");
 		mSceneManager.BuildScenes("LetterI");
 		mSceneManager.BuildScenes("LetterL");
+		mSceneManager.BuildScenes("LetterJ");
+		mSceneManager.BuildScenes("MenuOfLetter2");
+		mSceneManager.BuildScenes("MemoryPoker");
+		
 		//Music music = mResourceManager.getMusic("Vento_Desertico");
 		//music.play();
 
