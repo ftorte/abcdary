@@ -181,7 +181,7 @@ public class SplashScreen extends SimpleBaseGameActivity  {
 			Log.i(TAG,"Parse scenes/MenuOfLetters.xml");
 			xr.parse(new InputSource(this.getAssets().open("scenes/MenuOfLetters.xml")));	
 			xr.parse(new InputSource(this.getAssets().open("scenes/MenuOfLetter2.xml")));	
-			xr.parse(new InputSource(this.getAssets().open("scenes/MemoryPoker.xml")));
+			xr.parse(new InputSource(this.getAssets().open("scenes/MemoryPokerBis.xml")));
 			
 		} catch(ParserConfigurationException pce) { 
 			Log.e("SAX XML", "sax parse error", pce); 
