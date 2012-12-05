@@ -1,0 +1,11 @@
+Cose da ammigliorare:
+
+A) Event handlers
+	Aggounjere possibilita di disabilitare gli eventi quando si esiegue un evento. 
+	Idea aggingere un paramatre on_event_disble_events = (NONE, THIS, ALL, ALL_IN_SCENE)
+		NONE = nessun evento disabilitato (valore per default non c'e bisognio di chiamarlo
+		THIS = Questo evento per l'oggetto chiamato (evento funzione per gli altro oggetti
+		ALL  = tutti gli eventi per l'oggetto chiamato
+		ALL_IN_SCENE = tutti gli eventi per l'oggetto chiamato
+
+	la situazione iniziale e sempre ristabilita alla fine di Event_handler

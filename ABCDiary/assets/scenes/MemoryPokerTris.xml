@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scenes>
-  <scene name="MemoryPoker" type="MEMORY" sceneFather="SceneLetterA"   class_name="com.welmo.andengine.scenes.MemoryScene">
+  <scene name="MemoryPoker" type="MEMORY" sceneFather="SceneLetterA"   class_name="com.welmo.andengine.scenes.MemoryScene"
+      maxLevels="2"
+      TopBottomBorder ="40" 
+      LeftRightBorder="40"
+      VIntraBorder="10"     
+      nHIntraBorder="10" 
+      StdCardHeight="175" 
+      StdCardWidth="125"
+      MaxNumberOfSymbols="30" 
+      resource="The30DeckCardRegion"
+      geometry = "{ 'geometry': [[0,3,3,4],[1,5,3,7],[2,3,5,7],[3,3,4,7]]}"
+      mapCardTiles="{ 'mapcardtiles':[
+                    [1,1,31],[2,2,31],[3,3,31],[4,4,31],[5,5,31],[6,6,31],
+                    [7,7,31],[8,1,31],{9,2,31],{10,10,31],{11,11,31],{12,12,31],
+                    [13,13,31],[14,14,31],[12,12,31],[13,13,31],[14,14,31],[12,12,31],
+                    [13,13,31],[14,14,31],[12,12,31],[13,13,31],[14,14,31],[12,12,31],
+                    [13,13,31],[14,14,31],[12,12,31],[13,13,31],[14,14,31],[12,12,31]
+                    ]}" >
+    <!--                
+    mapCardSound="{ 'mapCardSound':[
+                    [1,'a'],[2,'b'],[3,'c'],[4,'d'],[5,'e'],[6,'f'],
+                    [7,'g'],[8,'a'],[9,'b'],[10,'c'],[11,'d'],[12,'e'],
+                    [13,'f'],[14,'g']]"
+    
+    <!--   mapCardTiles describe vector of: cardID, imege side A tile, image side B tile --> 
+     --> 
     <background ID="1" type="COLOR" color="LightSalmon" ></background>  
     <!-- Line 1 *****************************************************************  -->
     <sprite ID="0" height="175" width="125" px="140" py="100" pz="0" sideA="0" sideB="30"
