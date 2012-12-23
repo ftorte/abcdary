@@ -64,6 +64,9 @@
         <buildable_texture name="The30DeckCard" height="1024" width="1024">
             <tiled_texture_region name="The30DeckCardRegion" filename="DeckCards2.png" column="8" row="4"></tiled_texture_region>
         </buildable_texture>
+         <buildable_texture name="MemoryDaysTexture" height="1024" width="1024">
+            <tiled_texture_region name="MemoryDaysRegion" filename="days.png" column="4" row="4"></tiled_texture_region>
+        </buildable_texture>
     	<texture name="CardLettersBackground" height="512" width="64">
           <textureregion name="CardWiteBCG" filename="CardWhiteBcg.svg" px="0" py="0" height="80" width="64"></textureregion>         
           <textureregion name="CardWiteBCGBlueSTK" filename="CardWhiteBcgBlueStk.svg" px="0" py="80" height="80" width="64"></textureregion>         
@@ -94,8 +97,6 @@
         
         <color name="RedScarlett" red="FF" green="1A" blue="00"></color> 
         <color name="GuardsmanRed" red="CC" green="00" blue="00"></color> 
-        <color name="BlazeOrange" red="FF" green="66" blue="00"></color> 
-        greenyellow
     </colors>
     
     <fonts>
@@ -111,6 +112,22 @@
          
      </musics>
        <music name="Vento_Desertico" filename="Luigi_Alessi_Vento_Desertico.mp3"></music>
+       <music name="lun" filename="Lundi.ogg"></music>  
+       <music name="mar" filename="Mardi.ogg"></music>  
+       <music name="mer" filename="Mercredi.ogg"></music>  
+       <music name="jeu" filename="Jeudi.ogg"></music>  
+       <music name="ven" filename="Vendredi.ogg"></music>  
+       <music name="sam" filename="Samedi.ogg"></music>  
+       <music name="dim" filename="Dimanche.ogg"></music>  
+       <music name="mon" filename="Monday.ogg"></music>  
+       <music name="tue" filename="Tuesday.ogg"></music>  
+       <music name="wed" filename="Wednesday.ogg"></music>  
+       <music name="thu" filename="Thursday.ogg"></music>  
+       <music name="fri" filename="Friday.ogg"></music>  
+       <music name="sat" filename="Saturday.ogg"></music>  
+       <music name="sun" filename="Sunday.ogg"></music>  
+       <music name="bravo" filename="Bravo.ogg"></music> 
+       <music name="sedienanglais" filename="SeDiEnAnglais.ogg"></music> 
      <sounds>
        <sound name="Animal1" filename="animals016.mp3"></sound>  
        <sound name="a" filename="a.ogg"></sound>  
@@ -139,5 +156,22 @@
        <sound name="x" filename="x.ogg"></sound>  
        <sound name="y" filename="y.ogg"></sound> 
        <sound name="z" filename="z.ogg"></sound>  
+       <sound name="lun" filename="Lundi.ogg" duration="1000"></sound>  
+       <sound name="mar" filename="Mardi.ogg" duration="1000"></sound>  
+       <sound name="mer" filename="Mercredi.ogg" duration="1000"></sound>  
+       <sound name="jeu" filename="Jeudi.ogg" duration="1000"></sound>  
+       <sound name="ven" filename="Vendredi.ogg" duration="1000"></sound>  
+       <sound name="sam" filename="Samedi.ogg" duration="1000"></sound>  
+       <sound name="dim" filename="Dimanche.ogg" duration="1000"></sound>  
+       <sound name="mon" filename="Monday.ogg" duration="1000"></sound>  
+       <sound name="tue" filename="Tuesday.ogg" duration="1000"></sound>  
+       <sound name="wed" filename="Wednesday.ogg" duration="1000"></sound>  
+       <sound name="thu" filename="Thursday.ogg" duration="1000"></sound>  
+       <sound name="fri" filename="Friday.ogg" duration="1000"></sound>  
+       <sound name="sat" filename="Saturday.ogg" duration="1000"></sound>  
+       <sound name="sun" filename="Sunday.ogg" duration="1000"></sound> 
+       <sound name="bien" filename="bien.ogg" duration="498"></sound> 
+       <sound name="bravo" filename="BravoV2.ogg" duration="538"></sound> 
+       <sound name="sedienanglais" filename="SeDiEnAnglais.ogg" duration="954"></sound>  
      </sounds>
 </resources>

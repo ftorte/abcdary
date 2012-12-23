@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns="http://www.example.org/resources">
+    <textures name="ABCDiary">
+        <texture name="FirsSceneTexture" height="800" width="480">
+            <textureregion name="FirsSceneTextureRegion" filename="MesPremiersMotsMain.svg" 
+                height="800" px="0" py="0" width="480"></textureregion>
+        </texture>
+    </textures>
+    <colors>
+        <color name="LightSalmon" blue="7A" green="A0" red="FF"></color>
+        <color name="Red" blue="00" green="00" red="FF"></color>
+        <color name="Green" blue="00" green="FF" red="00"></color>
+        <color name="Blue" red="00" green="00"  blue="FF"></color>
+        <color name="White" red="FF" green="FF" blue="FF"></color>
+        <color name="Forest_Green" red="22" green="8B" blue="22"></color>
+        <color name="Gold" red="FF" green="D7" blue="00"></color>
+        <color name="MediumVioletRed" red="C7" green="15" blue="85"></color> 
+        <color name="GreeYellow" red="9A" green="CD" blue="32"></color> 
+        <color name="RedScarlett" red="FF" green="1A" blue="00"></color> 
+        <color name="GuardsmanRed" red="CC" green="00" blue="00"></color> 
+    </colors>
+</resources>
