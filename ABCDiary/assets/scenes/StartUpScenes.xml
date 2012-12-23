@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenes xmlns="http://www.example.org/scene">
+  <scene name="LaunchScene">
+     <background ID="100" type="SPRITE" >
+          <sprite ID="100" height="480" px="0" py="0" resourceName="FirsSceneTextureRegion" type="STATIC" width="800"></sprite>
+      </background>
+      
+  </scene>
+  <scene name="ThanksScene">
+      <background ID="100" type="SPRITE" >
+          <sprite ID="100" height="480" px="0" py="0" resourceName="FirsSceneTextureRegion" type="STATIC" width="800"></sprite>
+      </background>
+  </scene>
+  <scene name="LoadScene">
+      <background ID="100" type="SPRITE" >
+          <sprite ID="100" height="480" px="0" py="0" resourceName="FirsSceneTextureRegion" type="STATIC" width="800"></sprite>
+      </background>
+  </scene>
+</scenes>

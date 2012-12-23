@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scenes>
+<scenes> 
   <scene name="MemoryPoker" type="MEMORY" sceneFather="SceneLetterA"   class_name="com.welmo.andengine.scenes.MemoryScene"
-      maxLevels="3"
+      maxLevels="HARD"
       TopBottomBorder ="40" 
       LeftRightBorder="40"
       VIntraBorder="10"     
@@ -11,432 +11,259 @@
       MaxNumberOfSymbols="30" 
       resource="The30DeckCardRegion"
       geometry = "{ 'geometry': [[0,3,4,6],[1,4,5,10],[2,5,8,20],[3,6,10,30]]}">
+      
+    <event_handler ID ="1000" event="ON_CLICK">
+       <pre_mod_action ID="1" type="DISABLE_SCENE_TOUCH"/>
+       <pre_mod_action ID="2" type="FLIP"/>
+       <pre_mod_action ID="3"  type="PLAY_SOUND" resourceName="b"/> 
+       <post_mod_action ID="1" type="ENABLE_SCENE_TOUCH"/>
+    </event_handler> 
     <background ID="1" type="COLOR" color="LightSalmon" ></background>  
     <!-- Line 1 *****************************************************************  -->
     <sprite ID="0" height="175" width="125" px="140" py="100" pz="0" sideA="0" sideB="30"
-        resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+        resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">  
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="1" height="175" width="125" px="140" py="200" pz="0" sideA="0" sideB="30"
+    <sprite ID="1" height="175" width="125" px="140" py="200" pz="0" sideA="1" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="2" height="175" width="125" px="140" py="300" pz="0" sideA="0" sideB="30"
+    <sprite ID="2" height="175" width="125" px="140" py="300" pz="0" sideA="2" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+     <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="3" height="175" width="125" px="180" py="100" pz="0" sideA="0" sideB="30"
+     <sprite ID="3" height="175" width="125" px="180" py="100" pz="0" sideA="3" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="4" height="175" width="125" px="180" py="200" pz="0" sideA="1" sideB="30"
+    <sprite ID="4" height="175" width="125" px="180" py="200" pz="0" sideA="4" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+     <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="5" height="175" width="125" px="180" py="300" pz="0" sideA="2" sideB="30"
+    <sprite ID="5" height="175" width="125" px="180" py="300" pz="0" sideA="5" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="6" height="175" width="125" px="220" py="100" pz="0" sideA="0" sideB="30"
+     <sprite ID="6" height="175" width="125" px="220" py="100" pz="0" sideA="6" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="7" height="175" width="125" px="220" py="200" pz="0" sideA="1" sideB="30"
+    <sprite ID="7" height="175" width="125" px="220" py="200" pz="0" sideA="7" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="8" height="175" width="125" px="220" py="300" pz="0" sideA="2" sideB="30"
+    <sprite ID="8" height="175" width="125" px="220" py="300" pz="0" sideA="8" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="9" height="175" width="125" px="260" py="100" pz="0" sideA="0" sideB="30"
+     <sprite ID="9" height="175" width="125" px="260" py="100" pz="0" sideA="9" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
     <!-- Line 2 *****************************************************************  -->
-    <sprite ID="10" height="175" width="125" px="260" py="200" pz="0" sideA="1" sideB="30"
+    <sprite ID="10" height="175" width="125" px="260" py="200" pz="0" sideA="10" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="11" height="175" width="125" px="260" py="300" pz="0" sideA="2" sideB="30"
+    <sprite ID="11" height="175" width="125" px="260" py="300" pz="0" sideA="11" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="12" height="175" width="125" px="280" py="100" pz="0" sideA="0" sideB="30"
+     <sprite ID="12" height="175" width="125" px="280" py="100" pz="0" sideA="12" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="13" height="175" width="125" px="280" py="200" pz="0" sideA="1" sideB="30"
+    <sprite ID="13" height="175" width="125" px="280" py="200" pz="0" sideA="13" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="14" height="175" width="125" px="280" py="300" pz="0" sideA="2" sideB="30"
+    <sprite ID="14" height="175" width="125" px="280" py="300" pz="0" sideA="14" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="15" height="175" width="125" px="300" py="100" pz="0" sideA="0" sideB="30"
+     <sprite ID="15" height="175" width="125" px="300" py="100" pz="0" sideA="15" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="16" height="175" width="125" px="300" py="200" pz="0" sideA="1" sideB="30"
+    <sprite ID="16" height="175" width="125" px="300" py="200" pz="0" sideA="16" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+     <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="17" height="175" width="125" px="300" py="300" pz="0" sideA="2" sideB="30"
+    <sprite ID="17" height="175" width="125" px="300" py="300" pz="0" sideA="17" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="18" height="175" width="125" px="320" py="100" pz="0" sideA="0" sideB="30"
+     <sprite ID="18" height="175" width="125" px="320" py="100" pz="0" sideA="18" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="19" height="175" width="125" px="320" py="200" pz="0" sideA="1" sideB="30"
+    <sprite ID="19" height="175" width="125" px="320" py="200" pz="0" sideA="19" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
     <!-- Line 3 *****************************************************************  -->
-    <sprite ID="20" height="175" width="125" px="320" py="300" pz="0" sideA="1" sideB="30"
+    <sprite ID="20" height="175" width="125" px="320" py="300" pz="0" sideA="20" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="21" height="175" width="125" px="340" py="100" pz="0" sideA="2" sideB="30"
+    <sprite ID="21" height="175" width="125" px="340" py="100" pz="0" sideA="21" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="22" height="175" width="125" px="340" py="200" pz="0" sideA="0" sideB="30"
+     <sprite ID="22" height="175" width="125" px="340" py="200" pz="0" sideA="22" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="23" height="175" width="125" px="340" py="300" pz="0" sideA="1" sideB="30"
+    <sprite ID="23" height="175" width="125" px="340" py="300" pz="0" sideA="13" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="24" height="175" width="125" px="380" py="100" pz="0" sideA="2" sideB="30"
+    <sprite ID="24" height="175" width="125" px="380" py="100" pz="0" sideA="24" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="25" height="175" width="125" px="380" py="200" pz="0" sideA="0" sideB="30"
+     <sprite ID="25" height="175" width="125" px="380" py="200" pz="0" sideA="25" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="26" height="175" width="125" px="380" py="300" pz="0" sideA="1" sideB="30"
+    <sprite ID="26" height="175" width="125" px="380" py="300" pz="0" sideA="26" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="27" height="175" width="125" px="400" py="100" pz="0" sideA="2" sideB="30"
+    <sprite ID="27" height="175" width="125" px="400" py="100" pz="0" sideA="26" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="28" height="175" width="125" px="400" py="200" pz="0" sideA="0" sideB="30"
+     <sprite ID="28" height="175" width="125" px="400" py="200" pz="0" sideA="28" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="29" height="175" width="125" px="400" py="300" pz="0" sideA="1" sideB="30"
+    <sprite ID="29" height="175" width="125" px="400" py="300" pz="0" sideA="29" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
     <!-- Line 4 *****************************************************************  -->
-    <sprite ID="30" height="175" width="125" px="420" py="100" pz="0" sideA="1" sideB="30"
+    <sprite ID="30" height="175" width="125" px="420" py="100" pz="0" sideA="0" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="31" height="175" width="125" px="420" py="200" pz="0" sideA="2" sideB="30"
+    <sprite ID="31" height="175" width="125" px="420" py="200" pz="0" sideA="1" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="32" height="175" width="125" px="420" py="300" pz="0" sideA="0" sideB="30"
+     <sprite ID="32" height="175" width="125" px="420" py="300" pz="0" sideA="2" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="33" height="175" width="125" px="440" py="100" pz="0" sideA="1" sideB="30"
+    <sprite ID="33" height="175" width="125" px="440" py="100" pz="0" sideA="3" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="34" height="175" width="125" px="440" py="200" pz="0" sideA="2" sideB="30"
+    <sprite ID="34" height="175" width="125" px="440" py="200" pz="0" sideA="4" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="35" height="175" width="125" px="440" py="300" pz="0" sideA="0" sideB="30"
+     <sprite ID="35" height="175" width="125" px="440" py="300" pz="0" sideA="5" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="36" height="175" width="125" px="460" py="100" pz="0" sideA="1" sideB="30"
+    <sprite ID="36" height="175" width="125" px="460" py="100" pz="0" sideA="6" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="37" height="175" width="125" px="460" py="200" pz="0" sideA="2" sideB="30"
+    <sprite ID="37" height="175" width="125" px="460" py="200" pz="0" sideA="7" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="38" height="175" width="125" px="460" py="300" pz="0" sideA="0" sideB="30"
+     <sprite ID="38" height="175" width="125" px="460" py="300" pz="0" sideA="8" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="39" height="175" width="125" px="480" py="100" pz="0" sideA="1" sideB="30"
+    <sprite ID="39" height="175" width="125" px="480" py="100" pz="0" sideA="9" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
     <!-- Line 5 *****************************************************************  -->
-    <sprite ID="40" height="175" width="125" px="480" py="200" pz="0" sideA="1" sideB="30"
+    <sprite ID="40" height="175" width="125" px="480" py="200" pz="0" sideA="10" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="41" height="175" width="125" px="480" py="300" pz="0" sideA="2" sideB="30"
+    <sprite ID="41" height="175" width="125" px="480" py="300" pz="0" sideA="11" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="42" height="175" width="125" px="100" py="100" pz="0" sideA="0" sideB="30"
+     <sprite ID="42" height="175" width="125" px="100" py="100" pz="0" sideA="12" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="43" height="175" width="125" px="100" py="200" pz="0" sideA="1" sideB="30"
+    <sprite ID="43" height="175" width="125" px="100" py="200" pz="0" sideA="13" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="44" height="175" width="125" px="100" py="300" pz="0" sideA="2" sideB="30"
+    <sprite ID="44" height="175" width="125" px="100" py="300" pz="0" sideA="14" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="45" height="175" width="125" px="100" py="100" pz="0" sideA="0" sideB="30"
+     <sprite ID="45" height="175" width="125" px="100" py="100" pz="0" sideA="15" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="46" height="175" width="125" px="100" py="200" pz="0" sideA="1" sideB="30"
+    <sprite ID="46" height="175" width="125" px="100" py="200" pz="0" sideA="16" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="47" height="175" width="125" px="100" py="300" pz="0" sideA="2" sideB="30"
+    <sprite ID="47" height="175" width="125" px="100" py="300" pz="0" sideA="17" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="48" height="175" width="125" px="100" py="100" pz="0" sideA="0" sideB="30"
+     <sprite ID="48" height="175" width="125" px="100" py="100" pz="0" sideA="18" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="49" height="175" width="125" px="100" py="200" pz="0" sideA="1" sideB="30"
+    <sprite ID="49" height="175" width="125" px="100" py="200" pz="0" sideA="19" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
     <!-- Line 6 *****************************************************************  -->
-    <sprite ID="50" height="175" width="125" px="100" py="300" pz="0" sideA="1" sideB="30"
+    <sprite ID="50" height="175" width="125" px="100" py="300" pz="0" sideA="20" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="51" height="175" width="125" px="100" py="100" pz="0" sideA="2" sideB="30"
+    <sprite ID="51" height="175" width="125" px="100" py="100" pz="0" sideA="21" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="52" height="175" width="125" px="100" py="200" pz="0" sideA="0" sideB="30"
+     <sprite ID="52" height="175" width="125" px="100" py="200" pz="0" sideA="22" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="53" height="175" width="125" px="100" py="300" pz="0" sideA="1" sideB="30"
+    <sprite ID="53" height="175" width="125" px="100" py="300" pz="0" sideA="23" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="54" height="175" width="125" px="100" py="100" pz="0" sideA="2" sideB="30"
+    <sprite ID="54" height="175" width="125" px="100" py="100" pz="0" sideA="25" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="55" height="175" width="125" px="100" py="200" pz="0" sideA="0" sideB="30"
+     <sprite ID="55" height="175" width="125" px="100" py="200" pz="0" sideA="25" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="56" height="175" width="125" px="100" py="300" pz="0" sideA="1" sideB="30"
+    <sprite ID="56" height="175" width="125" px="100" py="300" pz="0" sideA="26" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="57" height="175" width="125" px="100" py="100" pz="0" sideA="2" sideB="30"
+    <sprite ID="57" height="175" width="125" px="100" py="100" pz="0" sideA="27" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-     <sprite ID="58" height="175" width="125" px="100" py="200" pz="0" sideA="0" sideB="30"
+     <sprite ID="58" height="175" width="125" px="100" py="200" pz="0" sideA="28" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
-    <sprite ID="59" height="175" width="125" px="100" py="300" pz="0" sideA="1" sideB="30"
+    <sprite ID="59" height="175" width="125" px="100" py="300" pz="0" sideA="29" sideB="30"
         resourceName="The30DeckCardRegion" type="CLICKABLE" class_name="com.welmo.andengine.scenes.components.CardSprite">
-      <event_handler ID ="1000" event="ON_CLICK">
-        <pre_mod_action ID="1" type="FLIP"/>
-        <pre_mod_action ID="2"  type="PLAY_SOUND" resourceName="b"/> 
-      </event_handler>
+      <event_handler cloneID ="1000" event="ON_CLICK"></event_handler>
     </sprite>
   </scene>
 </scenes>

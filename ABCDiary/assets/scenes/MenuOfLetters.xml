@@ -97,7 +97,7 @@
             h_alignment="CENTER" v_alignment="CENTER">
         </text>
       <event_handler cloneID ="1000" event="ON_CLICK">
-         <post_mod_action ID="2" type="CHANGE_SCENE" next_scene="LetterJ"></post_mod_action>*
+         <post_mod_action ID="2" type="CHANGE_SCENE" next_scene="MemoryDays"></post_mod_action>*
          <on_mod_action ID="1" type="PLAY_SOUND" resourceName="j"></on_mod_action>
       </event_handler>
     </sprite>
