@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenes xmlns="http://www.example.org/scene">
+  <scene name="Monster01">
+      <puzzle_sprite ID="256" height="620" width="482"  px="100" py="100" resourceName="Monters012Region" 
+          nbOfColumns="4" nbOfRows="4"> 
+      </puzzle_sprite>
+  </scene>
+</scenes>

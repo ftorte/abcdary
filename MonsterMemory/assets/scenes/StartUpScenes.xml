@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenes xmlns="http://www.example.org/scene">
+  <scene name="OpenScene">
+     <background ID="100" type="SPRITE" >
+         <sprite ID="101" width="1280" height="800" px="0" py="0" resourceName="OpenSceneBackgroundRegion" type="STATIC"></sprite>
+      </background>
+      <sprite ID="256" width="198" height="117" px="1054" py="641" orientation="-30" resourceName="LiteTxtRegion" type="STATIC"></sprite>
+  </scene>
+</scenes>

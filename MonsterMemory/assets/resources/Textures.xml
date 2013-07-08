@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns="http://www.example.org/resources">
+    <textures name="MonstersTextures">
+        <buildable_texture name="Monster012" height="1024" width="512">
+            <tiled_texture_region name="Monters012Region" filename="monster01.png" column="4" row="4"></tiled_texture_region>
+        </buildable_texture>
+        <texture name="Monster01" height="1024" width="512">
+            <textureregion name="Monter01Region" filename="monster01.png" px="0" py="0" height="620" width="482" type="PNG">             
+            </textureregion>
+        </texture>
+    </textures>
+</resources>
