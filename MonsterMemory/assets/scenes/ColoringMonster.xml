@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenes xmlns="http://www.example.org/scene">
+    <scene name="ColoringMonster" sceneFather="MenuColoring" class_name="com.welmo.andengine.scenes.ColoringScene"
+        pinch_zoom="true" HUD="true">  
+        <background ID="100" type="COLOR" color="LightSalmon" />
+        
+        <sprite ID="200" height="200" width="200" pz="10" px="1000" py="100" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="700" height="150" width="150" pz="11" px="25" py="25" resourceName="Monter01Region" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+        </sprite>
+      
+        <sprite ID="300" height="186" width="186" pz="10" px="305" py="80" resourceName="Monster05BW08" type="STATIC"/>
+      
+        <sprite ID="400" height="168" width="168" pz="50" px="311" py="78" resourceName="Monster05BW07" type="STATIC"/>
+      
+        <sprite ID="500" height="105" width="105" pz="100" px="343" py="133" resourceName="Monster05BW06" type="STATIC"/>
+  </scene>
+  <instantiatescene name="ColoringMonster02" masterscene="ColoringMonster"
+      Sprite_ID="700"
+      image_dimension_X="300"
+      image_dimension_Y="300"
+      >
+  </instantiatescene>
+</scenes>
