@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenes xmlns="http://www.example.org/scene">
+    <scene name="PuzzleMonster01" sceneFather="MenuPuzzles01">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+      <background ID="100" type="SPRITE" >
+          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>
+      <sprite ID="200" width="600" height="800" pz="0" px="0" py="0" resourceName="GreenCarpet" type="STATIC"/>
+      <puzzle_sprite ID="201" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter01" 
+          nbOfColumns="4" nbOfRows="4" puzzleZone="600;100;600;600" puzzleBox="50;50;500;700" ActiveZone ="true" 
+          ActiveBorder="true" HelperImage="RgnMonster01"> 
+      </puzzle_sprite>        
+    </scene>
+    <scene name="PuzzleMonster02" sceneFather="MenuPuzzles01">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+      <background ID="100" type="SPRITE" >
+          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>
+        <puzzle_sprite ID="200" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter02" 
+          nbOfColumns="4" nbOfRows="4" puzzleZone="400;100;600;600" uzzleBox="0;0;300;800" ActiveZone ="true" ActiveBorder="true" HelperImage="RgnMonster02"> 
+        </puzzle_sprite>
+        <sprite ID="300" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles01"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+    <scene name="PuzzleMonster03" sceneFather="MenuPuzzles01">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+      <background ID="100" type="SPRITE" >
+          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter03" 
+          nbOfColumns="4" nbOfRows="4" puzzleZone="400;100;600;600" HelperImage="RgnMonster03"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles01"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+    <scene name="PuzzleMonster04" sceneFather="MenuPuzzles01">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+      <background ID="100" type="SPRITE" >
+          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter04" 
+          nbOfColumns="4" nbOfRows="4" puzzleZone="400;100;600;600" ActiveBorder="true" > 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles01"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+    <scene name="PuzzleMonster05" sceneFather="MenuPuzzles01">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+      <background ID="100" type="SPRITE" >
+          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter05" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles01"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+    <scene name="PuzzleMonster06" sceneFather="MenuPuzzles01">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+      <background ID="100" type="SPRITE" >
+          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter06" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles01"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+    <scene name="PuzzleMonster07" sceneFather="MenuPuzzles01">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+      <background ID="100" type="SPRITE" >
+          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter07" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles01"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+    <scene name="PuzzleMonster08" sceneFather="MenuPuzzles01">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+      <background ID="100" type="SPRITE" >
+          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter08" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles01"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+    <!-- page 2 -->
+     <scene name="PuzzleMonster09" sceneFather="MenuPuzzles02">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+      <background ID="100" type="SPRITE" >
+          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter09" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles02"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster10" sceneFather="MenuPuzzles02">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter10" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles02"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster11" sceneFather="MenuPuzzles02">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter11" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles02"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster12" sceneFather="MenuPuzzles02">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter12" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles02"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster13" sceneFather="MenuPuzzles02">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter13" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles02"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster14" sceneFather="MenuPuzzles02">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter14" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles02"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster15" sceneFather="MenuPuzzles02">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter15" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles02"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster16" sceneFather="MenuPuzzles02">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter16" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles02"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <!-- page 3 -->
+     <scene name="PuzzleMonster17" sceneFather="MenuPuzzles03">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter17" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles03"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster18" sceneFather="MenuPuzzles03">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter18" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles03"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster19" sceneFather="MenuPuzzles03">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter19" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles03"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster20" sceneFather="MenuPuzzles03">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter20" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles03"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster21" sceneFather="MenuPuzzles03">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter21" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles03"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster22" sceneFather="MenuPuzzles03">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter22" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles03"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster23" sceneFather="MenuPuzzles03">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter23" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles03"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <scene name="PuzzleMonster24" sceneFather="MenuPuzzles03">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter24" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles03"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+     <!-- page 4 -->
+     <scene name="PuzzleMonster25" sceneFather="MenuPuzzles04">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter25" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles04"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+    <scene name="PuzzleMonster26" sceneFather="MenuPuzzles04">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter26" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles04"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+    <scene name="PuzzleMonster27" sceneFather="MenuPuzzles04">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter27" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles04"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+    <scene name="PuzzleMonster28" sceneFather="MenuPuzzles04">
+         <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1" scale_end="1.5"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" scale_begin="1.5" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+        <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="RgnTLDMonter28" 
+          nbOfColumns="4" nbOfRows="4" puzzlewidth="600" puzzleheight="600"> 
+        </puzzle_sprite>
+        <sprite ID="700" height="200" width="200" pz="100" px="885" py="550" resourceName="DummyButton" type="CLICKABLE">
+            <event_handler cloneID ="1000" event="ON_CLICK">
+                <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles04"/>
+            </event_handler>
+        </sprite> 
+    </scene>
+</scenes>
