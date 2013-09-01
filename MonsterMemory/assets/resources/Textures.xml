@@ -2,11 +2,105 @@
 <resources xmlns="http://www.example.org/resources">
     <textures name="MonstersTextures">
         <buildable_texture name="Monster012" height="1024" width="512">
-            <tiled_texture_region name="Monters012Region" filename="monster01.png" column="4" row="4"></tiled_texture_region>
+            <tiled_texture_region name="Monters012Region" filename="monster01.png" nbOfColumns="4" nbOfRows="4"></tiled_texture_region>
         </buildable_texture>
         <texture name="Monster01" height="1024" width="512">
             <textureregion name="Monter01Region" filename="monster01.png" px="0" py="0" height="620" width="482" type="PNG">             
             </textureregion>
         </texture>
+        <texture name="ButtonsOld" height="2048" width="2048">
+             <textureregion name="FullVer"          filename="tmp/full_version_button_pressed2.png"  px="0" py="0"     height="119" width="132" type="PNG"></textureregion>
+             <textureregion name="FullVerPress"     filename="tmp/full_version_button2.png"          px="132" py="0"   height="119" width="132" type="PNG"></textureregion>
+             <textureregion name="MenuSetting"      filename="tmp/menu_settings_button_pressed.png"  px="0" py="119"   height="180" width="180" type="PNG"></textureregion>
+             <textureregion name="MenuSettingPress" filename="tmp/menu_settings_button.png"          px="180" py="119" height="180" width="180" type="PNG"></textureregion>
+             <textureregion name="ButtonGreen"      filename="ButtonGreen.png"                       px="0" py="299"   height="219" width="166" type="PNG"></textureregion>
+             <textureregion name="ButtonBlue"       filename="ButtonBlue.png"                        px="166" py="299" height="219" width="166" type="PNG"></textureregion>
+             <textureregion name="ButtonOrange"     filename="ButtonOrange.png"                      px="332" py="299" height="219" width="166" type="PNG"></textureregion>     
+             <textureregion name="ButtonYellow"     filename="ButtonYellow.png"                      px="332" py="299" height="234" width="208" type="PNG"></textureregion>     
+             <textureregion name="ButtonOrange2"    filename="ButtonOrange2.png"                     px="332" py="299" height="219" width="166" type="PNG"></textureregion>     
+             <textureregion name="ButtonGreen2"     filename="ButtonGreen2.png"                      px="700" py="299" height="234" width="208" type="PNG"></textureregion>   
+             <textureregion name="DummyButton"      filename="DummyImage.svg"                        px="0" py="500" height="240" width="240" type="SVG"></textureregion>   
+        </texture>
+        <texture name="SceneComponentsd" height="2048" width="2048">
+             <textureregion name="GreenCarpet"      filename="scenecomponents/greencarpet.png"       px="0" py="0"     width="600" height="800" type="PNG"/>
+        </texture>
+        <texture name="Buttons" height="2048" width="2048">
+             <textureregion name="ButtonPuzzles"    filename="buttons/puzzleicon.png"                px="0" py="0"    height="280" width="256" type="PNG"></textureregion> 
+             <textureregion name="ButtonBack"       filename="buttons/ButtonBack.png"                px="0" py="282"  height="260" width="256" type="PNG"></textureregion> 
+             <textureregion name="ButtonForward"    filename="buttons/ButtonForward.png"             px="0" py="542"  height="260" width="256" type="PNG"></textureregion> 
+             <textureregion name="ButtonBack2"      filename="buttons/ButtonBack2.png"               px="0" py="804"  height="260" width="256" type="PNG"></textureregion> 
+        </texture>
+        <texture name="SceneElements" height="2048" width="2048">
+             <textureregion name="Sky"          filename="Sky.png"            px="0" py="0"     height="800" width="1280" type="PNG"></textureregion>
+             <textureregion name="PlanetGround" filename="planetground.png"   px="0" py="800"   height="237" width="1280" type="PNG"></textureregion>
+        </texture>
+        <texture name="TXTMonsters" height="2048" width="2048">
+            <textureregion name="RgnMonster01" filename="monsters/monster01.png" px="0"    py="0"    height="309" width="240" type="PNG"/>
+            <textureregion name="RgnMonster02" filename="monsters/monster02.png" px="240"  py="0"    height="338" width="240" type="PNG"/>
+            <textureregion name="RgnMonster03" filename="monsters/monster03.png" px="480"  py="0"    height="412" width="240" type="PNG"/>
+            <textureregion name="RgnMonster04" filename="monsters/monster04.png" px="720"  py="0"    height="251" width="240" type="PNG"/>
+            <textureregion name="RgnMonster05" filename="monsters/monster05.png" px="960"  py="0"    height="229" width="240" type="PNG"/>
+            <textureregion name="RgnMonster06" filename="monsters/monster06.png" px="1200" py="0"    height="395" width="240" type="PNG"/>
+            <textureregion name="RgnMonster07" filename="monsters/monster07.png" px="1440" py="0"    height="250" width="240" type="PNG"/>
+            <textureregion name="RgnMonster08" filename="monsters/monster08.png" px="1680" py="0"    height="198" width="240" type="PNG"/>
+            <textureregion name="RgnMonster09" filename="monsters/monster09.png" px="0"    py="309"  height="386" width="240" type="PNG"/>
+            <textureregion name="RgnMonster10" filename="monsters/monster10.png" px="240"  py="338"  height="280" width="240" type="PNG"/>
+            <textureregion name="RgnMonster11" filename="monsters/monster11.png" px="480"  py="412"  height="405" width="240" type="PNG"/>
+            <textureregion name="RgnMonster12" filename="monsters/monster12.png" px="720"  py="251"  height="326" width="240" type="PNG"/>
+            <textureregion name="RgnMonster13" filename="monsters/monster13.png" px="960"  py="229"  height="336" width="240" type="PNG"/>
+            <textureregion name="RgnMonster14" filename="monsters/monster14.png" px="1200" py="395"  height="210" width="240" type="PNG"/>
+            <textureregion name="RgnMonster15" filename="monsters/monster15.png" px="1440" py="250"  height="241" width="240" type="PNG"/>
+            <textureregion name="RgnMonster16" filename="monsters/monster16.png" px="1680" py="198"  height="122" width="240" type="PNG"/>
+            <textureregion name="RgnMonster17" filename="monsters/monster17.png" px="0"    py="695"  height="323" width="240" type="PNG"/>
+            <textureregion name="RgnMonster18" filename="monsters/monster18.png" px="240"  py="618"  height="239" width="240" type="PNG"/>
+            <textureregion name="RgnMonster19" filename="monsters/monster19.png" px="480"  py="817"  height="226" width="240" type="PNG"/>
+            <textureregion name="RgnMonster20" filename="monsters/monster20.png" px="720"  py="577"  height="243" width="240" type="PNG"/>
+            <textureregion name="RgnMonster21" filename="monsters/monster21.png" px="960"  py="565"  height="176" width="240" type="PNG"/>
+            <textureregion name="RgnMonster22" filename="monsters/monster22.png" px="1200" py="605"  height="204" width="240" type="PNG"/>
+            <textureregion name="RgnMonster23" filename="monsters/monster23.png" px="1440" py="491"  height="258" width="240" type="PNG"/>
+            <textureregion name="RgnMonster24" filename="monsters/monster24.png" px="1680" py="320"  height="251" width="240" type="PNG"/>
+            <textureregion name="RgnMonster25" filename="monsters/monster25.png" px="0"    py="1018" height="270" width="240" type="PNG"/>
+            <textureregion name="RgnMonster26" filename="monsters/monster26.png" px="240"  py="957"  height="259" width="240" type="PNG"/>
+            <textureregion name="RgnMonster27" filename="monsters/monster27.png" px="480"  py="1043" height="247" width="240" type="PNG"/>
+            <textureregion name="RgnMonster28" filename="monsters/monster28.png" px="720"  py="820"  height="237" width="240" type="PNG"/>
+            <textureregion name="RgnMonster29" filename="monsters/monster13.png" px="960"  py="741"  height="348" width="240" type="PNG"/>     
+        </texture>
+        <buildable_texture name="Monster012" height="2048" width="2048">
+            <tiled_texture_region name="RgnTLDMonter01" filename="monsters/monster01.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter02" filename="monsters/monster02.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter03" filename="monsters/monster03.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter04" filename="monsters/monster04.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter05" filename="monsters/monster05.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter06" filename="monsters/monster06.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter07" filename="monsters/monster07.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter08" filename="monsters/monster08.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter09" filename="monsters/monster09.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter10" filename="monsters/monster10.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter11" filename="monsters/monster11.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter12" filename="monsters/monster12.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter13" filename="monsters/monster13.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter14" filename="monsters/monster14.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter15" filename="monsters/monster15.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter16" filename="monsters/monster16.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter17" filename="monsters/monster17.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter18" filename="monsters/monster18.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter19" filename="monsters/monster19.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter20" filename="monsters/monster20.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter21" filename="monsters/monster21.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter22" filename="monsters/monster22.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter23" filename="monsters/monster23.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter24" filename="monsters/monster24.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter25" filename="monsters/monster25.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter26" filename="monsters/monster26.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter27" filename="monsters/monster27.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter28" filename="monsters/monster28.png" nbOfColumns="4" nbOfRows="4"/>
+            <tiled_texture_region name="RgnTLDMonter29" filename="monsters/monster29.png" nbOfColumns="4" nbOfRows="4"/>
+        </buildable_texture>
+        <texture name="Monster05BW" height="2048" width="2048">
+            <textureregion name="Monster05BW06"      filename="monsters/first/piece06.png"  px="0"   py="0" height="105" width="105" type="PNG"></textureregion>
+            <textureregion name="Monster05BW07"      filename="monsters/first/piece07.png"  px="105" py="0" height="168" width="168" type="PNG"></textureregion>
+            <textureregion name="Monster05BW08"      filename="monsters/first/piece08.png"  px="273" py="0" height="186" width="186" type="PNG"></textureregion>
+        </texture>
     </textures>
+    
 </resources>
