@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scenes xmlns="http://www.example.org/scene">
-  <scene name="Monster01">
-      <puzzle_sprite ID="256" height="800" width="1280"  px="0" py="0" resourceName="Monters012Region" 
+  <scene name="MenuMemories">
+      <puzzle_sprite ID="100" height="800" width="1280"  px="0" py="0" resourceName="Monters012Region" 
           nbOfColumns="5" nbOfRows="5"> 
       </puzzle_sprite>
   </scene>

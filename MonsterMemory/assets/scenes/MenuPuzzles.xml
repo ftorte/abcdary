@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenes xmlns="http://www.example.org/scene">
+  <scene name="MenuPuzzles01" sceneFather="MainMenu">
+      <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" duration="0.3" scale_begin="1" scale_end="1.2"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" duration="0.3" scale_begin="1.2" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+      <background ID="100" type="SPRITE" >
+          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>
+      <sprite ID="200" height="200" width="200" pz="10" px="195" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="201" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster01" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster01"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="300" height="200" width="200" pz="10" px="425" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="301" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster02" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster02"/>
+          </event_handler>
+      </sprite>
+      <sprite ID="400" height="200" width="200" pz="10" px="655" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="401" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster03" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster03"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="500" height="200" width="200" pz="10" px="885" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="501" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster04" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster04"/>
+          </event_handler>
+      </sprite> 
+      <!-- - Second Line -->
+      <sprite ID="600" height="200" width="200" pz="10" px="195" py="400" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="601" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster05" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster05"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="700" height="200" width="200" pz="10" px="425" py="400" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="701" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster06" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster06"/>
+          </event_handler>
+      </sprite>
+      <sprite ID="800" height="200" width="200" pz="10" px="655" py="400" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="801" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster07" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+         <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster07"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="900" height="200" width="200" pz="10" px="885" py="400" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="901" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster08" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster08"/>
+          </event_handler>
+      </sprite>
+      <!--  Nevigation Backward & Forward --> 
+      <sprite ID="1000" height="160" width="160" pz="10" px="1112" py="320" resourceName="ButtonForward" type="CLICKABLE">
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles02"/>
+          </event_handler>
+      </sprite> 
+       <sprite ID="1100" height="160" width="160" pz="10" px="27" py="630" resourceName="ButtonBack2" type="CLICKABLE">
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+          </event_handler>
+      </sprite>  
+  </scene>
+  
+  <scene name="MenuPuzzles02" sceneFather="MainMenu">
+       <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" duration="0.3" scale_begin="1" scale_end="1.2"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" duration="0.3" scale_begin="1.2" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+      <background ID="100" type="SPRITE" >
+          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>
+      <sprite ID="200" height="200" width="200" pz="10" px="195" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="201" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster09" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster09"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="300" height="200" width="200" pz="10" px="425" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="301" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster10" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster10"/>
+          </event_handler>
+      </sprite>
+      <sprite ID="400" height="200" width="200" pz="10" px="655" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="401" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster11" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster11"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="500" height="200" width="200" pz="10" px="885" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="501" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster12" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster12"/>
+          </event_handler>
+      </sprite> 
+      <!-- - Second Line -->
+      <sprite ID="600" height="200" width="200" pz="10" px="195" py="400" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="601" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster13" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster13"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="700" height="200" width="200" pz="10" px="425" py="400" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="701" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster14" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster14"/>
+          </event_handler>
+      </sprite>
+      <sprite ID="800" height="200" width="200" pz="10" px="655" py="400" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="801" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster15" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster15"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="900" height="200" width="200" pz="10" px="885" py="400" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="901" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster16" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster16"/>
+          </event_handler>
+      </sprite>
+      <!--  Nevigation Backward & Forward -->
+      <sprite ID="1000" height="160" width="160" pz="10" px="27" py="320" resourceName="ButtonBack" type="CLICKABLE">
+         <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles01"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="1100" height="160" width="160" pz="10" px="1112" py="320" resourceName="ButtonForward" type="CLICKABLE">
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles03"/>
+          </event_handler>
+      </sprite>  
+      <sprite ID="1200" height="160" width="160" pz="10" px="27" py="630" resourceName="ButtonBack2" type="CLICKABLE">
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+          </event_handler>
+      </sprite> 
+  </scene>
+  <scene name="MenuPuzzles03" sceneFather="MainMenu">
+      <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" duration="0.3" scale_begin="1" scale_end="1.2"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" duration="0.3" scale_begin="1.2" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+      <background ID="100" type="SPRITE" >
+          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>
+      <sprite ID="200" height="200" width="200" pz="10" px="195" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="201" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster17" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster17"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="300" height="200" width="200" pz="10" px="425" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="301" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster18" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster18"/>
+          </event_handler>
+      </sprite>
+      <sprite ID="400" height="200" width="200" pz="10" px="655" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="401" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster19" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster19"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="500" height="200" width="200" pz="10" px="885" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="501" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster20" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster20"/>
+          </event_handler>
+      </sprite> 
+      <!-- - Second Line -->
+      <sprite ID="600" height="200" width="200" pz="10" px="195" py="400" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="601" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster21" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster21"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="700" height="200" width="200" pz="10" px="425" py="400" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="701" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster22" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster22"/>
+          </event_handler>
+      </sprite>
+      <sprite ID="800" height="200" width="200" pz="10" px="655" py="400" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="801" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster23" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster23"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="900" height="200" width="200" pz="10" px="885" py="400" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="901" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster24" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster24"/>
+          </event_handler>
+      </sprite> 
+      <!--  Nevigation Backward & Forward -->
+      <sprite ID="1000" height="160" width="160" pz="10" px="27" py="320" resourceName="ButtonBack" type="CLICKABLE">
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles02"/>
+          </event_handler>
+      </sprite> 
+       <sprite ID="1100" height="160" width="160" pz="10" px="1112" py="320" resourceName="ButtonForward" type="CLICKABLE">
+         <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles04"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="1200" height="160" width="160" pz="10" px="27" py="630" resourceName="ButtonBack2" type="CLICKABLE">
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+          </event_handler>
+      </sprite> 
+  </scene>
+  <scene name="MenuPuzzles04" sceneFather="MainMenu">
+      <event_handler ID ="1000" event="ON_CLICK">
+        <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
+          <modifier ID="2" typeSet="false" type="SCALE" duration="0.3" scale_begin="1" scale_end="1.2"/> 
+          <modifier ID="2" typeSet="false" type="SCALE" duration="0.3" scale_begin="1.2" scale_end="1"/> 
+        </modifier_list>
+        <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
+        <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
+        <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+      </event_handler>
+      <background ID="100" type="SPRITE" >
+          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>
+      <sprite ID="200" height="200" width="200" pz="10" px="195" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="201" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster25" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster25"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="300" height="200" width="200" pz="10" px="425" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="301" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster26" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster26"/>
+          </event_handler>
+      </sprite>
+      <sprite ID="400" height="200" width="200" pz="10" px="655" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="401" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster27" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster27"/>
+          </event_handler>
+      </sprite> 
+      <sprite ID="500" height="200" width="200" pz="10" px="885" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="501" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster28" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+           <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="PuzzleMonster28"/>
+          </event_handler>
+      </sprite>
+      <!--  Nevigation Backward & Forward -->
+      <sprite ID="1000" height="160" width="160" pz="10" px="27" py="320" resourceName="ButtonBack" type="CLICKABLE">
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuPuzzles03"/>
+          </event_handler>
+      </sprite>
+      <sprite ID="1100" height="160" width="160" pz="10" px="27" py="630" resourceName="ButtonBack2" type="CLICKABLE">
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
+          </event_handler>
+      </sprite> 
+  </scene>
+</scenes>
