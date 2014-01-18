@@ -32,4 +32,13 @@
     <fonts>
         <font name="DidactGothic" txtdimX="256" txtdimY="256" size="64" color="White" antialiasing="true" filename="DidactGothic.ttf"></font>
     </fonts>
+    <textures name="StandardTextures">
+         <texture name="StandardIcons" height="1024" width="1024">
+            <textureregion name="ico_scroll"    filename="ico/expand-3.svg"  	px="0"   py="0"    height="256" width="256" type="SVG"></textureregion>
+            <textureregion name="ico_zoom_in"	filename="ico/zoom-in-2.svg"  	px="256" py="0"    height="256" width="256" type="SVG"></textureregion>
+            <textureregion name="ico_zoom_out"  filename="ico/zoom-out-2.svg"  	px="0" 	 py="256"  height="256" width="256" type="SVG"></textureregion>
+            <textureregion name="ico_restore"   filename="ico/windows.svg"  	px="256" py="256"  height="256" width="256" type="SVG"></textureregion>
+            <textureregion name="ico_undo"     	filename="ico/revert.svg"  		px="0"   py="512"  height="256" width="256" type="SVG"></textureregion>
+         </texture>
+    </textures>
 </resources>

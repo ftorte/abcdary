@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns="http://www.example.org/resources">
+    <textures name="StandardTextures">
+         <texture name="StandardIcons" height="1024" width="1024">
+            <textureregion name="ico_zoom_in"      filename="ico_zoom_in.png"  	px="0"   py="0" height="128" width="128" type="PNG"></textureregion>
+            <textureregion name="ico_zoom_out"     filename="ico_zoom_in.png"  	px="128" py="0" height="128" width="128" type="PNG"></textureregion>
+         </texture>
+    </textures>
+</resources>

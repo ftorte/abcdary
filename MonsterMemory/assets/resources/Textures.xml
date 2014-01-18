@@ -101,6 +101,11 @@
             <textureregion name="Monster05BW07"      filename="monsters/first/piece07.png"  px="105" py="0" height="168" width="168" type="PNG"></textureregion>
             <textureregion name="Monster05BW08"      filename="monsters/first/piece08.png"  px="273" py="0" height="186" width="186" type="PNG"></textureregion>
         </texture>
+        <texture name="ButtonsTest" height="1024" width="1024">
+            <textureregion name="menu_birds"      		filename="menu_birds.png"  			px="0"   py="0" height="350" width="350" type="PNG"></textureregion>
+            <textureregion name="menu_bird_pressed"     filename="menu_birds_pressed.png"  	px="350" py="0" height="350" width="350" type="PNG"></textureregion>
+            <textureregion name="menu_eggs"     		filename="menu_eggs.png"  			px="0"   py="350" height="350" width="350" type="PNG"></textureregion>
+            <textureregion name="menu_eggs_pressed"     filename="menu_eggs_pressed.png"  	px="350" py="350" height="350" width="350" type="PNG"></textureregion>
+         </texture>
     </textures>
-    
 </resources>
