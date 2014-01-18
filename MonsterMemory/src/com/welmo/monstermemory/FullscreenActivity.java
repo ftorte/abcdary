@@ -38,11 +38,9 @@ public class FullscreenActivity extends SimpleWelmoActivity {
 		setFirstSceneName("OpenScene");	
 		//setup the first scene name
 		setMainSceneName("MainMenu");
-		
+		//setup the scene dimensions
 		setCameraWidth(1280);
 		setCameraHeight(800);
-		
-		
 	}
 	@Override
 	protected void onLoadResourcesDescriptionsInBackGround() {
