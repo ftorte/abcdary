@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scenes xmlns="http://www.example.org/scene">
-  <scene name="MainMenu" sceneFather="MainMenu">
+  <scene name="MainMenu">
       <event_handler ID ="1000" event="ON_CLICK">
         <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
           <modifier ID="2" typeSet="false" type="SCALE" duration="0.5" scale_begin="1" scale_end="1.5"></modifier> 
