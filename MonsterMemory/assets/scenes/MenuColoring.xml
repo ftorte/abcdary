@@ -22,11 +22,17 @@
       <sprite ID="300" height="200" width="200" pz="10" px="425" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
           <sprite ID="301" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster02" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
           <event_handler cloneID ="1000" event="ON_CLICK">
-              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="ColoringMonster"/>
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="ColoringMonsterBis"/>
+          </event_handler>
+      </sprite>
+      <sprite ID="400" height="200" width="200" pz="10" px="655" py="170" resourceName="ButtonOrange2" type="CLICKABLE">
+          <sprite ID="401" height="150" width="150" pz="11" px="25" py="25" resourceName="RgnMonster02" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="Princess01"/>
           </event_handler>
       </sprite>
       <!--  Nevigation Backward & Forward --> 
-      <sprite ID="400" height="160" width="160" pz="10" px="1112" py="620" resourceName="ButtonForward" type="CLICKABLE">
+      <sprite ID="500" height="160" width="160" pz="10" px="1112" py="620" resourceName="ButtonForward" type="CLICKABLE">
           <event_handler cloneID ="1000" event="ON_CLICK">
               <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MainMenu"/>
           </event_handler>
