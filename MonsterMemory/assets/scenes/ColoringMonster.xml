@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scenes xmlns="http://www.example.org/scene">
-    <scene name="ColoringMonster" sceneFather="MenuColoring" class_name="com.welmo.andengine.scenes.ColoringScene" pinch_zoom="true" HUD="true">  
+    <scene name="DefaultMonsterScene" sceneFather="MenuColoring" class_name="com.welmo.andengine.scenes.ColoringScene" pinch_zoom="true" HUD="true">  
         <background ID="100" type="COLOR" color="LightSalmon" />        
-    	<HUD ID="200" height="200" width="200" hasColorPicker="true" hasScrollDetector="true" hasPinchAndZoom="true">
-        	<toolbar position="RIGHT">
-        	    <button ID="200" type="ON-OFF" int_dim ="80" ext_dim="100" action="" texture_BG="ButtonGreen" texture_ON="RgnMonster21" texture_OFF="RgnMonster23" />
-        		<button ID="201" type="ON-OFF" int_dim ="80" ext_dim="100" action="" texture_BG="ButtonGreen" texture_ON="RgnMonster22" texture_OFF="RgnMonster19" />
-        		<button ID="202" type="ON-OFF" int_dim ="80" ext_dim="100" action="" texture_BG="ButtonGreen" texture_ON="ico_restore" 	texture_OFF="RgnMonster22" 
-        		    on_click_message="RESTORE_ZOOM_SCROLL"/>
-        		<button ID="203" type="ON-OFF" int_dim ="80" ext_dim="100" action="" texture_BG="ButtonGreen" texture_ON="ico_undo" 	texture_OFF="RgnMonster22" 
+    	<coloring_sprite ID="300" px="100" py="0" width="1080" height="700" filename="gfx/monster05BW.png"/>
+        
+        <HUD ID="200" height="200" width="200" hasColorPicker="true" hasScrollDetector="true" hasPinchAndZoom="true">
+        	<toolbar ID="200" position="RIGHT">
+        	    <button ID="200" type="CLICK" int_dim ="80" ext_dim="100" action="" texture_BG="ButtonGreen" texture_ON="RgnMonster21" texture_OFF="RgnMonster23" />
+        		<button ID="201" type="CLICK" int_dim ="80" ext_dim="100" action="" texture_BG="ButtonGreen" texture_ON="RgnMonster22" texture_OFF="RgnMonster19" />
+        		<button ID="202" type="CLICK" int_dim ="80" ext_dim="100" action="" texture_BG="ButtonGreen" texture_ON="ico_restore" 	texture_OFF="RgnMonster22" 
+        		    on_click_message="RESET_SCROLL_ZOOM"/>
+        		<button ID="203" type="CLICK" int_dim ="80" ext_dim="100" action="" texture_BG="ButtonGreen" texture_ON="ico_undo" 	texture_OFF="RgnMonster22" 
         		    on_click_message="UNDO"/>
         	</toolbar>
     	</HUD>
   	</scene>
+  	<instantiatescene name="ColoringMonster" 	masterscene="DefaultMonsterScene" parametersList="gfx/monster05BW.png"/>
+  	<instantiatescene name="ColoringMonsterBis" masterscene="DefaultMonsterScene" parametersList="gfx/monster01.png"/>
+  	<instantiatescene name="Princess01" 		masterscene="DefaultMonsterScene" parametersList="gfx/princess01.png"/>
 </scenes>

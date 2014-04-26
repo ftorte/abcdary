@@ -2,8 +2,12 @@
 <scenes xmlns="http://www.example.org/scene">
   <scene name="OpenScene">
      <background ID="100" type="SPRITE" >
-         <sprite ID="101" width="1280" height="800" px="0" py="0" resourceName="OpenSceneBackgroundRegion" type="STATIC"></sprite>
+         <sprite ID="101" width="1280" height="800" px="0" py="0" resourceName="sky" type="STATIC"></sprite>
       </background>
-      <sprite ID="256" width="198" height="117" px="1054" py="641" orientation="-30" resourceName="LiteTxtRegion" type="STATIC"></sprite>
+      <sprite ID="102" width="500" height="485" px="600" py="200" orientation="0" resourceName="planet" type="STATIC"></sprite>
+      <sprite ID="103" width="300" height="229" px="100" py="350" orientation="0" resourceName="starship" type="STATIC">
+         <sprite ID="201" width="173" height="143"   px="60" py="-54" orientation="0" resourceName="monster" type="STATIC"></sprite>
+      </sprite>
+      <sprite ID="104" width="198" height="117" px="1054" py="641" orientation="-30" resourceName="LiteTxtRegion" type="STATIC"></sprite>
   </scene>
 </scenes>

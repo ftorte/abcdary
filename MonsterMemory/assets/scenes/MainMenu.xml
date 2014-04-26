@@ -3,24 +3,34 @@
   <scene name="MainMenu">
       <event_handler ID ="1000" event="ON_CLICK">
         <modifier_list execution_order="SERIAL" UniqueName="ZoomInOut">
-          <modifier ID="2" typeSet="false" type="SCALE" duration="0.5" scale_begin="1" scale_end="1.5"></modifier> 
-          <modifier ID="2" typeSet="false" type="SCALE" duration="0.5" scale_begin="1.5" scale_end="1"></modifier> 
+          <modifier ID="2" typeSet="false" type="SCALE" duration="0.1" scale_begin="1" scale_end="0.90"></modifier> 
+          <modifier ID="2" typeSet="false" type="SCALE" duration="0.1" scale_begin="0.90" scale_end="1"></modifier> 
         </modifier_list>
         <pre_mod_action ID="1" type="CHANGE_Z_ORDER" pz="100"/>
         <post_mod_action ID="1" type="CHANGE_Z_ORDER" pz="1"/>
       </event_handler>
       <background ID="100" type="SPRITE" >
-          <sprite ID="101" width="1280" height="800" pz="0" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
-      </background>
-      <sprite ID="200" height="200" width="200" pz="10" px="1000" py="100" resourceName="ButtonOrange2" type="CLICKABLE">
-          <sprite ID="201" height="150" width="150" pz="11" px="25" py="25" resourceName="Monter01Region" type="STATIC" h_alignment="CENTER" v_alignment="CENTER"></sprite>
-          <event_handler cloneID ="1000" event="ON_CLICK">
-              <post_mod_action ID="4" type="CHANGE_SCENE" next_scene="MenuColoring"></post_mod_action>
-          </event_handler>
-      </sprite>
-      <sprite ID="300" height="328" width="300" pz="1" px="150" py="200" orientation="-20" resourceName="ButtonPuzzles" type="CLICKABLE">
+          <sprite ID="101" width="1280" height="800" pz="1" px="0" py="0" resourceName="Sky" type="STATIC"></sprite>
+      </background>     
+      <sprite ID="200" height="280" width="256" scale="2" pz="1" px="150" py="100" orientation="0" resourceName="puzzle_ico" type="CLICKABLE">
+      	  <text   ID="102" message="Monster II" color="Red" px="0" py="0" resourceName="Kartoons" type="SIMPLE" h_alignment="CENTER" v_alignment="CENTER"></text>
           <event_handler cloneID ="1000" event="ON_CLICK">
               <post_mod_action ID="1" type="CHANGE_SCENE" next_scene="MenuPuzzles01"/>
+          </event_handler>
+      </sprite>
+      <sprite ID="300" height="280" width="256" pz="1" px="550" py="100" orientation="0" resourceName="memory_ico" type="CLICKABLE">
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="1" type="CHANGE_SCENE" next_scene="MenuPuzzles01"/>
+          </event_handler>
+      </sprite>
+      <sprite ID="400" height="280" width="256" pz="1" px="950" py="100" orientation="0" resourceName="coloring_ico" type="CLICKABLE">
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="1" type="CHANGE_SCENE" next_scene="MenuColoring"></post_mod_action>
+          </event_handler>
+      </sprite>
+      <sprite ID="500" height="160" width="160" pz="1" px="27" py="630" orientation="0" resourceName="APback2_btn" type="CLICKABLE">
+          <event_handler cloneID ="1000" event="ON_CLICK">
+              <post_mod_action ID="1" type="CHANGE_SCENE" next_scene="MenuColoring"></post_mod_action>
           </event_handler>
       </sprite>
   </scene>
