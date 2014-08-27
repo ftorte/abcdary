@@ -1,8 +1,6 @@
 package com.welmo.monstermemory;
-import org.andengine.entity.scene.Scene;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.KeyEvent;
+
 import com.welmo.andengine.scenes.ManageableScene;
 import com.welmo.andengine.ui.SimpleWelmoActivity;
 
@@ -17,6 +15,7 @@ public class FullscreenActivity extends SimpleWelmoActivity {
 	//list of resources file to load while showing the startup file
 	private final String[] resourceFiles = {
 			"resources/Textures.xml",
+			"resources/Textures_final.xml"			
 	};
 	//list of scene file to load
 	private final String[] sceneFiles = {
@@ -35,7 +34,7 @@ public class FullscreenActivity extends SimpleWelmoActivity {
 		setStartResourceDscFiles("resources/StartUpScenesResources.xml");
 		setStartSceneDscFile("scenes/StartUpScenes.xml");
 		//setup the first scene name
-		setFirstSceneName("OpenScene");	
+		setFirstSceneName("OpenScene",10000);	
 		//setup the first scene name
 		setMainSceneName("MainMenu");
 		//setup the scene dimensions
@@ -55,9 +54,10 @@ public class FullscreenActivity extends SimpleWelmoActivity {
 	public boolean onKeyDown(final int pKeyCode, final KeyEvent pEvent) {
 		if(pKeyCode == KeyEvent.KEYCODE_BACK && pEvent.getAction() == KeyEvent.ACTION_DOWN) {
 			ManageableScene theCurrentScene = (ManageableScene) mEngine.getScene();
-			Scene newScene = mSceneManager.getScene(theCurrentScene.getFatherScene());	
-			if(newScene != null){
-				this.onChangeScene(theCurrentScene.getFatherScene());
+			String newScene = theCurrentScene.getFatherScene();
+			
+			if(newScene != ""){
+				this.onChangeScene(newScene);
 				return true;
 			}
 			else
