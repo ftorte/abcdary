@@ -63,7 +63,6 @@
             <textureregion name="RgnMonster26" filename="monsters/monster26.png" px="240"  py="957"  height="259" width="240" type="PNG"/>
             <textureregion name="RgnMonster27" filename="monsters/monster27.png" px="480"  py="1043" height="247" width="240" type="PNG"/>
             <textureregion name="RgnMonster28" filename="monsters/monster28.png" px="720"  py="820"  height="237" width="240" type="PNG"/>
-            <textureregion name="RgnMonster29" filename="monsters/monster13.png" px="960"  py="741"  height="348" width="240" type="PNG"/>     
         </texture>
         <buildable_texture name="Monster012" height="2048" width="2048">
             <tiled_texture_region name="RgnTLDMonter01" filename="monsters/monster01.png" nbOfColumns="4" nbOfRows="4"/>
@@ -94,7 +93,6 @@
             <tiled_texture_region name="RgnTLDMonter26" filename="monsters/monster26.png" nbOfColumns="4" nbOfRows="4"/>
             <tiled_texture_region name="RgnTLDMonter27" filename="monsters/monster27.png" nbOfColumns="4" nbOfRows="4"/>
             <tiled_texture_region name="RgnTLDMonter28" filename="monsters/monster28.png" nbOfColumns="4" nbOfRows="4"/>
-            <tiled_texture_region name="RgnTLDMonter29" filename="monsters/monster29.png" nbOfColumns="4" nbOfRows="4"/>
         </buildable_texture>
         <texture name="Monster05BW" height="2048" width="2048">
             <textureregion name="Monster05BW06"      filename="monsters/first/piece06.png"  px="0"   py="0" height="105" width="105" type="PNG"></textureregion>
